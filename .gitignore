@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Expressions/BlockExpressionsExamples/.vs
+/Expressions/BlockExpressionsExamples/obj
+/Expressions/SimpleExpressionsExamples/.vs
+/Expressions/SimpleExpressionsExamples/bin/Debug/net6.0
+/Expressions/SimpleExpressionsExamples/obj
