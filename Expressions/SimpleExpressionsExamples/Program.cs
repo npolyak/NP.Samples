@@ -8,13 +8,18 @@ using System.Reflection;
 static void WrongConstantAssignmentSample()
 {
     // Create variable 'myVar' of type 'int'
-    var parameterExpression = Expression.Parameter(typeof(int), "myVar");
+    var paramExpression = Expression.Parameter(typeof(int), "myVar");
 
     // create constant 5
     var constExpression = Expression.Constant(5, typeof(int));
 
-    // assing constant to the variable
-    var assignExpression = Expression.Assign(parameterExpression, constExpression);
+    // assign constant to the variable
+    var assignExpression = 
+        Expression.Assign
+        (
+            paramExpression, // lambda body expression
+            constExpression  // lambda input parameter expression
+        );
 
     // create lambda expression
     Expression<Action> lambdaExpr = 
@@ -38,12 +43,16 @@ static void CorrectedConstantAssignmentSample()
     // create constant 5
     var constExpression = Expression.Constant(5, typeof(int));
 
-    // assing constant to the variable
+    // assign constant to the variable
     var assignExpression = Expression.Assign(paramExpression, constExpression);
 
     // create lambda expression (now it has an input parameter)
     Expression<Action<int>> lambdaExpr =
-        Expression.Lambda<Action<int>>(assignExpression, paramExpression);
+        Expression.Lambda<Action<int>>
+        (
+            assignExpression, // lambda body expression
+            paramExpression   // lambda input parameter expression
+        );
     ///.Lambda #Lambda1<System.Action`1[System.Int32]>(System.Int32 $myVar) {
     ///    $myVar = 5
     ///}
@@ -66,15 +75,20 @@ static void ConstantAssignmentSampleWithPrintingResult()
     // assing constant to the variable
     var assignExpression = Expression.Assign(paramExpression, constExpression);
 
-    // get method info for a WriteLine(int i) method
+    // get method info for a Console.WriteLine(int i) method
     MethodInfo writeLineMethodInfo = 
         typeof(Console).GetMethod(nameof(Console.WriteLine), new Type[] {typeof(int)})!;
 
+    // we create an expression to call Console.WriteLine(int i)
     var callExpression = Expression.Call(writeLineMethodInfo, assignExpression);
 
     // create lambda expression (now it has an input parameter)
     Expression<Action<int>> lambdaExpr =
-        Expression.Lambda<Action<int>>(callExpression, paramExpression);
+        Expression.Lambda<Action<int>>
+    (
+            callExpression, /* lambda body expression */
+            paramExpression /* input parameter expression */
+    );
     ///.Lambda #Lambda1<System.Action`1[System.Int32]>(System.Int32 $myVar) {
     ///    .Call System.Console.WriteLine($myVar = 5)
     ///}
@@ -88,27 +102,42 @@ static void ConstantAssignmentSampleWithPrintingResult()
 
 static void SimpleReturnConstantSample()
 {
-    var lambdaExpr = Expression.Lambda<Func<int>>(Expression.Constant(1234));
+    // create a lambda expression returning integer 1234
+    var lambdaExpr = Expression.Lambda<Func<int>>(Expression.Constant(1234, typeof(int)));
     ///.Lambda #Lambda1<System.Func`1[System.Int32]>() {
     ///    1234
     ///}
 
+    // compile lambda expression
     var lambda = lambdaExpr.Compile();
 
+    // lambda returns 1234
     int returnedNumber = lambda();
 
+    // 1234 is printed to console
     Console.WriteLine(returnedNumber);
 }
 
 static void ReturnSumSample()
 {
+    // integer input parameter i1
     var i1Expr = Expression.Parameter(typeof(int), "i1");
+
+    // integer input parameter i2
     var i2Expr = Expression.Parameter(typeof(int), "i2");
 
+    // sum up two numbers expression
     var sumExpr = Expression.Add(i1Expr, i2Expr);
     ///$i1 + $i2
 
-    var sumLambdaExpr = Expression.Lambda<Func<int, int, int>>(sumExpr, i1Expr, i2Expr);
+    // lambda expression that sums up two  numbers and returns the result
+    var sumLambdaExpr = 
+        Expression.Lambda<Func<int, int, int>>
+        (
+            sumExpr, // lambda body expression
+            i1Expr,  // first int parameter i1 expression
+            i2Expr   // second int parameter i2 expression
+       );
     ///.Lambda #Lambda1<System.Func`3[System.Int32,System.Int32,System.Int32]>(
     ///    System.Int32 $i1,
     ///    System.Int32 $i2)
@@ -116,32 +145,40 @@ static void ReturnSumSample()
     ///    $i1 + $i2
     ///}
 
+    // compile lambda expression
     var sumLambda = sumLambdaExpr.Compile();
 
     int i1 = 1, i2 = 2;
+
+    // run lambda (i1 + i2)
     int result = sumLambda(i1, i2);
 
+    // print the result
     Console.WriteLine($"{i1} + {i2} = {result}");
 }
 
 
 static void LoopSample()
 {
+    // loop index
     var loopIdxExpr = Expression.Parameter(typeof(int), "i");
 
-    var loopIdxToBreakOnExpr = Expression.Variable(typeof(int), "loopIdxToBreakOn");
+    var loopIdxToBreakOnExpr = Expression.Parameter(typeof(int), "loopIdxToBreakOn");
 
-    LabelTarget label = Expression.Label(typeof(int));
+    // label with return type int will be returned when loop breaks. 
+    LabelTarget breakLabel = Expression.Label(typeof(int), "breakLoop");
 
+    // loop expression 
     var loopExpression =
-        Expression.Loop
+        Expression.Loop 
         (
+            // if then else expression
             Expression.IfThenElse(
-                Expression.LessThan(loopIdxExpr, loopIdxToBreakOnExpr),
-                Expression.PostIncrementAssign(loopIdxExpr),
-                Expression.Break(label, loopIdxExpr)
+                Expression.LessThan(loopIdxExpr, loopIdxToBreakOnExpr), // if (i < loopIdxToBreakOn)
+                Expression.PostIncrementAssign(loopIdxExpr),            //     i++;
+                Expression.Break(breakLabel, loopIdxExpr)               // else return i;
             ),
-            label
+            breakLabel
         );
     ///.Loop
     ///{
@@ -153,7 +190,12 @@ static void LoopSample()
     ///}
     ///.LabelTarget #Label1:
 
-    var lambdaExpr = Expression.Lambda<Func<int, int, int>>(loopExpression, loopIdxExpr, loopIdxToBreakOnExpr);
+    var lambdaExpr = Expression.Lambda<Func<int, int, int>>
+    (
+        loopExpression,      // loop lambda expression body
+        loopIdxExpr,         // loop index (we cannot define it as a local variable, so, instead we pass it as an input arg)
+        loopIdxToBreakOnExpr // input arg expression specifying the number to break on when loop index reaches it.
+    ); 
     ///.Lambda #Lambda1<System.Func`3[System.Int32,System.Int32,System.Int32]>(
     ///    System.Int32 $i,
     ///    System.Int32 $loopIdxToBreakOn) 
@@ -162,29 +204,38 @@ static void LoopSample()
     ///        .If($i < $loopIdxToBreakOn) {
     ///            $i++
     ///        } .Else {
-    ///            .Break #Label1 { $i }
+    ///            .Break #breakLoop { $i }
     ///        }
     ///    }
-    ///    .LabelTarget #Label1:
+    ///    .LabelTarget #breakLoop:
     ///}
 
     var lambda = lambdaExpr.Compile();
 
     int result = lambda(0, 5);
 
+    // should print 5
     Console.WriteLine(result);
 }
 
 static void LoopForCopyingArrayValuesSample()
 {
     // assume that the passed arrays are of the same length
+
+    // source array expression
     var sourceArrayExpr = Expression.Parameter(typeof(int[]), "sourceArray");
+
+    // target array expression
     var targetArrayExpr = Expression.Parameter(typeof(int[]), "targetArray");
+
+    // array cell index (we have to pass it as an input arg since there are no local variables)
     var arrayCellIdxExpr = Expression.Parameter(typeof(int), "i");
 
+    // source array length
     var arrayLengthExpr = Expression.ArrayLength(sourceArrayExpr); // sourceArray.Length
 
-    var loopLabel = Expression.Label();
+    // we do not specify the label type, so loopLabel is void
+    var loopLabel = Expression.Label("breakLabel");
 
     var loopExpr =
         Expression.Loop
@@ -196,7 +247,7 @@ static void LoopForCopyingArrayValuesSample()
                     Expression.ArrayAccess(targetArrayExpr, arrayCellIdxExpr),                                  //     targetArray[i] = 
                     Expression.ArrayAccess(sourceArrayExpr, Expression.PostIncrementAssign(arrayCellIdxExpr))   //         sourceArray[i++];
                 ),
-                Expression.Break(loopLabel)
+                Expression.Break(loopLabel)                                                                     // else break;
             ),
             loopLabel
         );
@@ -205,10 +256,10 @@ static void LoopForCopyingArrayValuesSample()
     ///    .If($i < $sourceArray.Length) {
     ///        $targetArray[$i] = $sourceArray[$i++]
     ///    } .Else {
-    ///        .Break #Label1 { }
+    ///        .Break #breakLabel { }
     ///    }
     ///}
-    ///.LabelTarget #Label1:
+    ///.LabelTarget #breakLabel:
 
 
     // unnecessary lambda parameter - arrayCellIdxExpr since we cannot define and instantiate a local variable without Block expression
@@ -224,13 +275,13 @@ static void LoopForCopyingArrayValuesSample()
     ///        .If($i < $sourceArray.Length) {
     ///            $targetArray[$i] = $sourceArray[$i++]
     ///        } .Else {
-    ///            .Break #Label1 { }
+    ///            .Break #breakLabel { }
     ///        }
     ///    }
-    ///    .LabelTarget #Label1:
+    ///    .LabelTarget #breakLabel:
     ///}
 
-var arrayCopyLambda = arrayCopyLambdaExpr.Compile();
+    var arrayCopyLambda = arrayCopyLambdaExpr.Compile();
 
     int[] sourceArray = Enumerable.Range(1, 10).ToArray();
 
@@ -238,17 +289,23 @@ var arrayCopyLambda = arrayCopyLambdaExpr.Compile();
 
     arrayCopyLambda(sourceArray, targetArray, 0);
 
-    Console.WriteLine(string.Join(", ", targetArray));
     // will print: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    Console.WriteLine(string.Join(", ", targetArray));
 }
 
 static void LoopSumUpNumbersFromToSample()
 {
+    // loop index expression
     var loopIdxExpr = Expression.Parameter(typeof(int), "i");
+
+    // max index to iterate to
     var toExpr = Expression.Parameter(typeof(int), "to");
+
+    // result 
     var resultExpr = Expression.Parameter(typeof(int), "result");
 
-    var loopLabel = Expression.Label(typeof(int));
+    // of type int returns the integer result
+    var loopLabel = Expression.Label(typeof(int), "breakLabel");
 
     var loopExpr =
         Expression.Loop
@@ -266,10 +323,10 @@ static void LoopSumUpNumbersFromToSample()
     ///    .If($i <= $to) {
     ///        $result += $i++
     ///    } .Else {
-    ///        .Break #Label1 { $result }
+    ///        .Break #breakLabel { $result }
     ///    }
     ///}
-    ///.LabelTarget #Label1:
+    ///.LabelTarget #breakLabel:
 
     // unnecessary lambda parameter - resultExpr since we cannot define and instantiate a local variable without Block expression
     var sumNumbersFromTooLambdaExpr = Expression.Lambda<Func<int, int, int, int>>(loopExpr, loopIdxExpr, toExpr, resultExpr);
@@ -281,9 +338,12 @@ static void LoopSumUpNumbersFromToSample()
     ///    .Loop  {
     ///        .If($i <= $to) {
     ///            $result += $i++
-    ///        } .Else {
+    ///        } 
+    ///        .Else {
+    ///             .Break #breakLabel { $result }
+    ///        }
     ///    }
-    ///    .LabelTarget #Label1:
+    ///    .LabelTarget #breakLabel:
     ///}
 
     var sumNumbersFromTooLambda = sumNumbersFromTooLambdaExpr.Compile();
