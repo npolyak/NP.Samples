@@ -8,3 +8,10 @@
 /Expressions/SimpleExpressionsExamples/bin/Debug/net6.0
 /Expressions/SimpleExpressionsExamples/obj
 /Expressions/BlockExpressionsExamples/bin/Debug/net6.0
+/DependencyInjectionSamples/Implementations/bin/Debug/net6.0
+/DependencyInjectionSamples/Implementations/obj
+/DependencyInjectionSamples/Interfaces/bin/Debug/net6.0
+/DependencyInjectionSamples/Interfaces/obj
+/DependencyInjectionSamples/IoCyTests/.vs
+/DependencyInjectionSamples/IoCyTests/bin/Debug/net6.0
+/DependencyInjectionSamples/IoCyTests/obj
