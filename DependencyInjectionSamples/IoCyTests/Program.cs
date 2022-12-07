@@ -226,14 +226,15 @@ public static class Program
         attributedTypesContainerBuilder.RegisterAttributedType(typeof(AnotherOrg));
         attributedTypesContainerBuilder.RegisterAttributedType(typeof(AnotherPerson));
         attributedTypesContainerBuilder.RegisterAttributedType(typeof(ConsoleLog));
-        attributedTypesContainerBuilder.RegisterType<IAddress, Address>();
+        attributedTypesContainerBuilder.RegisterAttributedType(typeof(FactoryMethods));
+        //attributedTypesContainerBuilder.RegisterType<IAddress, Address>("TheAddress");
 
         // create container
         var container10 = attributedTypesContainerBuilder.Build();
 
         // get the organization also testing the composing constructors
         IOrgGettersOnly orgGettersOnly =
-            container10.Resolve<IOrgGettersOnly>();
+            container10.Resolve<IOrgGettersOnly>("TheOrg");
 
         // make sure that Manager and Address are not null
         orgGettersOnly.Manager.Address.Should().NotBeNull();

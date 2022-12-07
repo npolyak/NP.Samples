@@ -15,3 +15,6 @@
 /DependencyInjectionSamples/IoCyTests/.vs
 /DependencyInjectionSamples/IoCyTests/bin/Debug/net6.0
 /DependencyInjectionSamples/IoCyTests/obj
+/DependencyInjectionSamples/IoCyDynamicLoadingTests/.vs
+/DependencyInjectionSamples/IoCyDynamicLoadingTests/bin/Debug/net6.0
+/DependencyInjectionSamples/IoCyDynamicLoadingTests/obj

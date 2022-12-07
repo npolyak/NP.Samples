@@ -7,11 +7,13 @@ namespace NP.Samples.Implementations
     [RegisterType(resolutionKey:"AnotherPerson")]
     public class AnotherPerson : IPersonGettersOnly
     {
-        [Inject]
+        public string PersonName { get; set; }
+
+
         public IAddress Address { get; }
 
         [CompositeConstructor]
-        public AnotherPerson([Inject] IAddress address)
+        public AnotherPerson([Inject(resolutionKey: "TheAddress")] IAddress address)
         {
             this.Address = address;
         }

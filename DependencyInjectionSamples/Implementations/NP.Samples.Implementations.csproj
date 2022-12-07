@@ -17,4 +17,8 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Interfaces\NP.Samples.Interfaces.csproj" />
 	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(OutDir)&quot; &quot;$(SolutionDir)\bin\$(Configuration)\net6.0\Plugins\$(ProjectName)\&quot; /S /R /Y /I" />
+	</Target>
 </Project>
