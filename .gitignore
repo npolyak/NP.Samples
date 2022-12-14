@@ -18,3 +18,6 @@
 /DependencyInjectionSamples/IoCyDynamicLoadingTests/.vs
 /DependencyInjectionSamples/IoCyDynamicLoadingTests/bin/Debug/net6.0
 /DependencyInjectionSamples/IoCyDynamicLoadingTests/obj
+/DependencyInjectionSamples/AutofacAdapterTests/.vs
+/DependencyInjectionSamples/AutofacAdapterTests/bin/Debug/net6.0
+/DependencyInjectionSamples/AutofacAdapterTests/obj
