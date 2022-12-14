@@ -21,3 +21,6 @@
 /DependencyInjectionSamples/AutofacAdapterTests/.vs
 /DependencyInjectionSamples/AutofacAdapterTests/bin/Debug/net6.0
 /DependencyInjectionSamples/AutofacAdapterTests/obj
+/DependencyInjectionSamples/AutofacAdapterDynamicLoadingTests/.vs
+/DependencyInjectionSamples/AutofacAdapterDynamicLoadingTests/bin/Debug/net6.0
+/DependencyInjectionSamples/AutofacAdapterDynamicLoadingTests/obj
