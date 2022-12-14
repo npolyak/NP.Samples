@@ -1,8 +1,6 @@
 ﻿using NP.Samples.Interfaces;
 using NP.DependencyInjection.Interfaces;
 using NP.IoCy;
-using System.Reflection;
-using NP.Utilities;
 
 namespace NP.Samples.IoCyDynamicLoadingTests;
 
