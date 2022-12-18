@@ -10,48 +10,47 @@ public static class Program
     static void Main(string[] args)
     {
         // create container builder
-        IContainerBuilder builder1 = new ContainerBuilder();
+        IContainerBuilder builder = new ContainerBuilder();
 
-        builder1.RegisterPluginsFromSubFolders("Plugins");
-
+        builder.RegisterPluginsFromSubFolders("Plugins");
 
         // create container
-        IDependencyInjectionContainer container1 = builder1.Build();
+        IDependencyInjectionContainer container = builder.Build();
 
         // resolve and compose organization
         // all its injectable properties will be injected at
         // this stage. 
-        IOrgGettersOnly org1 = container1.Resolve<IOrgGettersOnly>("MyOrg");
+        IOrgGettersOnly orgWithGettersOnly = container.Resolve<IOrgGettersOnly>("MyOrg");
 
         // set values
-        org1.OrgName = "Nicks Department Store";
-        org1.Manager.PersonName = "Nick Polyak";
-        org1.Manager.Address!.City = "Miami";
-        org1.Manager.Address.ZipCode = "12245";
+        orgWithGettersOnly.OrgName = "Nicks Department Store";
+        orgWithGettersOnly.Manager.PersonName = "Nick Polyak";
+        orgWithGettersOnly.Manager.Address!.City = "Miami";
+        orgWithGettersOnly.Manager.Address.ZipCode = "12245";
 
         // print to console.
-        org1.LogOrgInfo();
+        orgWithGettersOnly.LogOrgInfo();
+
+        IOrg org = container.Resolve<IOrg>("TheOrg");
+
+        // test that the properties values
+        org.OrgName.Should().Be("Other Department Store");
+        org.Manager.PersonName.Should().Be("Joe Doe");
+        org.Manager.Address.City.Should().Be("Providence");
+
+        IOrg anotherOrg = container.Resolve<IOrg>("TheOrg");
+
+        // not a singleton
+        org.Should().NotBeSameAs(anotherOrg);
+
+        // singleton
+        org.Manager.Should().BeSameAs(anotherOrg.Manager);
 
 
-        IContainerBuilder builder2 = new ContainerBuilder();
-        builder2.RegisterPluginsFromSubFolders("Plugins");
+        IAddress address2 = container.Resolve<IAddress>("TheAddress");
 
-        IDependencyInjectionContainer container2 = builder2.Build();
-
-        IOrg org2 = container2.Resolve<IOrg>("TheOrg");
-
-        org2.OrgName.Should().Be("Other Department Store");
-        org2.Manager.PersonName.Should().Be("Joe Doe");
-        org2.Manager.Address.City.Should().Be("Providence");
-
-        IOrg anotherOrg2 = container2.Resolve<IOrg>("TheOrg");
-
-        org2.Should().NotBeSameAs(anotherOrg2);
-        org2.Manager.Should().BeSameAs(anotherOrg2.Manager);
-
-        IAddress address2 = container2.Resolve<IAddress>("TheAddress");
-
-        address2.Should().NotBeSameAs(org2.Manager.Address);
+        // not a singleton
+        address2.Should().NotBeSameAs(org.Manager.Address);
 
         Console.WriteLine("The END");
     }
