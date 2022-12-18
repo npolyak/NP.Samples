@@ -4,6 +4,7 @@ using NP.Samples.Interfaces;
 using NP.DependencyInjection.Interfaces;
 using NP.DependencyInjection.AutofacAdapter;
 using System.Reflection;
+using Autofac;
 
 namespace NP.Samples.IoCyTests;
 
@@ -223,24 +224,45 @@ public static class Program
         // RegisterTypeAttribute will have parameters specifying the resolving type 
         // and resolution Key (if applicable). It will also specify whether the
         // cell should be singleton or not. 
-        attributedTypesContainerBuilder.RegisterAttributedType(typeof(AnotherOrg));
-        attributedTypesContainerBuilder.RegisterAttributedType(typeof(AnotherPerson));
-        attributedTypesContainerBuilder.RegisterAttributedType(typeof(ConsoleLog));
-        attributedTypesContainerBuilder.RegisterAttributedType(typeof(FactoryMethods));
-        //attributedTypesContainerBuilder.RegisterType<IAddress, Address>("TheAddress");
+        attributedTypesContainerBuilder.RegisterAttributedClass(typeof(AnotherOrg));
+        attributedTypesContainerBuilder.RegisterAttributedClass(typeof(AnotherPerson));
+        attributedTypesContainerBuilder.RegisterAttributedClass(typeof(ConsoleLog));
+        attributedTypesContainerBuilder.RegisterType<IAddress, Address>("TheAddress");
 
         // create container
         var container10 = attributedTypesContainerBuilder.Build();
 
         // get the organization also testing the composing constructors
         IOrgGettersOnly orgGettersOnly =
-            container10.Resolve<IOrgGettersOnly>("TheOrg");
+            container10.Resolve<IOrgGettersOnly>("MyOrg");
 
         // make sure that Manager and Address are not null
         orgGettersOnly.Manager.Address.Should().NotBeNull();
 
         // make sure ILog is a singleton.
         container10.IsSingleton<ILog>().Should().BeTrue();
+
+        IContainerBuilder containerBuilder11 = new AutofacContainerBuilder();
+
+        containerBuilder11.RegisterAttributedStaticFactoryMethodsFromClass(typeof(FactoryMethods));
+        IDependencyInjectionContainer container11 = containerBuilder11.Build();
+
+        IOrg org11 = container11.Resolve<IOrg>("TheOrg");
+
+        org11.OrgName.Should().Be("Other Department Store");
+        org11.Manager.PersonName.Should().Be("Joe Doe");
+        org11.Manager.Address.City.Should().Be("Providence");
+
+        IOrg anotherOrg11 = container11.Resolve<IOrg>("TheOrg");
+
+        org11.Should().NotBeSameAs(anotherOrg11);
+        org11.Manager.Should().BeSameAs(anotherOrg11.Manager);
+
+        IAddress address11 = container11.Resolve<IAddress>("TheAddress");
+
+        address11.Should().NotBeSameAs(org11.Manager.Address);
+
+        Console.WriteLine("The END");
 
         Console.ReadKey();
     }
