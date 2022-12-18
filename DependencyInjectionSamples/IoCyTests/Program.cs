@@ -4,6 +4,7 @@ using NP.Samples.Interfaces;
 using NP.DependencyInjection.Interfaces;
 using NP.IoCy;
 using System.Reflection;
+using NP.DependencyInjection.Attributes;
 
 namespace NP.Samples.IoCyTests;
 
@@ -43,13 +44,16 @@ public static class Program
         return org;
     }
 
+    public static IOrg CreateOrgWithArgument([Inject(resolutionKey: "TheManager")] IPerson person)
+    {
+        return new Org { OrgName = "Other Department Store", Manager = person };
+    }
 
     public static void TestOrg(this IDependencyInjectionContainer container, bool isSingleton, object key = null)
     {
         container.IsSingleton<IOrg>(key).Should().Be(isSingleton);
         IOrg org = container.Resolve<IOrg>(key);
         org.OrgName.Should().Be("Other Department Store");
-
     }
 
     static void Main(string[] args)
@@ -164,14 +168,15 @@ public static class Program
 
         // test that organization is not a singleton and has its
         // properties correctly populated
-        container3.TestOrg(false);
+        container3.TestOrg(false /* test for Transient */);
 
         // now register the same CreateOrg method by a pair (ILog, "TheOrg")
         containerBuilder.RegisterFactoryMethod(CreateOrg, "TheOrg");
         // create the container
         IDependencyInjectionContainer container4 = containerBuilder.Build();
         // make sure the resulting org is not null, has correct data and is not a singleton
-        container4.TestOrg(false, "TheOrg");
+        container4.TestOrg(false, "TheOrg" /* The resolution key */);
+        container4.TestOrg(false); // should still work because the old registration is also there
 
         // now replace the factory method mapped to ILog type, by a 
         // the same factory method, only as a singleton. 
@@ -179,7 +184,7 @@ public static class Program
         // build the container
         IDependencyInjectionContainer container5 = containerBuilder.Build();
         // test that the resulting IOrg is a singleton
-        container5.TestOrg(true);
+        container5.TestOrg(true /* test for a singleton */);
 
         // now replace the factory method cell pointed by (ILog, "TheOrg") pair
         // by a singleton. 
@@ -187,7 +192,8 @@ public static class Program
         // create the container
         IDependencyInjectionContainer container6 = containerBuilder.Build();
         // make sure the result is a singleton
-        container6.TestOrg(true, "TheOrg");
+        container6.TestOrg(true, "TheOrg" /* resolution key */);
+        container6.TestOrg(true);
 
         // unregister FactoryMethod pointed to by  IOrg
         containerBuilder.UnRegister(typeof(IOrg));
@@ -206,14 +212,19 @@ public static class Program
         org.Should().BeNull();
 
         MethodInfo createOrgMethodInfo =
-            typeof(Program).GetMethod(nameof(CreateOrg));
+            typeof(Program).GetMethod(nameof(CreateOrgWithArgument));
+
+        // register the singleton Person cell for (typeof(IPerson), "TheManager") pair
+        // to be injected as the argument to CreateOrgWithArgument method
+        containerBuilder.RegisterSingletonType<IPerson, Person>("TheManager");
 
         // register factory methods by their MethodInfo
-        containerBuilder.RegisterSingletonFactoryMethodInfo<IOrg>(createOrgMethodInfo, "TheOrg");
+        containerBuilder.RegisterSingletonFactoryMethodInfo<IOrg>(createOrgMethodInfo!, "TheOrg");
         IDependencyInjectionContainer container8 = containerBuilder.Build();
-        container8.TestOrg(true, "TheOrg"); // test the resultin org is a singleton
+        container8.TestOrg(true, "TheOrg"); // test the resulting org is a singleton
 
-        containerBuilder.RegisterFactoryMethodInfo(createOrgMethodInfo, null, "TheOrg");
+
+        containerBuilder.RegisterFactoryMethodInfo<IOrg>(createOrgMethodInfo, "TheOrg");
         IDependencyInjectionContainer container9 = containerBuilder.Build();
         container9.TestOrg(false, "TheOrg"); // test the resulting org is not singleton
 
@@ -226,8 +237,7 @@ public static class Program
         attributedTypesContainerBuilder.RegisterAttributedType(typeof(AnotherOrg));
         attributedTypesContainerBuilder.RegisterAttributedType(typeof(AnotherPerson));
         attributedTypesContainerBuilder.RegisterAttributedType(typeof(ConsoleLog));
-        attributedTypesContainerBuilder.RegisterAttributedType(typeof(FactoryMethods));
-        //attributedTypesContainerBuilder.RegisterType<IAddress, Address>("TheAddress");
+        attributedTypesContainerBuilder.RegisterType<IAddress, Address>("TheAddress");
 
         // create container
         var container10 = attributedTypesContainerBuilder.Build();

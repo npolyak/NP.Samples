@@ -3,7 +3,7 @@ using NP.Samples.Interfaces;
 
 namespace NP.Samples.Implementations
 {
-    [RegisterType(resolutionKey:"TheOrg")]
+    [RegisterType(resolutionKey:"MyOrg")]
     public class AnotherOrg : IOrgGettersOnly
     {
         public string OrgName { get; set; } 
