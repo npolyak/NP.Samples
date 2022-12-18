@@ -52,5 +52,7 @@ public static class Program
         IAddress address2 = container2.Resolve<IAddress>("TheAddress");
 
         address2.Should().NotBeSameAs(org2.Manager.Address);
+
+        Console.WriteLine("The END");
     }
 }
