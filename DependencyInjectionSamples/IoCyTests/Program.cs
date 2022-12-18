@@ -254,23 +254,38 @@ public static class Program
 
         IContainerBuilder containerBuilder11 = new ContainerBuilder();
 
+
         containerBuilder11.RegisterAttributedStaticFactoryMethodsFromClass(typeof(FactoryMethods));
 
         IDependencyInjectionContainer container11 = containerBuilder11.Build();
 
         IOrg org11 = container11.Resolve<IOrg>("TheOrg");
 
+        // check that the org11.OrgName was set by the factory method to "Other Department Store"
         org11.OrgName.Should().Be("Other Department Store");
+
+        // check that the org11.Manager.PersonName was set by the factory method to "Joe Doe"
         org11.Manager.PersonName.Should().Be("Joe Doe");
+
+        // Check that the org11.Manager.City is "Providence"
         org11.Manager.Address.City.Should().Be("Providence");
 
+        // get another org
         IOrg anotherOrg11 = container11.Resolve<IOrg>("TheOrg");
 
+        // test that it is not the same object as previous org
+        // (since org is transient)
         org11.Should().NotBeSameAs(anotherOrg11);
+
+        // test that the manager is the same between the two orgs
+        // because CreateManager(...) creates a singleton
         org11.Manager.Should().BeSameAs(anotherOrg11.Manager);
 
+        // get another address
         IAddress address11 = container11.Resolve<IAddress>("TheAddress");
 
+        // test that the new address object is not the same
+        // since CreateAddress(...) is not Singleton
         address11.Should().NotBeSameAs(org11.Manager.Address);
 
         Console.WriteLine("The END");
