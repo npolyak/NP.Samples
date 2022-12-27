@@ -7,11 +7,13 @@ namespace StringManipulationsPlugin
     [RegisterType]
     public class StringManipulationsPlugin : IStringManipulationsPlugin
     {
+        // concatinates two strings
         public string Concat(string str1, string str2)
         {
             return str1 + str2;
         }
 
+        // repeats string str numberTimesToRepeat times. 
         public string Repeat(string str, int numberTimesToRepeat)
         {
             StringBuilder sb = new StringBuilder(str.Length * numberTimesToRepeat);
