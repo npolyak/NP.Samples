@@ -24,3 +24,12 @@
 /DependencyInjectionSamples/AutofacAdapterDynamicLoadingTests/.vs
 /DependencyInjectionSamples/AutofacAdapterDynamicLoadingTests/bin/Debug/net6.0
 /DependencyInjectionSamples/AutofacAdapterDynamicLoadingTests/obj
+/DependencyInjectionSamples/PluginsTest/.vs
+/DependencyInjectionSamples/PluginsTest/MainProgram/bin/Debug/net6.0
+/DependencyInjectionSamples/PluginsTest/MainProgram/obj
+/DependencyInjectionSamples/PluginsTest/PluginInterfaces/bin/Debug/net6.0
+/DependencyInjectionSamples/PluginsTest/PluginInterfaces/obj
+/DependencyInjectionSamples/PluginsTest/Plugins/DoubleManipulationsPlugin/bin/Debug/net6.0
+/DependencyInjectionSamples/PluginsTest/Plugins/DoubleManipulationsPlugin/obj
+/DependencyInjectionSamples/PluginsTest/StringManipulationsPlugin/bin/Debug/net6.0
+/DependencyInjectionSamples/PluginsTest/StringManipulationsPlugin/obj
