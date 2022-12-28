@@ -10,12 +10,12 @@ public static class Program
     static void Main(string[] args)
     {
         // create container builder
-        IContainerBuilder builder = new ContainerBuilder();
+        var builder = new ContainerBuilder<string?>();
 
         builder.RegisterPluginsFromSubFolders("Plugins");
 
         // create container
-        IDependencyInjectionContainer container = builder.Build();
+        var container = builder.Build();
 
         // resolve and compose organization
         // all its injectable properties will be injected at

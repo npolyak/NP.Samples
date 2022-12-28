@@ -12,7 +12,7 @@ public static class Program
 {
     public static bool IsSingleton<T>
     (
-        this IDependencyInjectionContainer container,
+        this IDependencyInjectionContainer<object?> container,
         object? key = null
     )
     {
@@ -45,7 +45,11 @@ public static class Program
     }
 
 
-    public static void TestOrg(this IDependencyInjectionContainer container, bool isSingleton, object key = null)
+    public static void TestOrg
+    (
+        this IDependencyInjectionContainer<object?> container, 
+        bool isSingleton, 
+        string? key = null)
     {
         container.IsSingleton<IOrg>(key).Should().Be(isSingleton);
         IOrg org = container.Resolve<IOrg>(key);
@@ -56,7 +60,7 @@ public static class Program
     static void Main(string[] args)
     {
         // create container builder
-        IContainerBuilder containerBuilder = new AutofacContainerBuilder();
+        var containerBuilder = new AutofacContainerBuilder();
 
         // register Person object to be returned by IPerson resolving type
         containerBuilder.RegisterType<IPerson, Person>();
@@ -70,7 +74,7 @@ public static class Program
         containerBuilder.RegisterType<ILog, ConsoleLog>("MyLog");
 
         // Create container
-        IDependencyInjectionContainer container1 = containerBuilder.Build();
+        var container1 = containerBuilder.Build();
 
 
         // resolve and compose organization
@@ -137,7 +141,7 @@ public static class Program
         // and create another container from containerBuilder. This new container
         // will reflect the change - instead of ILog resolving to FileLog
         // it will be resolving to ConsoleLog within the new container.
-        IDependencyInjectionContainer container2 = containerBuilder.Build();
+        var container2 = containerBuilder.Build();
 
         // resolve org from another Container.
         IOrg orgWithConsoleLog = container2.Resolve<IOrg>();
@@ -161,7 +165,7 @@ public static class Program
         // E.g. the owner will be "Joe Doe" and the org name will be "Other Department Store"
         containerBuilder.RegisterFactoryMethod(CreateOrg);
         // create a container with registered CreateOrg method
-        IDependencyInjectionContainer container3 = containerBuilder.Build();
+        var container3 = containerBuilder.Build();
 
         // test that organization is not a singleton and has its
         // properties correctly populated
@@ -170,7 +174,7 @@ public static class Program
         // now register the same CreateOrg method by a pair (ILog, "TheOrg")
         containerBuilder.RegisterFactoryMethod(CreateOrg, "TheOrg");
         // create the container
-        IDependencyInjectionContainer container4 = containerBuilder.Build();
+        var container4 = containerBuilder.Build();
         // make sure the resulting org is not null, has correct data and is not a singleton
         container4.TestOrg(false, "TheOrg");
 
@@ -178,7 +182,7 @@ public static class Program
         // the same factory method, only as a singleton. 
         containerBuilder.RegisterSingletonFactoryMethod(CreateOrg);
         // build the container
-        IDependencyInjectionContainer container5 = containerBuilder.Build();
+        var container5 = containerBuilder.Build();
         // test that the resulting IOrg is a singleton
         container5.TestOrg(true);
 
@@ -186,7 +190,7 @@ public static class Program
         // by a singleton. 
         containerBuilder.RegisterSingletonFactoryMethod(CreateOrg, "TheOrg");
         // create the container
-        IDependencyInjectionContainer container6 = containerBuilder.Build();
+        var container6 = containerBuilder.Build();
         // make sure the result is a singleton
         container6.TestOrg(true, "TheOrg");
 
@@ -195,7 +199,7 @@ public static class Program
         // unregister FactoryMethod pointed to by (IOrg, "TheOrg") pair
         containerBuilder.UnRegister(typeof(IOrg), "TheOrg");
         // build the container
-        IDependencyInjectionContainer container7 = containerBuilder.Build();
+        var container7 = containerBuilder.Build();
 
         // get the org by IOrg
         org = container7.Resolve<IOrg>();
@@ -211,15 +215,15 @@ public static class Program
 
         // register factory methods by their MethodInfo
         containerBuilder.RegisterSingletonFactoryMethodInfo<IOrg>(createOrgMethodInfo, "TheOrg");
-        IDependencyInjectionContainer container8 = containerBuilder.Build();
+        var container8 = containerBuilder.Build();
         container8.TestOrg(true, "TheOrg"); // test the resultin org is a singleton
 
         containerBuilder.RegisterFactoryMethodInfo(createOrgMethodInfo, null, "TheOrg");
-        IDependencyInjectionContainer container9 = containerBuilder.Build();
+        var container9 = containerBuilder.Build();
         container9.TestOrg(false, "TheOrg"); // test the resulting org is not singleton
 
         // create a brand new container builder for building types with RegisterType attribute
-        IContainerBuilder attributedTypesContainerBuilder = new AutofacContainerBuilder();
+        var attributedTypesContainerBuilder = new AutofacContainerBuilder();
 
         // RegisterTypeAttribute will have parameters specifying the resolving type 
         // and resolution Key (if applicable). It will also specify whether the
@@ -242,10 +246,10 @@ public static class Program
         // make sure ILog is a singleton.
         container10.IsSingleton<ILog>().Should().BeTrue();
 
-        IContainerBuilder containerBuilder11 = new AutofacContainerBuilder();
+        var containerBuilder11 = new AutofacContainerBuilder();
 
         containerBuilder11.RegisterAttributedStaticFactoryMethodsFromClass(typeof(FactoryMethods));
-        IDependencyInjectionContainer container11 = containerBuilder11.Build();
+        var container11 = containerBuilder11.Build();
 
         IOrg org11 = container11.Resolve<IOrg>("TheOrg");
 

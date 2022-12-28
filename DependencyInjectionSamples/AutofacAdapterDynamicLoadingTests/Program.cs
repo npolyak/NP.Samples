@@ -11,12 +11,12 @@ public static class Program
     static void Main(string[] args)
     {
         // create container builder
-        IContainerBuilder builder = new AutofacContainerBuilder();
+        var builder = new AutofacContainerBuilder();
 
         builder.RegisterPluginsFromSubFolders("Plugins");
 
         // create container
-        IDependencyInjectionContainer container = builder.Build();
+        var container = builder.Build();
 
         // resolve and compose organization
         // all its injectable properties will be injected at
