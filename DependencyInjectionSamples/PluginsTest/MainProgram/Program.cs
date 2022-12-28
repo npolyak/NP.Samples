@@ -10,14 +10,14 @@ public static class Program
     static void Main(string[] args)
     {
         // create container builder
-        IContainerBuilder builder = new ContainerBuilder();
+        IContainerBuilder<string?> builder = new ContainerBuilder<string?>();
 
         // load plugins dynamically from sub-folders of Plugins folder
         // localted under the same folder that the executable
         builder.RegisterPluginsFromSubFolders("Plugins");
 
         // build the container
-        IDependencyInjectionContainer container = builder.Build();
+        IDependencyInjectionContainer<string?> container = builder.Build();
 
         // get the pluging for manipulating double numbers
         IDoubleManipulationsPlugin doubleManipulationsPlugin = 
