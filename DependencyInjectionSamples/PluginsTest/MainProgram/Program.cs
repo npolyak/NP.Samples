@@ -52,6 +52,15 @@ public static class Program
         // verify that the result is "Str1Str1Str1"
         repeatResult.Should().Be("Str1Str1Str1");
 
+        var methodNames = container.Resolve<IEnumerable<string>>("MethodNames");
+
+        methodNames.Count().Should().Be(4);
+
+        methodNames.Should().Contain(nameof(IDoubleManipulationsPlugin.Plus));
+        methodNames.Should().Contain(nameof(IDoubleManipulationsPlugin.Times));
+        methodNames.Should().Contain(nameof(IStringManipulationsPlugin.Concat));
+        methodNames.Should().Contain(nameof(IStringManipulationsPlugin.Repeat));
+
         Console.WriteLine("The END");
     }
 }
