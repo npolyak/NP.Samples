@@ -7,7 +7,7 @@ namespace DoubleManipulationsPlugin
     public static class DoubleManipulationFactoryMethods
     {
 
-        [RegisterMethod(isSingleton:true, isMultiCell:true, resolutionKey:"MethodNames")]
+        [RegisterMultiCellMethod(cellType:typeof(string), resolutionKey:"MethodNames")]
         public static IEnumerable<string> GetDoubleMethodNames()
         {
             return new[]
