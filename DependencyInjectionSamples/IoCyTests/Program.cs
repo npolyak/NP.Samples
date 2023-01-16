@@ -63,7 +63,9 @@ public static class Program
     static void Main(string[] args)
     {
         // create container builder
-        var containerBuilder = new ContainerBuilder<string?>();
+        // without allowOverrides set to true, overriding an already existing key 
+        // will not be possible - one would have to unregister (remove) it first. 
+        var containerBuilder = new ContainerBuilder<string?>(allowOverrides:true);
 
         // register Person object to be returned by IPerson resolving type
         containerBuilder.RegisterType<IPerson, Person>();
@@ -291,6 +293,87 @@ public static class Program
         // test that the new address object is not the same
         // since CreateAddress(...) is not Singleton
         address11.Should().NotBeSameAs(org11.Manager.Address);
+
+        // MultiCell tests 
+
+        var containerBuilder12 = new ContainerBuilder<string>(true);
+
+        // CellType is typeof(string), resolutionKey is "MyStrings" 
+
+        // example of a single string object "Str1" added to the multi-cell
+        containerBuilder12.RegisterMultiCellObjInstance(typeof(string), "Str1", "MyStrings");
+
+        // example of a colleciton of string objects - {"Str2", "Str3" } added to the multi-cell
+        containerBuilder12.RegisterMultiCellObjInstance(typeof(string), new[] { "Str2", "Str3" }, "MyStrings");
+
+        // build the container
+        var container12 = containerBuilder12.Build();
+
+        // Get the collectition - of strings containing all strings above - { "Str1", "Str2", "Str3" }
+        IEnumerable<string> myStrings = container12.Resolve<IEnumerable<string>>("MyStrings");
+
+        // test that the collection is correct
+        myStrings.Should().BeEquivalentTo(new[] { "Str1", "Str2", "Str3" });
+
+
+        // now test putting different log types in a multi-cell:
+        var containerBuilder13 = new ContainerBuilder<string>(true);
+
+        // our multicell has CellType - typeof(ILog) and resolutionKey - "MyLogs"
+
+        // we set two objects to the cell - one of ConsoleLog and the other of FileLog types
+        containerBuilder13.RegisterMultiCellType<ILog, ConsoleLog>("MyLogs");
+        containerBuilder13.RegisterMultiCellType<ILog, FileLog>("MyLogs");
+
+        // get the container 
+        var container13 = containerBuilder13.Build();
+
+        // get the logs
+        IEnumerable<ILog> logs = container13.Resolve<IEnumerable<ILog>>("MyLogs");
+
+        // check there are two ILog objects within the collection
+        logs.Count().Should().Be(2);
+
+        // check that the first object is of type ConsoleLog
+        logs.First().Should().BeOfType<ConsoleLog>();
+
+        // check that the second object is of type FileLog
+        logs.Skip(1).First().Should().BeOfType<FileLog>();
+
+        // create a containerBuilder for testing MultiCell attributes
+        var containerBuilder14 = new ContainerBuilder<string>(true);
+
+        // MyOrg class has [RegisterMultiCellType(cellType: typeof(IOrg), "TheOrgs")] attribute
+        // that means that an object of that type is created with a cell with type IOrg and resolutionKey "TheOrgs"
+        // It creates an organization with OrgName - "MyOrg1"
+        containerBuilder14.RegisterAttributedClass(typeof(MyOrg));
+
+        // OrgFactory is a static class containing two attributed methods: 
+        // CreateSingleOrg() - creating a single org with OrgName - "MyOrg2"
+        // and CreateOrgs() - creating an array of two organizations with OrgNames "MyOrg3" and "MyOrg4"
+        containerBuilder14.RegisterAttributedStaticFactoryMethodsFromClass(typeof(OrgFactory));
+
+        // OrgsContainer has a property Orgs set via a constructor
+        // The constructor has a single argument injected via the resolving type 
+        // IEnumerable<IOrg> and resolutionKey "TheOrgs":
+        // [Inject(resolutionKey: "TheOrgs")] IEnumerable<IOrg> orgs
+        containerBuilder14.RegisterType<OrgsContainer, OrgsContainer>();
+
+        // build the container
+        var container14 = containerBuilder14.Build();
+
+        // resolve the orgs container, its Orgs property should 
+        // be populated with the content of the MultiCell
+        var orgsContainer = container14.Resolve<OrgsContainer>();
+
+        // get the org names
+        var orgNames = orgsContainer.Orgs.Select(org => org.OrgName).ToList();
+
+        // test that the orgNames collection contains all the organizations - 
+        // { "MyOrg1", "MyOrg2", "MyOrg3", "MyOrg4" }
+        orgNames.Should().BeEquivalentTo(new[] { "MyOrg1", "MyOrg2", "MyOrg3", "MyOrg4" });
+
+        // End of MultiCell Tests
 
         Console.WriteLine("The END");
         Console.ReadKey();

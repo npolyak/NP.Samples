@@ -33,3 +33,7 @@
 /DependencyInjectionSamples/PluginsTest/Plugins/DoubleManipulationsPlugin/obj
 /DependencyInjectionSamples/PluginsTest/StringManipulationsPlugin/bin/Debug/net6.0
 /DependencyInjectionSamples/PluginsTest/StringManipulationsPlugin/obj
+/GRPC/Interfaces/obj
+/GRPC/SimpleGrpcClient/obj
+/GRPC/SimpleGrpcServerTest/.vs
+/GRPC/SimpleGrpcServerTest/obj
