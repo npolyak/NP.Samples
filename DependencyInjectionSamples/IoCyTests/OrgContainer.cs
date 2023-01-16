@@ -5,6 +5,9 @@ using NP.Samples.Interfaces;
 namespace NP.Samples.IoCyTests
 {
 
+    // using this attribute, an object of type MyOrg with OrgName set to "MyOrg1",
+    // will be created and made part of the Multi-Cell
+    // defined by CellType - IOrg and resolutionKey "TheOrgs"
     [RegisterMultiCellType(cellType: typeof(IOrg), "TheOrgs")]
     public class MyOrg : Org
     {
@@ -17,19 +20,22 @@ namespace NP.Samples.IoCyTests
     [HasRegisterMethods]
     public static class OrgFactory
     {
+        // returns a single Org object with OrgName set to "MyOrg2"
         [RegisterMultiCellMethod(typeof(IOrg), "TheOrgs")]
         public static IOrg CreateSingleOrg()
         {
-            return new MyOrg { OrgName = "MyOrg2" };
+            return new Org { OrgName = "MyOrg2" };
         }
 
+        // returns an array of two objects with OrgNames 
+        // "MyOrg3" and "MyOrg4" correspondingly
         [RegisterMultiCellMethod(typeof(IOrg), "TheOrgs")]
         public static IEnumerable<IOrg> CreateOrgs()
         {
             return new IOrg[]
             {
-                new MyOrg { OrgName = "MyOrg3" },
-                new MyOrg { OrgName = "MyOrg4" }
+                new Org { OrgName = "MyOrg3" },
+                new Org { OrgName = "MyOrg4" }
             };
         }
     }
@@ -38,6 +44,8 @@ namespace NP.Samples.IoCyTests
     {
         public IEnumerable<IOrg> Orgs { get; }
 
+        // injects the constructor with orgs argument of resolving type IEnumerable<IOrg>
+        // and resolutionKey - "TheOrgs" that point us to the MultiCell created above. 
         [CompositeConstructor]
         public OrgsContainer([Inject(resolutionKey: "TheOrgs")] IEnumerable<IOrg> orgs)
         {
