@@ -46,3 +46,5 @@
 /PluginPackageSamples/PackagePlugins/Plugins/StringManipulationsPlugin/obj
 /PluginPackageSamples/PluginInterfaces/bin/Debug/net6.0
 /PluginPackageSamples/PluginInterfaces/obj
+/PluginPackageSamples/PackagePlugins/Plugins/StringManipulationsPlugin/bin/Debug
+/PluginPackageSamples/PackagePlugins/Plugins/DoubleManipulationsPlugin/bin/Debug

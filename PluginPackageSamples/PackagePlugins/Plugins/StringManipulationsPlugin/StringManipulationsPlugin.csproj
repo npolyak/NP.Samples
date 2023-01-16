@@ -4,6 +4,13 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.0.1</Version>
+		<Authors>Nick Polyak Ph. D.</Authors>
+		<Description>Relay server implementation plugin</Description>
+		<Copyright>Nick Polyak 2023</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -13,6 +20,15 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\PluginInterfaces\PluginInterfaces.csproj" />
 	</ItemGroup>
+
+	<Target Name="IncludeAllFilesInTargetDir" AfterTargets="Build">
+		<ItemGroup>
+			<Content Include="$(TargetDir)\**">
+				<Pack>true</Pack>
+				<PackagePath>Content</PackagePath>
+			</Content>
+		</ItemGroup>
+	</Target>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="xcopy &quot;$(OutDir)&quot; &quot;$(SolutionDir)\MainProgram\bin\$(Configuration)\net6.0\Plugins\$(ProjectName)\&quot; /S /R /Y /I" />
