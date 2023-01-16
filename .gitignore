@@ -37,3 +37,12 @@
 /GRPC/SimpleGrpcClient/obj
 /GRPC/SimpleGrpcServerTest/.vs
 /GRPC/SimpleGrpcServerTest/obj
+/PluginPackageSamples/.vs
+/PluginPackageSamples/PackagePlugins/.vs/PackagePluginsTest
+/PluginPackageSamples/PackagePlugins/MainProgram/bin/Debug/net6.0/Plugins
+/PluginPackageSamples/PackagePlugins/Plugins/DoubleManipulationsPlugin/bin/Debug/net6.0
+/PluginPackageSamples/PackagePlugins/Plugins/DoubleManipulationsPlugin/obj
+/PluginPackageSamples/PackagePlugins/Plugins/StringManipulationsPlugin/bin/Debug/net6.0
+/PluginPackageSamples/PackagePlugins/Plugins/StringManipulationsPlugin/obj
+/PluginPackageSamples/PluginInterfaces/bin/Debug/net6.0
+/PluginPackageSamples/PluginInterfaces/obj
