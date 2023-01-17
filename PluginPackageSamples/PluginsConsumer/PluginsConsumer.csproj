@@ -11,10 +11,10 @@
 		<PackageReference Include="FluentAssertions" Version="6.9.0" />
 		<PackageReference Include="NP.IoCy" Version="1.0.32" />
 		
-		<PackageReference Include="NP.PackagePluginsTest.DoubleManipulationsPlugin" Version="1.0.3" GeneratePathProperty="true">
+		<PackageReference Include="NP.PackagePluginsTest.DoubleManipulationsPlugin" Version="1.0.4" GeneratePathProperty="true">
 			<ExcludeAssets>All</ExcludeAssets>
 		</PackageReference>
-		<PackageReference Include="NP.PackagePluginsTest.StringManipulationsPlugin" Version="1.0.3" GeneratePathProperty="true">
+		<PackageReference Include="NP.PackagePluginsTest.StringManipulationsPlugin" Version="1.0.4" GeneratePathProperty="true">
 			<ExcludeAssets>All</ExcludeAssets>
 		</PackageReference>
 	</ItemGroup>
@@ -25,6 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\PluginInterfaces\NP.PackagePluginsTest.PluginInterfaces.csproj" />
 		<ProjectReference Include="..\PluginInterfaces\PluginInterfaces.csproj" />
 	</ItemGroup>
 

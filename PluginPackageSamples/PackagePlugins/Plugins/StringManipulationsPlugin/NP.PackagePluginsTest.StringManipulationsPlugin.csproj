@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.3</Version>
+		<Version>1.0.4</Version>
 		<Authors>Nick Polyak Ph. D.</Authors>
 		<Description>Relay server implementation plugin</Description>
 		<Copyright>Nick Polyak 2023</Copyright>
@@ -18,11 +18,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\PluginInterfaces\PluginInterfaces.csproj" />
+	  <ProjectReference Include="..\..\..\PluginInterfaces\NP.PackagePluginsTest.PluginInterfaces.csproj" />
 	</ItemGroup>
 
 	<Target Name="ClearTarget" BeforeTargets="Build">
-		<RemoveDir Directories="$(TargetDir)\**"/>
+		<RemoveDir Directories="$(TargetDir)\**" />
 	</Target>
 
 	<Target Name="IncludeAllFilesInTargetDir" AfterTargets="Build">

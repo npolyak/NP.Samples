@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.PackagePluginsTest.Doubl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.PackagePluginsTest.StringManipulationsPlugin", "Plugins\StringManipulationsPlugin\NP.PackagePluginsTest.StringManipulationsPlugin.csproj", "{FC57C547-6020-42A1-B8EB-25895022E206}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginInterfaces", "..\PluginInterfaces\PluginInterfaces.csproj", "{E2C4EDA8-40B7-40B8-A63F-A4CCB0305CCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.PackagePluginsTest.PluginInterfaces", "..\PluginInterfaces\NP.PackagePluginsTest.PluginInterfaces.csproj", "{E2C4EDA8-40B7-40B8-A63F-A4CCB0305CCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
