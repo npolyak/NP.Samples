@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentAssertions" Version="6.9.0" />
+		<PackageReference Include="NP.IoCy" Version="1.0.32" />
+		
+		<PackageReference Include="NP.PackagePluginsTest.DoubleManipulationsPlugin" Version="1.0.3" GeneratePathProperty="true">
+			<ExcludeAssets>All</ExcludeAssets>
+		</PackageReference>
+		<PackageReference Include="NP.PackagePluginsTest.StringManipulationsPlugin" Version="1.0.3" GeneratePathProperty="true">
+			<ExcludeAssets>All</ExcludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup> <!-- setting up the variable for convenience -->
+		<DoubleManipPluginPackageFiles Include="$(PkgNP_PackagePluginsTest_DoubleManipulationsPlugin)\Content\**\*.*" />
+		<StringManipPluginPackageFiles Include="$(PkgNP_PackagePluginsTest_StringManipulationsPlugin)\Content\**\*.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\PluginInterfaces\PluginInterfaces.csproj" />
+	</ItemGroup>
+
+	<Target Name="CopyPluginsFromNugetPackages" AfterTargets="Build">
+		<PropertyGroup>
+			<DoublePluginFolder>$(TargetDir)\Plugins\DoubleManipulationPlugin</DoublePluginFolder>
+			<StringPluginFolder>$(TargetDir)\Plugins\StringManipulationPlugin</StringPluginFolder>
+		</PropertyGroup>
+		<RemoveDir Directories="$(DoublePluginFolder)" />
+		<Copy SourceFiles="@(DoubleManipPluginPackageFiles)" DestinationFolder="$(DoublePluginFolder)%(RecursiveDir)" />
+		<RemoveDir Directories="$(StringPluginFolder)" />
+		<Copy SourceFiles="@(StringManipPluginPackageFiles)" DestinationFolder="$(StringPluginFolder)%(RecursiveDir)" />
+	</Target>
+</Project>
