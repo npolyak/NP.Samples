@@ -52,3 +52,7 @@
 /PluginPackageSamples/PluginsConsumer/.vs
 /PluginPackageSamples/PluginsConsumer/bin/Debug/net6.0
 /PluginPackageSamples/PluginsConsumer/obj
+/GRPC/SimpleRequestReplySample/Interfaces/obj
+/GRPC/SimpleRequestReplySample/SimpleGrpcClient/obj
+/GRPC/SimpleRequestReplySample/SimpleGrpcServerTest/.vs
+/GRPC/SimpleRequestReplySample/SimpleGrpcServerTest/obj
