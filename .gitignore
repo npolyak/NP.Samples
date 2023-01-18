@@ -56,3 +56,6 @@
 /GRPC/SimpleRequestReplySample/SimpleGrpcClient/obj
 /GRPC/SimpleRequestReplySample/SimpleGrpcServerTest/.vs
 /GRPC/SimpleRequestReplySample/SimpleGrpcServerTest/obj
+/GRPC/SimpleRequestReplySample/Interfaces/bin/Debug/net6.0
+/GRPC/SimpleRequestReplySample/SimpleGrpcClient/bin/Debug/net6.0
+/GRPC/SimpleRequestReplySample/SimpleGrpcServerTest/bin/Debug/net6.0

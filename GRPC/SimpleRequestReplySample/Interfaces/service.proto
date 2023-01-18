@@ -1,7 +1,6 @@
-﻿syntax = "proto3";
+﻿// taken from https://grpc-ecosystem.github.io/grpc-gateway/docs/tutorials/simple_hello_world/
 
-
-option csharp_namespace = "GrpcServer";
+syntax = "proto3";
 
 package greet;
 
