@@ -59,3 +59,6 @@
 /GRPC/SimpleRequestReplySample/Interfaces/bin/Debug/net6.0
 /GRPC/SimpleRequestReplySample/SimpleGrpcClient/bin/Debug/net6.0
 /GRPC/SimpleRequestReplySample/SimpleGrpcServerTest/bin/Debug/net6.0
+/GRPC/SimpleRequestReplySample/NodejsClient/bin
+/GRPC/SimpleRequestReplySample/NodejsClient/node_modules
+/GRPC/SimpleRequestReplySample/NodejsClient/obj/Debug
