@@ -62,3 +62,6 @@
 /GRPC/SimpleRequestReplySample/NodejsClient/bin
 /GRPC/SimpleRequestReplySample/NodejsClient/node_modules
 /GRPC/SimpleRequestReplySample/NodejsClient/obj/Debug
+/GRPC/SimpleRequestReplySample/SimpleNodeJSClient/bin
+/GRPC/SimpleRequestReplySample/SimpleNodeJSClient/node_modules
+/GRPC/SimpleRequestReplySample/SimpleNodeJSClient/obj/Debug
