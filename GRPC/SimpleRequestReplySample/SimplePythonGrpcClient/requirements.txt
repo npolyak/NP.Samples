@@ -1,0 +1,5 @@
+grpc==1.0.0
+grpc_tools==1.0.0
+grpcio==1.51.1
+grpcio_tools==1.51.1
+protobuf==4.21.12
