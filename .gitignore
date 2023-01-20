@@ -71,3 +71,6 @@
 /GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/service_pb2.py
 *.user
 /GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/env
+/GRPC/SimpleRequestReplySample/SimpleGrpcServer/.vs
+/GRPC/SimpleRequestReplySample/SimpleGrpcServer/bin/Debug/net6.0
+/GRPC/SimpleRequestReplySample/SimpleGrpcServer/obj

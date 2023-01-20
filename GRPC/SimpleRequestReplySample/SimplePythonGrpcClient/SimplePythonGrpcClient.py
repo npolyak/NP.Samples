@@ -4,7 +4,6 @@ import grpc
 
 import grpc_tools.protoc
 
-build_exe_options = {'packages': ['pkg_resources']}
 
 logging.basicConfig()
 

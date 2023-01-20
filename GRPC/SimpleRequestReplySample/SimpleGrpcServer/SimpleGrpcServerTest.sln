@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33209.295
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleGrpcServerTest", "SimpleGrpcServerTest.csproj", "{7A9186C1-1F5F-4BDF-84C8-0132B40FD2F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleGrpcServer", "SimpleGrpcServer.csproj", "{7A9186C1-1F5F-4BDF-84C8-0132B40FD2F0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleGrpcClient", "..\SimpleGrpcClient\SimpleGrpcClient.csproj", "{1C5C9C4B-3BFA-4142-9065-9E1FBFE3C367}"
 EndProject
