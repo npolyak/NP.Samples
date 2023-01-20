@@ -65,3 +65,9 @@
 /GRPC/SimpleRequestReplySample/SimpleNodeJSClient/bin
 /GRPC/SimpleRequestReplySample/SimpleNodeJSClient/node_modules
 /GRPC/SimpleRequestReplySample/SimpleNodeJSClient/obj/Debug
+/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/env
+/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/__pycache__
+/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/service_pb2_grpc.py
+/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/service_pb2.pyi
+/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/service_pb2.py
+*.user
