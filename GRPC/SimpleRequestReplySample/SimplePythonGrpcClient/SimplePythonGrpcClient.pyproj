@@ -41,7 +41,6 @@
        the BeforeBuild and AfterBuild targets below. -->
   <!--<Target Name="CoreCompile" />-->
   <Target Name="BeforeBuild">
-    <Exec Command="python -m grpc_tools.protoc -I../Interfaces/. --python_out=. --pyi_out=. --grpc_python_out=. ../Interfaces/service.proto" />
   </Target>
   <Target Name="AfterBuild">
   </Target>
