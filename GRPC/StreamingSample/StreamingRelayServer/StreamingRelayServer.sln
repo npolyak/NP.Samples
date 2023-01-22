@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33209.295
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamingRelayServer", "StreamingRelayServer.csproj", "{4871A0C5-8928-46EE-8912-1E62301105E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protos", "..\Protos\Protos.csproj", "{5CAACCD9-DA3F-4C00-B716-1F158565CC84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublishSample", "..\CSHARP\PublishSample\PublishSample.csproj", "{A30D8C85-8666-4B14-8C0A-9FB2AC9254EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubscribeSample", "..\CSHARP\SubscribeSample\SubscribeSample.csproj", "{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSHARP", "CSHARP", "{9C78F5F3-DF69-41B1-B6CE-7514693405D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NodeJS", "NodeJS", "{731C0E94-AB60-4BE8-98E1-55D59E571A49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4871A0C5-8928-46EE-8912-1E62301105E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4871A0C5-8928-46EE-8912-1E62301105E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4871A0C5-8928-46EE-8912-1E62301105E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4871A0C5-8928-46EE-8912-1E62301105E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CAACCD9-DA3F-4C00-B716-1F158565CC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CAACCD9-DA3F-4C00-B716-1F158565CC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CAACCD9-DA3F-4C00-B716-1F158565CC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CAACCD9-DA3F-4C00-B716-1F158565CC84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30D8C85-8666-4B14-8C0A-9FB2AC9254EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30D8C85-8666-4B14-8C0A-9FB2AC9254EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30D8C85-8666-4B14-8C0A-9FB2AC9254EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30D8C85-8666-4B14-8C0A-9FB2AC9254EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A30D8C85-8666-4B14-8C0A-9FB2AC9254EE} = {9C78F5F3-DF69-41B1-B6CE-7514693405D9}
+		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273} = {9C78F5F3-DF69-41B1-B6CE-7514693405D9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A837D34-8E2C-4B82-BB79-7181B1EE7E31}
+	EndGlobalSection
+EndGlobal

@@ -74,3 +74,12 @@
 /GRPC/SimpleRequestReplySample/SimpleGrpcServer/.vs
 /GRPC/SimpleRequestReplySample/SimpleGrpcServer/bin/Debug/net6.0
 /GRPC/SimpleRequestReplySample/SimpleGrpcServer/obj
+/GRPC/StreamingSample/CSHARP/PublishSample/bin/Debug/net6.0
+/GRPC/StreamingSample/CSHARP/PublishSample/obj
+/GRPC/StreamingSample/CSHARP/SubscribeSample/bin/Debug/net6.0
+/GRPC/StreamingSample/CSHARP/SubscribeSample/obj
+/GRPC/StreamingSample/Protos/bin/Debug/net6.0
+/GRPC/StreamingSample/Protos/obj
+/GRPC/StreamingSample/StreamingRelayServer/.vs
+/GRPC/StreamingSample/StreamingRelayServer/bin/Debug/net6.0
+/GRPC/StreamingSample/StreamingRelayServer/obj

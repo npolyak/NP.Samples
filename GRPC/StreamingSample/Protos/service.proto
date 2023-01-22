@@ -1,0 +1,26 @@
+﻿
+syntax = "proto3";
+
+package service;
+
+service RelayService
+{
+	rpc Publish (Message) returns (PublishConfirmed) {}
+
+	rpc Subscribe(SubscribeRequest) returns (stream Message){}
+}
+
+message Message
+{
+	string msg = 1;
+}
+
+message PublishConfirmed
+{
+
+}
+
+message SubscribeRequest
+{
+
+}
