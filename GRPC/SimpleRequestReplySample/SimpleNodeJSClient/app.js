@@ -5,7 +5,7 @@ let protoLoader = require('@grpc/proto-loader');
 
 const protobuf = require('protobufjs');
 
-const root = protoLoader.loadSync('../interfaces/service.proto', { keepCase: true, longs: String, enums: String, defaults: true, oneofs: true });
+const root = protoLoader.loadSync('../Protos/service.proto', { keepCase: true, longs: String, enums: String, defaults: true, oneofs: true });
 
 const greet = grpc.loadPackageDefinition(root).greet;
 

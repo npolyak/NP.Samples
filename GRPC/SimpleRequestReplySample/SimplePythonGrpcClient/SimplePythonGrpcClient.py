@@ -9,10 +9,10 @@ logging.basicConfig()
 
 grpc_tools.protoc.main([
     'grpc_tools.protoc',
-    '-I{}'.format("../Interfaces/."),
+    '-I{}'.format("../Protos/."),
     '--python_out=.',
     '--grpc_python_out=.',
-    '../Interfaces/service.proto'
+    '../Protos/service.proto'
 ])
 
 import service_pb2;

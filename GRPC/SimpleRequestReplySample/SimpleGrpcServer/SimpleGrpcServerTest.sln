@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleGrpcServer", "SimpleG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleGrpcClient", "..\SimpleGrpcClient\SimpleGrpcClient.csproj", "{1C5C9C4B-3BFA-4142-9065-9E1FBFE3C367}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "..\Interfaces\Interfaces.csproj", "{E330BA0F-EA72-431C-B83A-5C86542B66BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protos", "..\Protos\Protos.csproj", "{E330BA0F-EA72-431C-B83A-5C86542B66BC}"
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SimpleNodeJSClientGrpc", "..\SimpleNodeJSClient\SimpleNodeJSClientGrpc.njsproj", "{7318836C-5AAD-440B-8114-98AD4A10C583}"
 EndProject
