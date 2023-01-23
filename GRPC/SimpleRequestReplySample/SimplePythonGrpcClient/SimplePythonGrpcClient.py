@@ -22,7 +22,7 @@ channel = grpc.insecure_channel('localhost:5555')
 
 stub = service_pb2_grpc.GreeterStub(channel);
 
-response = stub.SayHello(service_pb2.HelloRequest(name='Joe Doe'))
+response = stub.SayHello(service_pb2.HelloRequest(name='Python'))
 
 print(response.msg);
 

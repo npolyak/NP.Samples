@@ -11,7 +11,7 @@ const greet = grpc.loadPackageDefinition(root).greet;
 
 const client = new greet.Greeter("localhost:5555", grpc.credentials.createInsecure());
 
-client.sayHello({ name: "Joe Doe" }, function (err, response) {
+client.sayHello({ name: "Java Script" }, function (err, response) {
     console.log(response.msg);
 });
 
