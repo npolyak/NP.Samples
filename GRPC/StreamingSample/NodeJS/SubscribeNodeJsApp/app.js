@@ -29,9 +29,3 @@ var call = client.Subscribe({});
 call.on('data', function (response) {
     console.log(response.msg);
 });
-
-//while (await replies.responseStream.moveNext()) {
-//    var msg = replies.responseStream.current;
-
-//    console.log(msg);
-//}
