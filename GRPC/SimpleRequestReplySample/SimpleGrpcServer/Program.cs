@@ -7,8 +7,8 @@ using SimpleGrpcServerTest;
 // RPC SayHello implementation
 GreeterImplementation greeterImplementation = new GreeterImplementation();
 
-// bind the server with the greeterImplementation so that SayHello called on 
-// server will be channeled over to greeterImplementation.SayHello
+// bind the server with the greeterImplementation so that SayHello RPC called on 
+// the server will be channeled over to greeterImplementation.SayHello
 Server server = new Server
 {
     Services = { Greeter.BindService(greeterImplementation) }
@@ -20,7 +20,7 @@ server.Ports.Add(new ServerPort("localhost", 5555, ServerCredentials.Insecure));
 // start the server
 server.Start();
 
-// wait with shutdown until the use presses a key
+// wait with shutdown until the user presses a key
 Console.ReadLine();
 
 // shutdown the server
