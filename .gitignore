@@ -101,3 +101,7 @@
 /GRPC/StreamingSample/Python/PublishPythonSample/__pycache__
 /GRPC/StreamingSample/Python/PublishPythonSample/service_pb2_grpc.py
 /GRPC/StreamingSample/Python/PublishPythonSample/service_pb2.py
+/GRPC/StreamingSample/Python/SubscribePythonSample/env
+/GRPC/StreamingSample/Python/SubscribePythonSample/__pycache__
+/GRPC/StreamingSample/Python/SubscribePythonSample/service_pb2_grpc.py
+/GRPC/StreamingSample/Python/SubscribePythonSample/service_pb2.py

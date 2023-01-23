@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Python", "Python", "{1A05A5
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PublishPythonSample", "..\Python\PublishPythonSample\PublishPythonSample.pyproj", "{5741371F-CE12-4EDC-AD4D-EB90CB716E48}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SubscribePythonSample", "..\Python\SubscribePythonSample\SubscribePythonSample.pyproj", "{DDF98758-055F-48E3-9FDC-D56D665C779D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,8 @@ Global
 		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5741371F-CE12-4EDC-AD4D-EB90CB716E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5741371F-CE12-4EDC-AD4D-EB90CB716E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF98758-055F-48E3-9FDC-D56D665C779D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF98758-055F-48E3-9FDC-D56D665C779D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +69,7 @@ Global
 		{41371431-614D-47B6-9D7A-39C75FC92EC2} = {731C0E94-AB60-4BE8-98E1-55D59E571A49}
 		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE} = {731C0E94-AB60-4BE8-98E1-55D59E571A49}
 		{5741371F-CE12-4EDC-AD4D-EB90CB716E48} = {1A05A5AE-727C-4BCF-A8A7-757E5BA12353}
+		{DDF98758-055F-48E3-9FDC-D56D665C779D} = {1A05A5AE-727C-4BCF-A8A7-757E5BA12353}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A837D34-8E2C-4B82-BB79-7181B1EE7E31}
