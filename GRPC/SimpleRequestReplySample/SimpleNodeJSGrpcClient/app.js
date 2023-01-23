@@ -15,3 +15,4 @@ client.sayHello({ name: "Joe Doe" }, function (err, response) {
     console.log(response.msg);
 });
 
+var done = (function wait() { if (!done) setTimeout(wait, 1000) })();

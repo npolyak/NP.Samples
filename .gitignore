@@ -107,3 +107,6 @@
 /GRPC/StreamingSample/Python/SubscribePythonSample/service_pb2.py
 /GRPC/SimpleRequestReplySample/Protos/bin/Debug/net6.0
 /GRPC/SimpleRequestReplySample/Protos/obj
+/GRPC/SimpleRequestReplySample/SimpleNodeJSGrpcClient/bin
+/GRPC/SimpleRequestReplySample/SimpleNodeJSGrpcClient/node_modules
+/GRPC/SimpleRequestReplySample/SimpleNodeJSGrpcClient/obj/Debug

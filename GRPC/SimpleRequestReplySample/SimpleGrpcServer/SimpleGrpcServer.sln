@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleGrpcClient", "..\Simp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protos", "..\Protos\Protos.csproj", "{E330BA0F-EA72-431C-B83A-5C86542B66BC}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SimpleNodeJSClientGrpc", "..\SimpleNodeJSClient\SimpleNodeJSClientGrpc.njsproj", "{7318836C-5AAD-440B-8114-98AD4A10C583}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SimpleNodeJSGrpcClient", "..\SimpleNodeJSGrpcClient\SimpleNodeJSGrpcClient.njsproj", "{7318836C-5AAD-440B-8114-98AD4A10C583}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SimplePythonGrpcClient", "..\SimplePythonGrpcClient\SimplePythonGrpcClient.pyproj", "{4A1A5A64-21F3-408E-AA51-5D6A7A42E01C}"
 EndProject
