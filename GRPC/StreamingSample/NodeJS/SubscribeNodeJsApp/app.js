@@ -3,10 +3,6 @@ module;
 let grpc = require('@grpc/grpc-js');
 let protoLoader = require('@grpc/proto-loader');
 
-
-const protobuf = require('protobufjs');
-const { Service } = require('./node_modules/protobufjs/index');
-
 const root = protoLoader.loadSync
 (
     '../../Protos/service.proto',
