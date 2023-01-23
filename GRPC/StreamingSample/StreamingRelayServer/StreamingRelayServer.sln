@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSHARP", "CSHARP", "{9C78F5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NodeJS", "NodeJS", "{731C0E94-AB60-4BE8-98E1-55D59E571A49}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "PublishNodeJsApp", "..\NodeJS\PublishNodeJsApp\PublishNodeJsApp.njsproj", "{41371431-614D-47B6-9D7A-39C75FC92EC2}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SubscribeNodeJsApp", "..\NodeJS\SubscribeNodeJsApp\SubscribeNodeJsApp.njsproj", "{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41371431-614D-47B6-9D7A-39C75FC92EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41371431-614D-47B6-9D7A-39C75FC92EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41371431-614D-47B6-9D7A-39C75FC92EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41371431-614D-47B6-9D7A-39C75FC92EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +56,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A30D8C85-8666-4B14-8C0A-9FB2AC9254EE} = {9C78F5F3-DF69-41B1-B6CE-7514693405D9}
 		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273} = {9C78F5F3-DF69-41B1-B6CE-7514693405D9}
+		{41371431-614D-47B6-9D7A-39C75FC92EC2} = {731C0E94-AB60-4BE8-98E1-55D59E571A49}
+		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE} = {731C0E94-AB60-4BE8-98E1-55D59E571A49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A837D34-8E2C-4B82-BB79-7181B1EE7E31}
