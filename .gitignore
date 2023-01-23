@@ -89,3 +89,10 @@
 /GRPC/StreamingSample/NodeJS/SubscribeNodeJsApp/bin
 /GRPC/StreamingSample/NodeJS/SubscribeNodeJsApp/node_modules
 /GRPC/StreamingSample/NodeJS/SubscribeNodeJsApp/obj/Debug
+/GRPC/StreamingSample/NodeJS/PublishNodeJsSample/bin
+/GRPC/StreamingSample/NodeJS/PublishNodeJsSample/node_modules/.bin
+/GRPC/StreamingSample/NodeJS/PublishNodeJsSample/node_modules
+/GRPC/StreamingSample/NodeJS/PublishNodeJsSample/obj/Debug
+/GRPC/StreamingSample/NodeJS/SubscribeNodeJsSample/bin
+/GRPC/StreamingSample/NodeJS/SubscribeNodeJsSample/node_modules
+/GRPC/StreamingSample/NodeJS/SubscribeNodeJsSample/obj/Debug

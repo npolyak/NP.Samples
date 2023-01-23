@@ -15,9 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSHARP", "CSHARP", "{9C78F5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NodeJS", "NodeJS", "{731C0E94-AB60-4BE8-98E1-55D59E571A49}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "PublishNodeJsApp", "..\NodeJS\PublishNodeJsApp\PublishNodeJsApp.njsproj", "{41371431-614D-47B6-9D7A-39C75FC92EC2}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "PublishNodeJsSample", "..\NodeJS\PublishNodeJsSample\PublishNodeJsSample.njsproj", "{41371431-614D-47B6-9D7A-39C75FC92EC2}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SubscribeNodeJsApp", "..\NodeJS\SubscribeNodeJsApp\SubscribeNodeJsApp.njsproj", "{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SubscribeNodeJsSample", "..\NodeJS\SubscribeNodeJsSample\SubscribeNodeJsSample.njsproj", "{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Python", "Python", "{1A05A5AE-727C-4BCF-A8A7-757E5BA12353}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PublishPythonSample", "..\Python\PublishPythonSample\PublishPythonSample.pyproj", "{5741371F-CE12-4EDC-AD4D-EB90CB716E48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,8 @@ Global
 		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5741371F-CE12-4EDC-AD4D-EB90CB716E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5741371F-CE12-4EDC-AD4D-EB90CB716E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{ED9EB0AD-DA39-40A0-80B9-C329FEF4F273} = {9C78F5F3-DF69-41B1-B6CE-7514693405D9}
 		{41371431-614D-47B6-9D7A-39C75FC92EC2} = {731C0E94-AB60-4BE8-98E1-55D59E571A49}
 		{5ECF28FF-25DB-45F0-AF84-1F1158B44DBE} = {731C0E94-AB60-4BE8-98E1-55D59E571A49}
+		{5741371F-CE12-4EDC-AD4D-EB90CB716E48} = {1A05A5AE-727C-4BCF-A8A7-757E5BA12353}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A837D34-8E2C-4B82-BB79-7181B1EE7E31}
