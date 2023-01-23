@@ -83,3 +83,9 @@
 /GRPC/StreamingSample/StreamingRelayServer/.vs
 /GRPC/StreamingSample/StreamingRelayServer/bin/Debug/net6.0
 /GRPC/StreamingSample/StreamingRelayServer/obj
+/GRPC/StreamingSample/NodeJS/PublishNodeJsApp/bin
+/GRPC/StreamingSample/NodeJS/PublishNodeJsApp/node_modules
+/GRPC/StreamingSample/NodeJS/PublishNodeJsApp/obj/Debug
+/GRPC/StreamingSample/NodeJS/SubscribeNodeJsApp/bin
+/GRPC/StreamingSample/NodeJS/SubscribeNodeJsApp/node_modules
+/GRPC/StreamingSample/NodeJS/SubscribeNodeJsApp/obj/Debug
