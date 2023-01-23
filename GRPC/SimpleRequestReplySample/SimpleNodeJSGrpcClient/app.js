@@ -15,4 +15,5 @@ client.sayHello({ name: "Joe Doe" }, function (err, response) {
     console.log(response.msg);
 });
 
+// prevent the program from exiting
 var done = (function wait() { if (!done) setTimeout(wait, 1000) })();
