@@ -7,7 +7,7 @@ package greet;
 
 service Greeter
 {
-	// client takes Hello Request and returns HelloReply
+	// client takes HelloRequest and returns HelloReply
 	rpc SayHello (HelloRequest) returns (HelloReply);
 }
 

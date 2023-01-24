@@ -32,5 +32,5 @@ client.sayHello({ name: "Java Script" }, function (err, response) {
     console.log(response.msg);
 });
 
-// prevent the program from exiting
+// prevent the program from exiting right away
 var done = (function wait() { if (!done) setTimeout(wait, 1000) })();

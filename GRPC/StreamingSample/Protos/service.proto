@@ -3,23 +3,31 @@ syntax = "proto3";
 
 package service;
 
+// gRPC service (RelayService)
 service RelayService
 {
+	// Publish RPC - takes a Message with a msg string field
 	rpc Publish (Message) returns (PublishConfirmed) {}
 
+	// Subscribe RPC take SubscribeRequest and returns a stream 
+	// of Message objects
 	rpc Subscribe(SubscribeRequest) returns (stream Message){}
 }
 
+// Relay Message class that 
+// contains a single msg field
 message Message
 {
 	string msg = 1;
 }
 
+// Empty class used to confirm that Published Message has been received
 message PublishConfirmed
 {
 
 }
 
+// Empty message that requests a subscription to Relay Messages.
 message SubscribeRequest
 {
 
