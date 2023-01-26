@@ -125,3 +125,11 @@
 /GrpcRelayServer/Topics/Person/PublishPersonClient/obj
 /GrpcRelayServer/Topics/Person/SubscribePersonClient/bin/Debug/net6.0
 /GrpcRelayServer/Topics/Person/SubscribePersonClient/obj
+/GrpcRelayServer/Topics/Organization/OrgData/bin/Debug/net6.0
+/GrpcRelayServer/Topics/Organization/OrgData/obj
+/GrpcRelayServer/Topics/Organization/OrgProtos/bin/Debug/net6.0
+/GrpcRelayServer/Topics/Organization/OrgProtos/obj
+/GrpcRelayServer/Topics/Organization/PublishOrgClient/bin/Debug/net6.0
+/GrpcRelayServer/Topics/Organization/PublishOrgClient/obj
+/GrpcRelayServer/Topics/Organization/SubscribeOrgClient/bin/Debug/net6.0
+/GrpcRelayServer/Topics/Organization/SubscribeOrgClient/obj

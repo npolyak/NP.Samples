@@ -1,17 +1,17 @@
 ﻿using NP.Grpc.ClientBuilder;
 using NP.Grpc.CommonRelayInterfaces;
-using NP.PersonTest;
+using NP.OrgTest;
 
 IRelayClient relayClient = ClientBuilder.GetClient();
 
 IDisposable disposable = 
     relayClient
-        .ObserveTopicStream<Person>(Topic.PersonTopic)
-        .Subscribe(OnPersonDataArrived);
+        .ObserveTopicStream<Org>(Topic.OrgTopic)
+        .Subscribe(OnOrgDataArrived);
 
-void OnPersonDataArrived(Person person)
+void OnOrgDataArrived(Org org)
 {
-    Console.WriteLine(person.Name);
+    Console.WriteLine(org.Name);
 }
 
 // prevent from exiting

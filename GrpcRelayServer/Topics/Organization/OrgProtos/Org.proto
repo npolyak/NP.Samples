@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+package NP.OrgTest;
+
+enum Topic
+{
+    None = 0;
+    OrgTopic = 20;
+}
+
+message Org
+{
+    string Name = 1;
+    int32 NumberPeople = 2;
+}

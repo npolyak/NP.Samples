@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\NP.Grpc.ClientBuilder\NP.Grpc.ClientBuilder.csproj" />
+		<ProjectReference Include="..\OrgData\OrgData.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Reactive" Version="5.0.0" />
+		<PackageReference Include="NP.Grpc.CommonRelayInterfaces" Version="1.0.5" />
+		<PackageReference Include="NP.IoCy" Version="1.0.32" />
+
+		<PackageReference Include="NP.Grpc.RelayClient" Version="1.0.6" GeneratePathProperty="true">
+			<ExcludeAssets>All</ExcludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<RelayClientFiles Include="$(PkgNP_Grpc_RelayClient)\lib\net6.0\**\*.*" />
+	</ItemGroup>
+
+	<Target Name="CopyClientPluginFromNugetPackage" AfterTargets="Build">
+		<PropertyGroup>
+			<ClientPluginFolder>$(TargetDir)\Plugins\Services\NP.Grpc.RelayClient</ClientPluginFolder>
+		</PropertyGroup>
+		<RemoveDir Directories="$(ClientPluginFolder)" />
+		<Copy SourceFiles="@(RelayClientFiles)" DestinationFolder="$(ClientPluginFolder)\%(RecursiveDir)" />
+	</Target>
+</Project>
