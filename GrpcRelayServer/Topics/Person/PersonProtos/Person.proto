@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+package NP.PersonTest;
+
+enum Topic
+{
+    None = 0;
+    PersonTopic = 10;
+}
+
+message Person
+{
+    string Name = 1;
+    int32 Age = 2;
+}

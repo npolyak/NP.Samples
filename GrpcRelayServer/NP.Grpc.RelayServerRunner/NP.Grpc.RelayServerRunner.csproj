@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="NP.Grpc.CommonRelayInterfaces" Version="1.0.5" />
+		<PackageReference Include="NP.IoCy" Version="1.0.32" />
+
+		<PackageReference Include="NP.Grpc.RelayServer" Version="1.0.7" GeneratePathProperty="true">
+			<ExcludeAssets>All</ExcludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<RelayServerFiles Include="$(PkgNP_Grpc_RelayServer)\lib\net6.0\**\*.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\NP.Grpc.RelayServerConfig\NP.Grpc.RelayServerConfig.csproj" />
+	</ItemGroup>
+
+	<Target Name="CopyServerPluginFromNugetPackage" AfterTargets="Build">
+		<PropertyGroup>
+			<ServerPluginFolder>$(TargetDir)\Plugins\Services\NP.Grpc.RelayServer</ServerPluginFolder>
+		</PropertyGroup>
+		<RemoveDir Directories="$(ServerPluginFolder)" />
+		<Copy SourceFiles="@(RelayServerFiles)" DestinationFolder="$(ServerPluginFolder)\%(RecursiveDir)" />
+	</Target>
+</Project>
