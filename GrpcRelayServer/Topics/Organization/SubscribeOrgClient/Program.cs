@@ -1,6 +1,6 @@
 ﻿using NP.Grpc.ClientBuilder;
 using NP.Grpc.CommonRelayInterfaces;
-using NP.OrgTest;
+using NP.OrgClient;
 
 IRelayClient relayClient = ClientBuilder.GetClient();
 

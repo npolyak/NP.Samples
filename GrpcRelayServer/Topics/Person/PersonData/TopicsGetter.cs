@@ -9,7 +9,7 @@ namespace PersonData
         [RegisterMultiCellMethod(cellType: typeof(Enum), resolutionKey: IoCKeys.Topics)]
         public static Enum GetTopics()
         {
-            return NP.PersonTest.Topic.PersonTopic;
+            return NP.PersonClient.Topic.PersonTopic;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 
-package NP.OrgTest;
+package NP.OrgClient;
 
 enum Topic
 {

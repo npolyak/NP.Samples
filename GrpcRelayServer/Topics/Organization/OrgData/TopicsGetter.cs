@@ -9,7 +9,7 @@ namespace OrgData
         [RegisterMultiCellMethod(cellType: typeof(Enum), resolutionKey: IoCKeys.Topics)]
         public static Enum GetTopics()
         {
-            return NP.OrgTest.Topic.OrgTopic;
+            return NP.OrgClient.Topic.OrgTopic;
         }
     }
 }

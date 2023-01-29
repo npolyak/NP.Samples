@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 
-package NP.PersonTest;
+package NP.PersonClient;
 
 enum Topic
 {
