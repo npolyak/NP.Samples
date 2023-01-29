@@ -14,9 +14,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="System.Reactive" Version="5.0.0" />
-		<PackageReference Include="NP.Grpc.CommonRelayInterfaces" Version="1.0.5" />
-		<PackageReference Include="NP.IoCy" Version="1.0.32" />
 
+		<!-- GeneratePathProperty set to true, generates PkgNP_Grpc_RelayClient as the root folder
+			for the package contents -->
 		<PackageReference Include="NP.Grpc.RelayClient" Version="1.0.6" GeneratePathProperty="true">
 			<ExcludeAssets>All</ExcludeAssets>
 		</PackageReference>
@@ -28,9 +28,13 @@
 
 	<Target Name="CopyClientPluginFromNugetPackage" AfterTargets="Build">
 		<PropertyGroup>
+			<!-- path for client plugin folder -->
 			<ClientPluginFolder>$(TargetDir)\Plugins\Services\NP.Grpc.RelayClient</ClientPluginFolder>
 		</PropertyGroup>
+		<!-- remove the old folder with plugin folder (if exists) -->
 		<RemoveDir Directories="$(ClientPluginFolder)" />
+
+		<!-- copy the the contents of the nuget package into the client plugin folder -->
 		<Copy SourceFiles="@(RelayClientFiles)" DestinationFolder="$(ClientPluginFolder)\%(RecursiveDir)" />
 	</Target>
 </Project>
