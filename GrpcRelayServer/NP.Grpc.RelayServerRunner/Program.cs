@@ -1,7 +1,9 @@
 ﻿using NP.Grpc.CommonRelayInterfaces;
 using NP.Grpc.RelayServerConfig;
 using NP.IoCy;
-
+using NP.Protobuf;
+using NP.Utilities;
+using System.Data.Common;
 // create container builder with Enum keys
 var containerBuilder = new ContainerBuilder<Enum>();
 
@@ -20,6 +22,16 @@ var container = containerBuilder.Build();
 // get the reference to the relay server from the plugin
 // The server will start running the moment it is created. 
 IRelayServer relayServer = container.Resolve<IRelayServer>();
+
+IGrpcConfig grpcConfig = container.Resolve<IGrpcConfig>();
+
+Console.WriteLine($"Relay Server listening on '{grpcConfig.ServerName}:{grpcConfig.Port}' for topics:");
+
+var topics = container.Resolve<IEnumerable<Enum>>(IoCKeys.Topics);
+
+topics.DoForEach(t => Console.WriteLine($"\t{t}, {(int)(object)t}"));
+
+Console.WriteLine();
 
 // prevent the program from exiting
 Console.ReadLine();

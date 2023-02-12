@@ -133,3 +133,4 @@
 /GrpcRelayServer/Topics/Organization/PublishOrgClient/obj
 /GrpcRelayServer/Topics/Organization/SubscribeOrgClient/bin/Debug/net6.0
 /GrpcRelayServer/Topics/Organization/SubscribeOrgClient/obj
+/GrpcRelayServer/Topics/Organization/GeneratedOrgProtoStubs/__pycache__
