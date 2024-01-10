@@ -1,0 +1,24 @@
+﻿// taken from https://grpc-ecosystem.github.io/grpc-gateway/docs/tutorials/simple_hello_world/
+
+syntax = "proto3";
+
+package greet;
+
+
+service Greeter
+{
+	// client takes HelloRequest and returns HelloReply
+	rpc SayHello (HelloRequest) returns (HelloReply);
+}
+
+// HelloRequest has only one string field - name
+message HelloRequest
+{
+	string name = 1;
+}
+
+// HelloReply has only one string name - msg
+message HelloReply
+{
+	string msg = 1;
+}

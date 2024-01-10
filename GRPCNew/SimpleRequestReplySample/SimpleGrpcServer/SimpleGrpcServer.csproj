@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+	</PropertyGroup>
+	
+	<ItemGroup>
+
+		<Protobuf Include="..\Protos\service.proto" GrpcServices="Server" Link="Protos\service.proto" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.60.0" />
+	</ItemGroup>
+</Project>

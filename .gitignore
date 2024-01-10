@@ -134,3 +134,11 @@
 /GrpcRelayServer/Topics/Organization/SubscribeOrgClient/bin/Debug/net6.0
 /GrpcRelayServer/Topics/Organization/SubscribeOrgClient/obj
 /GrpcRelayServer/Topics/Organization/GeneratedOrgProtoStubs/__pycache__
+/GRPCNew/SimpleRequestReplySample/Protos/bin/Debug/net6.0
+/GRPCNew/SimpleRequestReplySample/Protos/obj
+/GRPCNew/SimpleRequestReplySample/SimpleGrpcClient/bin/Debug/net8.0
+/GRPCNew/SimpleRequestReplySample/SimpleGrpcClient/obj
+/GRPCNew/SimpleRequestReplySample/SimpleGrpcServer/.vs
+/GRPCNew/SimpleRequestReplySample/SimpleGrpcServer/bin
+/GRPCNew/SimpleRequestReplySample/SimpleGrpcServer/obj
+/GRPCNew/SimpleRequestReplySample/SimpleNodeJSGrpcClient/bin
