@@ -142,3 +142,10 @@
 /GRPCNew/SimpleRequestReplySample/SimpleGrpcServer/bin
 /GRPCNew/SimpleRequestReplySample/SimpleGrpcServer/obj
 /GRPCNew/SimpleRequestReplySample/SimpleNodeJSGrpcClient/bin
+/AspGrpc/GrpcInProcess/.vs
+/AspGrpc/GrpcInProcess/GrpcServerProcess/bin/Debug/net8.0
+/AspGrpc/GrpcInProcess/GrpcServerProcess/obj
+/AspGrpc/GrpcInProcess/Protos/obj
+/AspGrpc/GrpcInProcess/TestClient/bin/Debug/net8.0
+/AspGrpc/GrpcInProcess/TestClient/obj
+/GRPC/SimpleRequestReplySample/Protos/bin/Release/net6.0
