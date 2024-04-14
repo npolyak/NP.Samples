@@ -19,6 +19,7 @@ namespace GrpcServerProcess
             for(int i = 0; i < 10; i++)
             {
                 await responseStream.WriteAsync(new HelloReply { Msg = $"Hello {name} {i + 1}" });
+                await Task.Delay(500);
             }
         }
 

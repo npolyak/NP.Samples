@@ -13,6 +13,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreeterImpl", "GreeterImpl\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspGrpcServer", "AspGrpcServer\AspGrpcServer.csproj", "{D93A6D1B-752D-439A-96AE-3CEC155B12AD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AvaloniaClients", "AvaloniaClients", "{B67080F7-A9C1-43C6-8CFF-F804726EDC4B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaGrpcClient", "AvaGrpcClient\AvaGrpcClient\AvaGrpcClient.csproj", "{9238BECC-55CB-4F0F-82E0-2E053A096076}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaGrpcClient.Browser", "AvaGrpcClient\AvaGrpcClient.Browser\AvaGrpcClient.Browser.csproj", "{23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaGrpcClient.Desktop", "AvaGrpcClient\AvaGrpcClient.Desktop\AvaGrpcClient.Desktop.csproj", "{80CB5362-7F04-4B21-953C-9FB935AD2E52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +47,26 @@ Global
 		{D93A6D1B-752D-439A-96AE-3CEC155B12AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D93A6D1B-752D-439A-96AE-3CEC155B12AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D93A6D1B-752D-439A-96AE-3CEC155B12AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9238BECC-55CB-4F0F-82E0-2E053A096076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9238BECC-55CB-4F0F-82E0-2E053A096076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9238BECC-55CB-4F0F-82E0-2E053A096076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9238BECC-55CB-4F0F-82E0-2E053A096076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80CB5362-7F04-4B21-953C-9FB935AD2E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80CB5362-7F04-4B21-953C-9FB935AD2E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80CB5362-7F04-4B21-953C-9FB935AD2E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80CB5362-7F04-4B21-953C-9FB935AD2E52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9238BECC-55CB-4F0F-82E0-2E053A096076} = {B67080F7-A9C1-43C6-8CFF-F804726EDC4B}
+		{23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0} = {B67080F7-A9C1-43C6-8CFF-F804726EDC4B}
+		{80CB5362-7F04-4B21-953C-9FB935AD2E52} = {B67080F7-A9C1-43C6-8CFF-F804726EDC4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3034BE4A-3DE3-4C84-92BD-75EA4E634D06}

@@ -4,7 +4,7 @@ using simple;
 
 // get the channel connecting the client to the server
 var channel =
-    GrpcChannel.ForAddress("https://localhost:5001");
+    GrpcChannel.ForAddress("https://localhost:55003");
 
 // create the GreeterClient service
 var client = new Greeter.GreeterClient(channel);
@@ -44,7 +44,6 @@ for(int i = 0; i < 3;  i++)
 }
 
 await clientSreamingCall.RequestStream.CompleteAsync();
-
-
 var clientStreamingResponse = await clientSreamingCall;
+
 Console.WriteLine(clientStreamingResponse.Msg);

@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvaGrpcClient.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaGrpcClient.Views.MainView">
+	<Grid ColumnDefinitions="*,*,*"
+		  Margin="10">
+		<StackPanel VerticalAlignment="Top"
+					HorizontalAlignment="Left">
+			<Button x:Name="TestUnaryHelloButton" 
+					Content="Call Unary Hello"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Result: "/>
+				<TextBlock x:Name="HelloResultText"/>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel VerticalAlignment="Top"
+					HorizontalAlignment="Left"
+					Grid.Column="1">
+			<Button x:Name="TestStreamingServerButton"
+					Content="Test Streaming Server"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Result: "/>
+				<TextBlock x:Name="StreamingServerResultsText"/>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel VerticalAlignment="Top"
+					HorizontalAlignment="Left"
+					Grid.Column="2">
+			<Button x:Name="TestStreamingClientButton"
+					Content="Test Streaming Client"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Result: "/>
+				<TextBlock x:Name="StreamingClientResultsText"/>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>
