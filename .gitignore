@@ -150,3 +150,12 @@
 /AspGrpc/GrpcInProcess/TestClient/obj
 /GRPC/SimpleRequestReplySample/Protos/bin/Release/net6.0
 /GRPCNew/SimpleRequestReplySample/SimpleGrpcClient/bin/Release/net8.0
+/AspGrpc/.vs
+/AspGrpc/ConsoleTestClient/bin/Debug/net8.0
+/AspGrpc/ConsoleTestClient/obj
+/AspGrpc/GreeterImpl/bin/Debug/net8.0
+/AspGrpc/GreeterImpl/obj
+/AspGrpc/GrpcServerProcess/bin/Debug/net8.0
+/AspGrpc/GrpcServerProcess/obj
+/AspGrpc/Protos/obj/Debug/net8.0
+/AspGrpc/Protos/obj

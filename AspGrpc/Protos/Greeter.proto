@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "simple";
+
+
+service Greeter
+{
+	// client takes HelloRequest and returns HelloReply
+	rpc SayHello (HelloRequest) returns (HelloReply);
+
+	rpc SayManyHellos (HelloRequest) returns (stream HelloReply);
+
+	rpc SayHelloToMany(stream HelloRequest) returns (HelloReply);
+}
+
+// HelloRequest has only one string field - name
+message HelloRequest
+{
+	string name = 1;
+}
+
+// HelloReply has only one string name - msg
+message HelloReply
+{
+	string msg = 1;
+}
