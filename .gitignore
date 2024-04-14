@@ -159,3 +159,5 @@
 /AspGrpc/GrpcServerProcess/obj
 /AspGrpc/Protos/obj/Debug/net8.0
 /AspGrpc/Protos/obj
+/AspGrpc/AspGrpcServer/obj
+/AspGrpc/AspGrpcServer/bin/Debug/net8.0
