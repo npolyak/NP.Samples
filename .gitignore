@@ -149,3 +149,4 @@
 /AspGrpc/GrpcInProcess/TestClient/bin/Debug/net8.0
 /AspGrpc/GrpcInProcess/TestClient/obj
 /GRPC/SimpleRequestReplySample/Protos/bin/Release/net6.0
+/GRPCNew/SimpleRequestReplySample/SimpleGrpcClient/bin/Release/net8.0
