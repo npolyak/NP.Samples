@@ -21,6 +21,8 @@
 					Grid.Column="1">
 			<Button x:Name="TestStreamingServerButton"
 					Content="Test Streaming Server"/>
+			<Button x:Name="TestStreamingServerCancelButton"
+					Content="Test Streaming Server Cancel"/>
 			<StackPanel Orientation="Horizontal">
 				<TextBlock Text="Result: "/>
 				<TextBlock x:Name="StreamingServerResultsText"/>

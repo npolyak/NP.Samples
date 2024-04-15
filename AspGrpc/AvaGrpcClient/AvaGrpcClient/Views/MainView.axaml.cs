@@ -5,12 +5,16 @@ using Grpc.Net.Client.Web;
 using simple;
 using System;
 using System.Net.Http;
+using System.Threading;
 
 namespace AvaGrpcClient.Views;
 
 public partial class MainView : UserControl
 {
     Greeter.GreeterClient _greeterGrpcClient;
+
+    CancellationTokenSource? _serverStreamCancellationTokenSource;
+
     public MainView()
     {
         InitializeComponent();
@@ -28,12 +32,13 @@ public partial class MainView : UserControl
 
         TestUnaryHelloButton.Click += TestUnaryHelloButton_Click;
         TestStreamingServerButton.Click += TestStreamingServerButton_Click;
+        TestStreamingServerCancelButton.Click += TestStreamingServerCancelButton_Click;
         TestStreamingClientButton.Click += TestStreamingClientButton_Click;
     }
 
+
     private async void TestUnaryHelloButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-
         var reply =
             await _greeterGrpcClient.SayHelloAsync(new HelloRequest { Name = "C# Client" });
         HelloResultText.Text = reply.Msg;
@@ -43,12 +48,25 @@ public partial class MainView : UserControl
     {
         StreamingServerResultsText.Text = string.Empty;
 
-        var serverStreamingCall = _greeterGrpcClient.ServerStreamHelloReplies(new HelloRequest { Name = "C# Client" });
-
-        await foreach (var response in serverStreamingCall.ResponseStream.ReadAllAsync())
+        try
         {
-            StreamingServerResultsText.Text += response.Msg + "\n";
+            var serverStreamingCall = _greeterGrpcClient.ServerStreamHelloReplies(new HelloRequest { Name = "C# Client" });
+            _serverStreamCancellationTokenSource = new CancellationTokenSource();
+            await foreach (var response in serverStreamingCall.ResponseStream.ReadAllAsync(_serverStreamCancellationTokenSource.Token))
+            {
+                StreamingServerResultsText.Text += response.Msg + "\n";
+            }
         }
+        catch(RpcException exception)
+        {
+
+        }
+    }
+
+    private void TestStreamingServerCancelButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        _serverStreamCancellationTokenSource?.Cancel();
+        _serverStreamCancellationTokenSource = null;
     }
 
     private async void TestStreamingClientButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
