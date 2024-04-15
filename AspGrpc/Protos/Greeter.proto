@@ -8,9 +8,9 @@ service Greeter
 	// client takes HelloRequest and returns HelloReply
 	rpc SayHello (HelloRequest) returns (HelloReply);
 
-	rpc SayManyHellos (HelloRequest) returns (stream HelloReply);
+	rpc ServerStreamHelloReplies (HelloRequest) returns (stream HelloReply);
 
-	rpc SayHelloToMany(stream HelloRequest) returns (HelloReply);
+	rpc ClientStreamHelloRequests(stream HelloRequest) returns (HelloReply);
 }
 
 // HelloRequest has only one string field - name

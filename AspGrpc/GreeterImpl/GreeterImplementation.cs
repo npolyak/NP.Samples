@@ -12,7 +12,11 @@ namespace GrpcServerProcess
             return new HelloReply { Msg = $"Hello {name}!!!" };
         }
 
-        public override async Task SayManyHellos(HelloRequest request, IServerStreamWriter<HelloReply> responseStream, ServerCallContext context)
+        public override async Task ServerStreamHelloReplies
+        (
+            HelloRequest request, 
+            IServerStreamWriter<HelloReply> responseStream, 
+            ServerCallContext context)
         {
             string name = request.Name;
 
@@ -20,10 +24,11 @@ namespace GrpcServerProcess
             {
                 await responseStream.WriteAsync(new HelloReply { Msg = $"Hello {name} {i + 1}" });
                 await Task.Delay(500);
+                context.CancellationToken.ThrowIfCancellationRequested();
             }
         }
 
-        public override async Task<HelloReply> SayHelloToMany(IAsyncStreamReader<HelloRequest> requestStream, ServerCallContext context)
+        public override async Task<HelloReply> ClientStreamHelloRequests(IAsyncStreamReader<HelloRequest> requestStream, ServerCallContext context)
         {
             string message = "Hello ";
 

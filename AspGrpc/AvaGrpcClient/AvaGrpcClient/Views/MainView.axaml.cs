@@ -43,7 +43,7 @@ public partial class MainView : UserControl
     {
         StreamingServerResultsText.Text = string.Empty;
 
-        var serverStreamingCall = _greeterGrpcClient.SayManyHellos(new HelloRequest { Name = "C# Client" });
+        var serverStreamingCall = _greeterGrpcClient.ServerStreamHelloReplies(new HelloRequest { Name = "C# Client" });
 
         await foreach (var response in serverStreamingCall.ResponseStream.ReadAllAsync())
         {
@@ -53,7 +53,7 @@ public partial class MainView : UserControl
 
     private async void TestStreamingClientButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        var clientSreamingCall = _greeterGrpcClient.SayHelloToMany();
+        var clientSreamingCall = _greeterGrpcClient.ClientStreamHelloRequests();
 
         for (int i = 0; i < 3; i++)
         {

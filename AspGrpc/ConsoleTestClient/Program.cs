@@ -24,7 +24,7 @@ Console.WriteLine();
 
 Console.WriteLine($"Streaming Server Sample:");
 
-var serverStreamingCall = client.SayManyHellos(new HelloRequest { Name = "C# Client" });
+var serverStreamingCall = client.ServerStreamHelloReplies(new HelloRequest { Name = "C# Client" });
 
 await foreach(var response in serverStreamingCall.ResponseStream.ReadAllAsync())
 {
@@ -36,7 +36,7 @@ Console.WriteLine();
 
 Console.WriteLine($"Streaming Client Sample:");
 
-var clientSreamingCall = client.SayHelloToMany();
+var clientSreamingCall = client.ClientStreamHelloRequests();
 
 for(int i = 0; i < 3;  i++)
 {
