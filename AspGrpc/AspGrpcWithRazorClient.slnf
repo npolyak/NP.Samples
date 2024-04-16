@@ -1,0 +1,10 @@
+{
+    "solution": {
+        "path": "AGrpcTests.sln",
+        "projects": [
+            "GreeterImpl\\GreeterImpl.csproj",
+            "Protos\\Protos.csproj",
+            "AspGrpcServerWithRazorClient\\AspGrpcServerWithRazorClient.csproj"
+        ]
+    }
+}

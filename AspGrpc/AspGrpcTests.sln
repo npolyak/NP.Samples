@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaGrpcClient.Browser", "Av
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaGrpcClient.Desktop", "AvaGrpcClient\AvaGrpcClient.Desktop\AvaGrpcClient.Desktop.csproj", "{80CB5362-7F04-4B21-953C-9FB935AD2E52}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspGrpcServerWithRazorClient", "AspGrpcServerAndHtmlClient\AspGrpcServerWithRazorClient.csproj", "{4B1CAEF5-89CB-45B7-BE55-04030F84387C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspGrpcServerWithRazorClient", "AspGrpcServerWithRazorClient\AspGrpcServerWithRazorClient.csproj", "{4B1CAEF5-89CB-45B7-BE55-04030F84387C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
