@@ -161,3 +161,4 @@
 /AspGrpc/Protos/obj
 /AspGrpc/AspGrpcServer/obj
 /AspGrpc/AspGrpcServer/bin/Debug/net8.0
+*.slnf#
