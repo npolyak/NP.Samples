@@ -5,10 +5,19 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Remove="wwwroot\dist\Greeter_grpc_web_pb.js" />
+	  <Content Remove="wwwroot\dist\Greeter_pb.js" />
+	</ItemGroup>
 	
 	<ItemGroup>
 		<ProjectReference Include="..\GreeterImpl\GreeterImpl.csproj" />
-		<PackageReference Include="Grpc.AspNetCore.Web"
-						  Version="2.62.0" />
+		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.62.0" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <None Include="wwwroot\dist\Greeter_grpc_web_pb.js" />
+	  <None Include="wwwroot\dist\Greeter_pb.js" />
 	</ItemGroup>
 </Project>

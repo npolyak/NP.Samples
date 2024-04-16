@@ -1,6 +1,6 @@
 {
     "solution": {
-        "path": "AGrpcTests.sln",
+        "path": "AspGrpcTests.sln",
         "projects": [
             "GreeterImpl\\GreeterImpl.csproj",
             "Protos\\Protos.csproj",
