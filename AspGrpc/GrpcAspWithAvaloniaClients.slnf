@@ -1,0 +1,13 @@
+{
+    "solution": {
+        "path": "AspGrpcTests.sln",
+        "projects": [
+            "GreeterImpl\\GreeterImpl.csproj",
+            "Protos\\Protos.csproj",
+            "AspGrpcServer\\AspGrpcServer.csproj",
+            "AvaGrpcClient\\AvaGrpcClient\\AvaGrpcClient.csproj",
+            "AvaGrpcClient\\AvaGrpcClient.Browser\\AvaGrpcClient.Browser.csproj",
+            "AvaGrpcClient\\AvaGrpcClient.Desktop\\AvaGrpcClient.Desktop.csproj",
+        ]
+    }
+}

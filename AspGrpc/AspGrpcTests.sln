@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protos", "Protos\Protos.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTestClient", "ConsoleTestClient\ConsoleTestClient.csproj", "{35DFDD1F-25DA-4F25-A013-07E0CB18450F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreeterImpl", "GreeterImpl\GreeterImpl.csproj", "{DEACFF2B-C9B8-4D22-AB0C-A652DFCEEC66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreeterImpl", "GreeterImpl\GreeterImpl.csproj", "{DEACFF2B-C9B8-4D22-AB0C-A652DFCEEC66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspGrpcServer", "AspGrpcServer\AspGrpcServer.csproj", "{D93A6D1B-752D-439A-96AE-3CEC155B12AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspGrpcServer", "AspGrpcServer\AspGrpcServer.csproj", "{D93A6D1B-752D-439A-96AE-3CEC155B12AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AvaloniaClients", "AvaloniaClients", "{B67080F7-A9C1-43C6-8CFF-F804726EDC4B}"
 EndProject
@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaGrpcClient.Browser", "Av
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaGrpcClient.Desktop", "AvaGrpcClient\AvaGrpcClient.Desktop\AvaGrpcClient.Desktop.csproj", "{80CB5362-7F04-4B21-953C-9FB935AD2E52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspGrpcServerAndHtmlClient", "AspGrpcServerAndHtmlClient\AspGrpcServerAndHtmlClient.csproj", "{4B1CAEF5-89CB-45B7-BE55-04030F84387C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspGrpcServerWithRazorClient", "AspGrpcServerAndHtmlClient\AspGrpcServerWithRazorClient.csproj", "{4B1CAEF5-89CB-45B7-BE55-04030F84387C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

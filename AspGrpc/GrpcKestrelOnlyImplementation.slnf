@@ -1,0 +1,11 @@
+{
+    "solution": {
+        "path": "AspGrpcTests.sln",
+        "projects": [
+            "GreeterImpl\\GreeterImpl.csproj",
+            "GrpcServerProcess\\GrpcServerProcess.csproj",
+            "Protos\\Protos.csproj",
+            "ConsoleTestClient\\ConsoleTestClient.csproj"
+        ]
+    }
+}
