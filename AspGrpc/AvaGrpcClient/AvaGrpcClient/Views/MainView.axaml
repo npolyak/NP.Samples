@@ -5,7 +5,7 @@
              xmlns:vm="clr-namespace:AvaGrpcClient.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaGrpcClient.Views.MainView">
-	<Grid ColumnDefinitions="*,*,*"
+	<Grid ColumnDefinitions="*,*,*,*"
 		  Margin="10">
 		<StackPanel VerticalAlignment="Top"
 					HorizontalAlignment="Left">
@@ -36,6 +36,17 @@
 			<StackPanel Orientation="Horizontal">
 				<TextBlock Text="Result: "/>
 				<TextBlock x:Name="StreamingClientResultsText"/>
+			</StackPanel>
+		</StackPanel>
+
+		<StackPanel VerticalAlignment="Top"
+					HorizontalAlignment="Left"
+					Grid.Column="3">
+			<Button x:Name="TestStreamingClientServerButton"
+					Content="Test Streaming Client and Server"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Result: "/>
+				<TextBlock x:Name="StreamingClientServerResultsText"/>
 			</StackPanel>
 		</StackPanel>
 	</Grid>

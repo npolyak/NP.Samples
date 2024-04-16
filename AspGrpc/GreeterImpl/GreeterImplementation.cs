@@ -46,5 +46,38 @@ namespace GrpcServerProcess
 
             return new HelloReply { Msg = message };
         }
+
+        public override async Task ClientAndServerStreamingTest(IAsyncStreamReader<HelloRequest> requestStream, IServerStreamWriter<HelloReply> responseStream, ServerCallContext context)
+        {
+            //await foreach (var inputMessage in requestStream.ReadAllAsync())
+            //{
+            //    string name = inputMessage.Name;
+
+            //    for (int i = 0; i < 4; i++)
+            //    {
+            //        string msg = $"Hello {name}_{i + 1}";
+            //        Console.WriteLine(msg);
+            //        await responseStream.WriteAsync(new HelloReply { Msg = msg });
+            //        await Task.Delay(200);
+
+            //        context.CancellationToken.ThrowIfCancellationRequested();
+            //    }
+            //}
+
+            await Parallel.ForEachAsync(requestStream.ReadAllAsync(), async (inputMessage, ct) =>
+            {
+                string name = inputMessage.Name;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    string msg = $"Hello {name}_{i + 1}";
+                    Console.WriteLine(msg);
+                    await responseStream.WriteAsync(new HelloReply { Msg = msg });
+                    await Task.Delay(200);
+
+                    context.CancellationToken.ThrowIfCancellationRequested();
+                }
+            });
+        }
     }
 }

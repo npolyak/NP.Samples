@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Threading;
 using Grpc.Core;
 using Grpc.Net.Client;
 using Grpc.Net.Client.Web;
@@ -6,6 +7,7 @@ using simple;
 using System;
 using System.Net.Http;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace AvaGrpcClient.Views;
 
@@ -34,8 +36,9 @@ public partial class MainView : UserControl
         TestStreamingServerButton.Click += TestStreamingServerButton_Click;
         TestStreamingServerCancelButton.Click += TestStreamingServerCancelButton_Click;
         TestStreamingClientButton.Click += TestStreamingClientButton_Click;
-    }
 
+        TestStreamingClientServerButton.Click += TestStreamingClientServerButton_Click;
+    }
 
     private async void TestUnaryHelloButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
@@ -83,4 +86,31 @@ public partial class MainView : UserControl
 
         StreamingClientResultsText.Text = clientStreamingResponse.Msg;
     }
+
+
+    private async void TestStreamingClientServerButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        var clientServerStreamingCall = _greeterGrpcClient.ClientAndServerStreamingTest();
+
+        StreamingClientServerResultsText.Text = string.Empty;
+
+        var readTask = Task.Run(async () =>
+        {
+            await foreach (var reply in clientServerStreamingCall.ResponseStream.ReadAllAsync())
+            {
+                await Dispatcher.UIThread.InvokeAsync(() => { StreamingClientServerResultsText.Text += reply.Msg + "\n"; });
+            }
+        });
+
+        for (int i = 0; i < 3; i++)
+        {
+            await clientServerStreamingCall.RequestStream.WriteAsync(new HelloRequest { Name = $"Client_{i + 1}" });
+
+            await Task.Delay(20);
+        }
+
+        await clientServerStreamingCall.RequestStream.CompleteAsync();
+        await readTask;
+    }
+
 }
