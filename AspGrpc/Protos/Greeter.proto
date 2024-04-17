@@ -10,6 +10,8 @@ service Greeter
 
 	rpc ServerStreamHelloReplies (HelloRequest) returns (stream HelloReply);
 
+	rpc ServerStreamHelloRepliesWithError (HelloRequest) returns (stream HelloReply);
+
 	rpc ClientStreamHelloRequests(stream HelloRequest) returns (HelloReply);
 
 	rpc ClientAndServerStreamingTest(stream HelloRequest) returns (stream HelloReply);
