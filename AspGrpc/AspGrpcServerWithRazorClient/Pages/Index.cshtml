@@ -4,5 +4,104 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-</div>
+<h1>ASP gRPC Samples</h1>
+<label>Enter Name:</label>
+<input type="text" id="TheName" value="Nick">
+<h2>Non-Streaming (Single Value) gRPC Sample:</h2>
+<button type="button" id="GetSingleGreetingButton">Get Single Greeting</button><br /><br />
+<div id="TheSingleValueResponse" style="font-weight:bold;font-size:20px;font-style:italic"></div>
+
+<h2>Streaming (Multiple Values) gRPC Sample:</h2>
+<button type="button" id="GetMultipleGreetingsButton">Get Multiple Greeting</button>
+<button type="button" id="GetMultipleGreetingsWithErrorButton">Get Multiple Greeting With ERROR</button>
+<button type="button" id="CancelStreamingButton">Cancel Streaming</button>
+<br /><br />
+<div id="TheStreamingResponse" style="font-weight:bold;font-size:20px;font-style:italic"></div>
+<label id="TheErrorLabel" style="visibility:collapse">Streaming Error:</label>
+<div id="TheStreamingError"></div>
+<div id="TheStreamingEnded"></div>
+<script src="./dist/main.js"></script>
+<script src="./dist/jquery.min.js"></script>
+<script type="text/javascript">
+    var stream = null;
+    $(
+        () => {
+            $("#CancelStreamingButton").on(
+                "click",
+                () => {
+                    var myStream = stream;
+
+                    if (myStream != null) {
+                        myStream.cancel("Cancelling Streaming from client");
+                    }
+                }
+            )
+
+            var location = window.location;
+            var url = location.protocol + "//" + location.hostname + ":55003"
+            //var url = location.origin;
+            var greeterService = new GreeterClient(url);
+
+            $("#GetSingleGreetingButton").on(
+                "click",
+                () => {
+                    var request = new HelloRequest();
+                    var name = $("#TheName").val();
+
+                    request.setName(name);
+
+                    greeterService.sayHello(request, {}, (err, response) => {
+                        var msg = response.getMsg();
+                        $("#TheSingleValueResponse").text(msg);
+                    });
+                });
+
+            $("#GetMultipleGreetingsButton").on(
+                "click",
+                () => getStreamedGreetings(greeterService, false)
+            );
+
+            $("#GetMultipleGreetingsWithErrorButton").on(
+                "click",
+                () => getStreamedGreetings(greeterService, true)
+            );
+        }
+    )
+
+    getStreamedGreetings = (greeterService, throwError) => {
+        $("#TheStreamingEnded").text('');
+        $("#TheErrorLabel").css("visility", "collapse");
+        $("#TheStreamingError").text('');
+        var request = new HelloRequest();
+        var name = $("#TheName").val();
+
+        request.setName(name);
+
+        if (!throwError) {
+            stream = greeterService.serverStreamHelloReplies(request, {});
+        }
+        else {
+            stream = greeterService.serverStreamHelloRepliesWithError(request, {});
+        }
+
+        stream.on('data', (response) => {
+            var msg = response.getMsg();
+            $("#TheStreamingResponse").text(msg);
+        });
+
+        stream.on('status', (status) => {
+
+        });
+
+        stream.on('error', (err) => {
+            $("#TheErrorLabel").css("visility", "visible");
+            $("#TheStreamingError").text(err);
+            stream = null;
+        });
+
+        stream.on('end', () => {
+            $("#TheStreamingEnded").text("STREAMING ENDED");
+            stream = null;
+        })
+    }
+</script>
