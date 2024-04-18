@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.StaticFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.UseIISIntegration();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
@@ -12,6 +13,7 @@ builder.Services.AddWebEncoders();
 builder.Services.AddHealthChecks();
 
 string corsPolicyName = "CorsPolicy";
+
 
 builder.Services.AddCors
 (
@@ -65,13 +67,12 @@ app.UseStaticFiles(/*new StaticFileOptions { ContentTypeProvider = contentTypePr
 app.UseRouting();
 app.UseGrpcWeb();
 
-
 app.UseCors(corsPolicyName);
 
 //app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.MapGrpcService<GreeterImplementation>().EnableGrpcWeb().RequireHost("*:55003");
+app.MapGrpcService<GreeterImplementation>().EnableGrpcWeb();//.RequireHost("*:55003");
 
 app.Run();

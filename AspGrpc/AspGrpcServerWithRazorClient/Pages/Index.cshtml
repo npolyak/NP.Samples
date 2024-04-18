@@ -38,8 +38,8 @@
             )
 
             var location = window.location;
-            var url = location.protocol + "//" + location.hostname + ":55003"
-            //var url = location.origin;
+            //var url = location.protocol + "//" + location.hostname + ":7121"
+            var url = location.origin;
             var greeterService = new GreeterClient(url);
 
             $("#GetSingleGreetingButton").on(
