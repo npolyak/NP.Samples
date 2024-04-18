@@ -15,7 +15,7 @@ public partial class MainView : UserControl
 {
     Greeter.GreeterClient _greeterGrpcClient;
 
-    CancellationTokenSource? _serverStreamCancellationTokenSource;
+    CancellationTokenSource _serverStreamCancellationTokenSource;
 
     public MainView()
     {
@@ -34,42 +34,68 @@ public partial class MainView : UserControl
 
         TestUnaryHelloButton.Click += TestUnaryHelloButton_Click;
         TestStreamingServerButton.Click += TestStreamingServerButton_Click;
+
         TestStreamingServerCancelButton.Click += TestStreamingServerCancelButton_Click;
         TestStreamingClientButton.Click += TestStreamingClientButton_Click;
-
+        TestStreamingServerWithErrorButton.Click += TestStreamingServerWithErrorButton_Click;
         TestStreamingClientServerButton.Click += TestStreamingClientServerButton_Click;
+
+        _serverStreamCancellationTokenSource = new CancellationTokenSource();
     }
+
+    private string GreetingName => NameToEnter.Text ?? string.Empty;
 
     private async void TestUnaryHelloButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         var reply =
-            await _greeterGrpcClient.SayHelloAsync(new HelloRequest { Name = "C# Client" });
+            await _greeterGrpcClient.SayHelloAsync(new HelloRequest { Name = GreetingName });
         HelloResultText.Text = reply.Msg;
     }
 
     private async void TestStreamingServerButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         StreamingServerResultsText.Text = string.Empty;
-
+        StreamingErrorText.Text = string.Empty;
         try
         {
-            var serverStreamingCall = _greeterGrpcClient.ServerStreamHelloReplies(new HelloRequest { Name = "C# Client" });
-            _serverStreamCancellationTokenSource = new CancellationTokenSource();
+            var serverStreamingCall = _greeterGrpcClient.ServerStreamHelloReplies(new HelloRequest { Name = GreetingName });
             await foreach (var response in serverStreamingCall.ResponseStream.ReadAllAsync(_serverStreamCancellationTokenSource.Token))
             {
-                StreamingServerResultsText.Text += response.Msg + "\n";
+                StreamingServerResultsText.Text = response.Msg;
             }
         }
         catch(RpcException exception)
         {
-
+            StreamingErrorText.Text = $"ERROR: {exception.Message}";
         }
     }
+
+    private async void TestStreamingServerWithErrorButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        StreamingServerResultsText.Text = string.Empty;
+        StreamingErrorText.Text = string.Empty;
+
+        try
+        {
+            var serverStreamingCall = _greeterGrpcClient.ServerStreamHelloRepliesWithError(new HelloRequest { Name = GreetingName });
+
+
+            await foreach (var response in serverStreamingCall.ResponseStream.ReadAllAsync(_serverStreamCancellationTokenSource.Token))
+            {
+                StreamingServerResultsText.Text = response.Msg;
+            }
+        }
+        catch (RpcException exception)
+        {
+            StreamingErrorText.Text = $"ERROR: {exception.Message}";
+        }
+    }
+
 
     private void TestStreamingServerCancelButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         _serverStreamCancellationTokenSource?.Cancel();
-        _serverStreamCancellationTokenSource = null;
+        _serverStreamCancellationTokenSource = new CancellationTokenSource();
     }
 
     private async void TestStreamingClientButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
