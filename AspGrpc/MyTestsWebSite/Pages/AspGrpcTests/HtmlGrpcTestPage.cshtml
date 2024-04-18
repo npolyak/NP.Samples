@@ -1,7 +1,8 @@
 ﻿@page
-@model AspGrpcServerWithRazorClient.Pages.HtmlGrpcTestPageModel
+@model MyTestsWebSite.AspGrpcTests.Pages.HtmlGrpcTestPageModel
 @{
 }
+<a href="/" style="font-size:20px;font-weight:bold;margin:10px">Home</a>
 <h1>ASP JavaScript gRPC Samples</h1>
 <label>Enter Name:</label>
 <input type="text" id="TheName" value="Nick">
@@ -21,8 +22,8 @@
 <label id="TheErrorLabel" style="visibility:collapse">Streaming Error:</label>
 <div id="TheStreamingError"></div>
 <div id="TheStreamingEnded"></div>
-<script src="./dist/main.js"></script>
-<script src="./dist/jquery.min.js"></script>
+<script src="~/dist/main.js"></script>
+<script src="~/dist/jquery.min.js"></script>
 <script type="text/javascript">
     var stream = null;
     $(

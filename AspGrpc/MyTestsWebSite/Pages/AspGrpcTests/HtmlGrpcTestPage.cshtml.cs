@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace AspGrpcServerWithRazorClient.AspGrpcTests.Pages
+namespace MyTestsWebSite.AspGrpcTests.Pages
 {
     public class HtmlGrpcTestPageModel : PageModel
     {
