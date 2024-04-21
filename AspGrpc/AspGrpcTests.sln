@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaGrpcClient.Desktop", "Av
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspGrpcServerWithRazorClient", "AspGrpcServerWithRazorClient\AspGrpcServerWithRazorClient.csproj", "{4B1CAEF5-89CB-45B7-BE55-04030F84387C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestsWebSite", "MyTestsWebSite\MyTestsWebSite.csproj", "{56EC4C18-7228-40E8-A66D-A30537564018}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestsWebSite", "MyTestsWebSite\MyTestsWebSite.csproj", "{56EC4C18-7228-40E8-A66D-A30537564018}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

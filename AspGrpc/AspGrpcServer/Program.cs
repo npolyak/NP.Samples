@@ -72,6 +72,6 @@ app.UseCors(corsPolicyName);
 
 app.MapRazorPages();
 
-app.MapGrpcService<GreeterImplementation>().EnableGrpcWeb().RequireHost("*:55003");
+app.MapGrpcService<GreeterImplementation>().EnableGrpcWeb();//.RequireHost("*:55003");
 
 app.Run();
