@@ -24,6 +24,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspGrpcServerWithRazorClient", "AspGrpcServerWithRazorClient\AspGrpcServerWithRazorClient.csproj", "{4B1CAEF5-89CB-45B7-BE55-04030F84387C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestsWebSite", "MyTestsWebSite\MyTestsWebSite.csproj", "{56EC4C18-7228-40E8-A66D-A30537564018}"
+	ProjectSection(ProjectDependencies) = postProject
+		{23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0} = {23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

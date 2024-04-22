@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MyTestsWebSite</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="modulepreload" href="~/mainForAvalonia.js" />
+    <link rel="modulepreload" href="~/_framework/dotnet.js" />
+    <link rel="modulepreload" href="~/_framework/avalonia.js" />
+    <link rel="stylesheet" href="~/app.css" />
 </head>
 <body>
-    <header>
+@*     <header>
         <div class="container" class="border-top footer text-muted">
             &copy; Nick Polyak 2024
         </div>
-    </header>
+    </header> *@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

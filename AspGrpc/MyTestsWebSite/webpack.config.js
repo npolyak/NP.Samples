@@ -5,6 +5,6 @@ module.exports = {
     entry: './wwwroot/dist/client.js',
     output: {
         path: path.resolve(__dirname, 'wwwroot/dist'),
-        filename: 'main.js',
+        filename: 'mainForHtmlJavaScrip.js',
     },
 };

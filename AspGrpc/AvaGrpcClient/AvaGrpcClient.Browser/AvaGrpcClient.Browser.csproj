@@ -3,7 +3,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0-browser</TargetFramework>
     <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
-    <WasmMainJSPath>wwwroot\main.js</WasmMainJSPath>
+    <WasmMainJSPath>wwwroot\mainForAvalonia.js</WasmMainJSPath>
     <WasmRuntimeAssetsLocation>./_framework</WasmRuntimeAssetsLocation>
   </PropertyGroup>
 
@@ -17,5 +17,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AvaGrpcClient\AvaGrpcClient.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WasmExtraFilesToDeploy Remove="wwwroot\mainForAvalonia.js" />
   </ItemGroup>
 </Project>

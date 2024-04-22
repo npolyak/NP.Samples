@@ -23,7 +23,7 @@ public partial class MainView : UserControl
         var channel =
             GrpcChannel.ForAddress
             (
-                "https://localhost:55003",
+                "https://localhost:7190",
                 new GrpcChannelOptions
                 {
                     HttpHandler = new GrpcWebHandler(new HttpClientHandler())

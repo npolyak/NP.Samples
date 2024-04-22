@@ -162,3 +162,4 @@
 /AspGrpc/AspGrpcServer/obj
 /AspGrpc/AspGrpcServer/bin/Debug/net8.0
 *.slnf#
+/AspGrpc/MyTestsWebSite/wwwroot/_framework

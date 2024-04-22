@@ -61,7 +61,7 @@ foreach (var kvp in dict)
 }
 
 app.UseDefaultFiles();
-app.UseStaticFiles(/*new StaticFileOptions { ContentTypeProvider = contentTypeProvider }*/);
+app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = contentTypeProvider });
 app.UseRouting();
 app.UseGrpcWeb();
 

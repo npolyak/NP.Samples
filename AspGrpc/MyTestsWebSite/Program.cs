@@ -3,14 +3,14 @@ using Microsoft.AspNetCore.StaticFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.UseIISIntegration();
+//builder.WebHost.UseIISIntegration();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
 builder.Services.AddGrpc();
 
 builder.Services.AddWebEncoders();
-builder.Services.AddHealthChecks();
+//builder.Services.AddHealthChecks();
 
 string corsPolicyName = "CorsPolicy";
 
@@ -63,7 +63,7 @@ foreach (var kvp in dict)
 }
 
 app.UseDefaultFiles();
-app.UseStaticFiles(/*new StaticFileOptions { ContentTypeProvider = contentTypeProvider }*/);
+app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = contentTypeProvider });
 app.UseRouting();
 app.UseGrpcWeb();
 
