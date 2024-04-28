@@ -7,10 +7,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Remove="wwwroot\app.css" />
 		<Content Remove="wwwroot\dist\Greeter_grpc_web_pb.js" />
 		<Content Remove="wwwroot\dist\Greeter_pb.js" />
-		<Content Remove="wwwroot\Logo.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -19,10 +17,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="wwwroot\app.css" />
 		<None Include="wwwroot\dist\Greeter_grpc_web_pb.js" />
 		<None Include="wwwroot\dist\Greeter_pb.js" />
-		<None Include="wwwroot\Logo.svg" />
 	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="xcopy &quot;$(SolutionDir)AvaGrpcClient\AvaGrpcClient.Browser\bin\$(Configuration)\net8.0-browser\browser-wasm\AppBundle\_framework&quot; &quot;$(ProjectDir)wwwroot\_framework&quot; /E /R /Y /I" />
