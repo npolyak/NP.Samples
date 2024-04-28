@@ -4,15 +4,21 @@ using Avalonia;
 using Avalonia.Browser;
 using Avalonia.ReactiveUI;
 using AvaGrpcClient;
+using System;
 
 [assembly: SupportedOSPlatform("browser")]
 
 internal sealed partial class Program
 {
-    private static Task Main(string[] args) => BuildAvaloniaApp()
+    private static async Task Main(string[] args)
+    {
+        CommonData.Url = args[0];
+
+        await BuildAvaloniaApp()
             .WithInterFont()
             .UseReactiveUI()
             .StartBrowserAppAsync("out");
+    }
 
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>();

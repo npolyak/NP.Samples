@@ -20,10 +20,11 @@ public partial class MainView : UserControl
     public MainView()
     {
         InitializeComponent();
+
         var channel =
             GrpcChannel.ForAddress
             (
-                "https://localhost:7190",
+                CommonData.Url!,
                 new GrpcChannelOptions
                 {
                     HttpHandler = new GrpcWebHandler(new HttpClientHandler())

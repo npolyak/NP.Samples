@@ -3,11 +3,16 @@
 const is_browser = typeof window != "undefined";
 if (!is_browser) throw new Error(`Expected to be running in a browser`);
 
-const dotnetRuntime = await dotnet
+//const dotnetRuntime = await dotnet
+//    .withDiagnosticTracing(false)
+//    .withApplicationArgumentsFromQuery()
+//    .create();
+
+const { setModuleImports, getAssemblyExports, getConfig, runMain } = await dotnet
     .withDiagnosticTracing(false)
     .withApplicationArgumentsFromQuery()
     .create();
 
-const config = dotnetRuntime.getConfig();
+const config = getConfig();
 
-await dotnetRuntime.runMain(config.mainAssemblyName, [window.location.search]);
+await runMain(config.mainAssemblyName, [window.location.origin]);
