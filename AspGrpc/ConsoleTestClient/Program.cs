@@ -7,14 +7,14 @@ var channel =
     GrpcChannel.ForAddress("https://localhost:55003");
 
 // create the GreeterClient service
-var client = new Greeter.GreeterClient(channel);
+var greeterGrpcClient = new Greeter.GreeterClient(channel);
 
-
+string greetingName = "Joe Doe";
 
 Console.WriteLine($"Unary server call sample:");
 // call SetHello RPC on the server asynchronously and wait for the reply.
 var reply =
-    await client.SayHelloAsync(new HelloRequest { Name = "C# Client" });
+    await greeterGrpcClient.SayHelloAsync(new HelloRequest { Name = greetingName });
 
 Console.WriteLine("Greeting: " + reply.Msg);
 
@@ -24,19 +24,36 @@ Console.WriteLine();
 
 Console.WriteLine($"Streaming Server Sample:");
 
-var serverStreamingCall = client.ServerStreamHelloReplies(new HelloRequest { Name = "C# Client" });
+var serverStreamingCall = greeterGrpcClient.ServerStreamHelloReplies(new HelloRequest { Name = greetingName });
 
 await foreach(var response in serverStreamingCall.ResponseStream.ReadAllAsync())
 {
     Console.WriteLine("Greeting: " + response.Msg);
 }
+
 Console.WriteLine();
 Console.WriteLine();
 
+Console.WriteLine($"Streaming Server Sample with Error:");
+var serverStreamingCallWithError = greeterGrpcClient.ServerStreamHelloRepliesWithError(new HelloRequest { Name = greetingName });
+try
+{
+    await foreach (var response in serverStreamingCallWithError.ResponseStream.ReadAllAsync())
+    {
+        Console.WriteLine("Greeting: " + response.Msg);
+    }
+}
+catch(RpcException exception)
+{
+    Console.WriteLine(exception.Message);
+}
+
+Console.WriteLine();
+Console.WriteLine();
 
 Console.WriteLine($"Streaming Client Sample:");
 
-var clientSreamingCall = client.ClientStreamHelloRequests();
+var clientSreamingCall = greeterGrpcClient.ClientStreamHelloRequests();
 
 for(int i = 0; i < 3;  i++)
 {
@@ -47,3 +64,26 @@ await clientSreamingCall.RequestStream.CompleteAsync();
 var clientStreamingResponse = await clientSreamingCall;
 
 Console.WriteLine(clientStreamingResponse.Msg);
+
+
+Console.WriteLine();
+Console.WriteLine();
+
+Console.WriteLine($"Bidirectional Streaming Client/Server Sample:");
+var clientServerStreamingCall = greeterGrpcClient.ClientAndServerStreamingTest();
+var readTask = Task.Run(async () =>
+{
+    await foreach (var reply in clientServerStreamingCall.ResponseStream.ReadAllAsync())
+    {
+        Console.WriteLine(reply.Msg);
+    }
+});
+
+for (int i = 0; i < 3; i++)
+{
+    await clientServerStreamingCall.RequestStream.WriteAsync(new HelloRequest { Name = $"Client_{i + 1}" });
+
+    await Task.Delay(20);
+}
+
+await Task.WhenAll(readTask, clientServerStreamingCall.RequestStream.CompleteAsync());
