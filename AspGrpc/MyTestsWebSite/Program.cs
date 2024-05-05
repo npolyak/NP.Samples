@@ -1,13 +1,39 @@
 using GrpcServerProcess;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.StaticFiles;
+using System.IO.Compression;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddResponseCompression
+(
+    options =>
+    {
+        options.EnableForHttps = true;
+        //options.MimeTypes =
+        //[
+        //    "text/*",
+        //    "message/*",
+        //    "application/wasm",
+        //    "application/javascript"
+        //];
+        options.Providers.Add<BrotliCompressionProvider>();
+        options.Providers.Add<GzipCompressionProvider>();
+    }
+);
 //builder.WebHost.UseIISIntegration();
 // Add services to the container.
 builder.Services.AddRazorPages();
-
 builder.Services.AddGrpc();
+
+builder.Services.Configure<BrotliCompressionProviderOptions>(options =>
+{
+    options.Level = CompressionLevel.Fastest;
+});
+
+builder.Services.Configure<GzipCompressionProviderOptions>(options =>
+{
+    options.Level = CompressionLevel.SmallestSize;
+});
 
 builder.Services.AddWebEncoders();
 //builder.Services.AddHealthChecks();
@@ -34,6 +60,7 @@ builder.Services.AddCors
 );
 
 var app = builder.Build();
+app.UseHttpsRedirection();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -42,8 +69,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.UseResponseCompression();
 
-app.UseHttpsRedirection();
 
 var contentTypeProvider = new FileExtensionContentTypeProvider();
 var dict = new Dictionary<string, string>
@@ -63,7 +90,7 @@ foreach (var kvp in dict)
 }
 
 app.UseDefaultFiles();
-app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = contentTypeProvider });
+app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = contentTypeProvider, HttpsCompression = Microsoft.AspNetCore.Http.Features.HttpsCompressionMode.Compress });
 app.UseRouting();
 app.UseGrpcWeb();
 

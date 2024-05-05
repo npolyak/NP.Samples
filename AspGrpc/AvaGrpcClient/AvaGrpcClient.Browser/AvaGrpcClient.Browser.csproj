@@ -1,25 +1,50 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0-browser</TargetFramework>
-    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
-    <WasmMainJSPath>wwwroot\mainForAvalonia.js</WasmMainJSPath>
-    <WasmRuntimeAssetsLocation>./_framework</WasmRuntimeAssetsLocation>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0-browser</TargetFramework>
+		<RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+		<WasmMainJSPath>wwwroot\mainForAvalonia.js</WasmMainJSPath>
+		<WasmRuntimeAssetsLocation>./_framework</WasmRuntimeAssetsLocation>
+		<EmccFlags>-sVERBOSE -sERROR_ON_UNDEFINED_SYMBOLS=0</EmccFlags>
+		<Configurations>Debug;Release</Configurations>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<EmccFlags>$(EmccFlags) -sUSE_WEBGL2=1 -sMAX_WEBGL_VERSION=2 -lGL </EmccFlags>
+		<RunAOTCompilation>true</RunAOTCompilation>
+		<Optimize>true</Optimize>
+		<MSBuildEnableWorkloadResolver>true</MSBuildEnableWorkloadResolver>
+		<PublishTrimmed>true</PublishTrimmed>
+		<TrimMode>full</TrimMode>
+		<WasmBuildNative>true</WasmBuildNative>
+		<WasmNativeStrip>true</WasmNativeStrip>
+		<WasmStripILAfterAOT>true</WasmStripILAfterAOT>
+		<InvariantGlobalization>false</InvariantGlobalization>
+		<EmccCompileOptimizationFlag>-O3</EmccCompileOptimizationFlag>
+		<EmccLinkOptimizationFlag>-O3</EmccLinkOptimizationFlag>
+		<EmccInitialHeapSize>32MB</EmccInitialHeapSize>
+		<SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
+		<WasmSingleFileBundle>true</WasmSingleFileBundle>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <WasmExtraFilesToDeploy Include="wwwroot\**" />
-  </ItemGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<!-- So we can access Emscripten APIs -->
+		<EmccExportedRuntimeMethod Include="GL" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<WasmExtraFilesToDeploy Include="wwwroot\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Avalonia.Browser"
+						  Version="$(AvaloniaVersion)" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\AvaGrpcClient\AvaGrpcClient.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\AvaGrpcClient\AvaGrpcClient.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <WasmExtraFilesToDeploy Remove="wwwroot\mainForAvalonia.js" />
-  </ItemGroup>
+	<ItemGroup>
+		<WasmExtraFilesToDeploy Remove="wwwroot\mainForAvalonia.js" />
+	</ItemGroup>
 </Project>
