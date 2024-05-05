@@ -9,13 +9,6 @@ builder.Services.AddResponseCompression
     options =>
     {
         options.EnableForHttps = true;
-        //options.MimeTypes =
-        //[
-        //    "text/*",
-        //    "message/*",
-        //    "application/wasm",
-        //    "application/javascript"
-        //];
         options.Providers.Add<BrotliCompressionProvider>();
         options.Providers.Add<GzipCompressionProvider>();
     }
