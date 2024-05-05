@@ -1,19 +1,28 @@
+// defines the latest proto3 specifications for the protos
 syntax = "proto3";
 
+// specifies the C# namepsace for C# generated code
 option csharp_namespace = "simple";
-
 
 service Greeter
 {
 	// client takes HelloRequest and returns HelloReply
 	rpc SayHello (HelloRequest) returns (HelloReply);
 
+	// streams multiple server replies to a single client request
 	rpc ServerStreamHelloReplies (HelloRequest) returns (stream HelloReply);
 
+	// streams multiple server replies to a single client request
+	// (throwing a server exception in the middle)
 	rpc ServerStreamHelloRepliesWithError (HelloRequest) returns (stream HelloReply);
 
+	// streams multiple client request producing a single server reply
+	// when the client stream is complete. 
 	rpc ClientStreamHelloRequests(stream HelloRequest) returns (HelloReply);
 
+	// streams multiple server replies for each of the streamed client requests.
+	// The replies start streaming before the client stream is completed, 
+	// providing simultaneous bi-directional communications. 
 	rpc ClientAndServerStreamingTest(stream HelloRequest) returns (stream HelloReply);
 }
 
