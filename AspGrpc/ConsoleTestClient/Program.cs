@@ -16,7 +16,7 @@ Console.WriteLine($"Unary server call sample:");
 var reply =
     await greeterGrpcClient.SayHelloAsync(new HelloRequest { Name = greetingName });
 
-Console.WriteLine("Greeting: " + reply.Msg);
+Console.WriteLine(reply.Msg);
 
 
 Console.WriteLine();
@@ -28,7 +28,7 @@ var serverStreamingCall = greeterGrpcClient.ServerStreamHelloReplies(new HelloRe
 
 await foreach(var response in serverStreamingCall.ResponseStream.ReadAllAsync())
 {
-    Console.WriteLine("Greeting: " + response.Msg);
+    Console.WriteLine(response.Msg);
 }
 
 Console.WriteLine();
@@ -40,7 +40,7 @@ try
 {
     await foreach (var response in serverStreamingCallWithError.ResponseStream.ReadAllAsync())
     {
-        Console.WriteLine("Greeting: " + response.Msg);
+        Console.WriteLine(response.Msg);
     }
 }
 catch(RpcException exception)
