@@ -24,10 +24,12 @@ Console.WriteLine();
 
 Console.WriteLine($"Streaming Server Sample:");
 
+// get the serverStreaming call containing an asynchronous stream
 var serverStreamingCall = greeterGrpcClient.ServerStreamHelloReplies(new HelloRequest { Name = greetingName });
 
 await foreach(var response in serverStreamingCall.ResponseStream.ReadAllAsync())
 {
+    // for each async response, print its Msg property
     Console.WriteLine(response.Msg);
 }
 
@@ -35,16 +37,19 @@ Console.WriteLine();
 Console.WriteLine();
 
 Console.WriteLine($"Streaming Server Sample with Error:");
+// get the serverStreaming call containing an asynchronous stream
 var serverStreamingCallWithError = greeterGrpcClient.ServerStreamHelloRepliesWithError(new HelloRequest { Name = greetingName });
 try
 {
     await foreach (var response in serverStreamingCallWithError.ResponseStream.ReadAllAsync())
     {
+        // for each async response, print its Msg property
         Console.WriteLine(response.Msg);
     }
 }
 catch(RpcException exception)
 {
+    // prints the exception message
     Console.WriteLine(exception.Message);
 }
 
@@ -57,12 +62,17 @@ var clientSreamingCall = greeterGrpcClient.ClientStreamHelloRequests();
 
 for(int i = 0; i < 3;  i++)
 {
+    // stream requests from the client to server
     await clientSreamingCall.RequestStream.WriteAsync(new HelloRequest { Name = $"Client_{i + 1}" });
 }
 
+// inform the server that the client streaming ended
 await clientSreamingCall.RequestStream.CompleteAsync();
+
+// get the resulting HelloReply from the server
 var clientStreamingResponse = await clientSreamingCall;
 
+// print the resulting message
 Console.WriteLine(clientStreamingResponse.Msg);
 
 

@@ -80,7 +80,6 @@ public partial class MainView : UserControl
         {
             var serverStreamingCall = _greeterGrpcClient.ServerStreamHelloRepliesWithError(new HelloRequest { Name = GreetingName });
 
-
             await foreach (var response in serverStreamingCall.ResponseStream.ReadAllAsync(_serverStreamCancellationTokenSource.Token))
             {
                 StreamingServerResultsText.Text = response.Msg;
@@ -101,11 +100,15 @@ public partial class MainView : UserControl
 
     private async void TestStreamingClientButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
+        StreamingClientResultsText.Text = string.Empty;
+
         var clientSreamingCall = _greeterGrpcClient.ClientStreamHelloRequests();
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 5; i++)
         {
             await clientSreamingCall.RequestStream.WriteAsync(new HelloRequest { Name = $"Client_{i + 1}" });
+
+            await Task.Delay(1000);
         }
 
         await clientSreamingCall.RequestStream.CompleteAsync();
@@ -133,11 +136,11 @@ public partial class MainView : UserControl
         {
             await clientServerStreamingCall.RequestStream.WriteAsync(new HelloRequest { Name = $"Client_{i + 1}" });
 
-            await Task.Delay(20);
+            await Task.Delay(1000);
         }
 
-        await clientServerStreamingCall.RequestStream.CompleteAsync();
-        await readTask;
+
+        await Task.WhenAll(readTask, clientServerStreamingCall.RequestStream.CompleteAsync());
     }
 
 }

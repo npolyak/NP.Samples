@@ -163,3 +163,4 @@
 /AspGrpc/AspGrpcServer/bin/Debug/net8.0
 *.slnf#
 /AspGrpc/MyTestsWebSite/wwwroot/_framework
+/AspGrpc/AvaGrpcClient/AvaGrpcClient.Browser/wwwroot/_framework

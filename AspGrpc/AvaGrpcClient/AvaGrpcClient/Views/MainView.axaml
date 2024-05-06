@@ -107,7 +107,8 @@
 			</StackPanel>
 		</StackPanel>
 		<StackPanel Grid.Row="3">
-			<TextBlock Text="Client Streaming gRPC Sample (multiple names coming from client):"/>
+			<TextBlock Text="No gRPC Client Streaming from Browser (unfortunately). Multiple names coming from client will be accumulated (takes 5 seconds) and sent together to the server.:"
+					   TextWrapping="WrapWithOverflow"/>
 
 			<Button x:Name="TestStreamingClientButton"
 					Content="Test Streaming Client"/>
@@ -119,7 +120,8 @@
 
 		<Grid Grid.Row="4"
 			  RowDefinitions="Auto, Auto, *">
-			<TextBlock TextWrapping="WrapWithOverflow" Text="Client and Server Streaming gRPC Sample (multiple names coming from client each triggering streaming from server):"/>
+			<TextBlock TextWrapping="WrapWithOverflow" 
+					   Text="No gRPC Client Streaming from the browser (Unfortunately). All the client streaming messages from the browser will be accumulated and sent together to the server at once (takes approx 3 seconds). And only then server streaming will start:"/>
 
 			<Button x:Name="TestStreamingClientServerButton"
 					Grid.Row="1"
