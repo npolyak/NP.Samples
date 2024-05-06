@@ -60,10 +60,11 @@ Console.WriteLine($"Streaming Client Sample:");
 
 var clientSreamingCall = greeterGrpcClient.ClientStreamHelloRequests();
 
-for(int i = 0; i < 3;  i++)
+for(int i = 0; i < 5;  i++)
 {
     // stream requests from the client to server
     await clientSreamingCall.RequestStream.WriteAsync(new HelloRequest { Name = $"Client_{i + 1}" });
+    await Task.Delay(20);
 }
 
 // inform the server that the client streaming ended
@@ -93,7 +94,7 @@ for (int i = 0; i < 3; i++)
 {
     await clientServerStreamingCall.RequestStream.WriteAsync(new HelloRequest { Name = $"Client_{i + 1}" });
 
-    await Task.Delay(20);
+    await Task.Delay(1000);
 }
 
 await Task.WhenAll(readTask, clientServerStreamingCall.RequestStream.CompleteAsync());
