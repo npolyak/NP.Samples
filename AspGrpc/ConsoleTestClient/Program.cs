@@ -82,18 +82,26 @@ Console.WriteLine();
 
 Console.WriteLine($"Bidirectional Streaming Client/Server Sample:");
 var clientServerStreamingCall = greeterGrpcClient.ClientAndServerStreamingTest();
+
+// the task to be run to get and print the streamed responses to the server
 var readTask = Task.Run(async () =>
 {
     await foreach (var reply in clientServerStreamingCall.ResponseStream.ReadAllAsync())
     {
+        // for every server reply, simply print the message
         Console.WriteLine(reply.Msg);
     }
 });
 
+// stream 3 requests to the server. 
 for (int i = 0; i < 3; i++)
 {
+    // write the request into the request stream.
     await clientServerStreamingCall.RequestStream.WriteAsync(new HelloRequest { Name = $"Client_{i + 1}" });
 
+    // delay by one second - it is important to 
+    // make sure that the server responds immediately after receiving the first
+    // client request and does not wait for the client stream to complete
     await Task.Delay(1000);
 }
 
