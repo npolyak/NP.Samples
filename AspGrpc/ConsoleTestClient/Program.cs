@@ -60,7 +60,7 @@ Console.WriteLine($"Streaming Client Sample:");
 
 var clientSreamingCall = greeterGrpcClient.ClientStreamHelloRequests();
 
-for(int i = 0; i < 5;  i++)
+for(int i = 0; i < 3;  i++)
 {
     // stream requests from the client to server
     await clientSreamingCall.RequestStream.WriteAsync(new HelloRequest { Name = $"Client_{i + 1}" });
