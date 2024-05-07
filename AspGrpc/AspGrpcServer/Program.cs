@@ -3,34 +3,13 @@ using Microsoft.AspNetCore.StaticFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add ASP.NET razor file generation service
 builder.Services.AddRazorPages();
 
+// add grpc service
 builder.Services.AddGrpc();
 
-builder.Services.AddWebEncoders();
-builder.Services.AddHealthChecks();
-
-string corsPolicyName = "CorsPolicy";
-
-builder.Services.AddCors
-(
-    options =>
-    {
-        options.AddPolicy
-        (
-            corsPolicyName,
-            builder =>
-            {
-                builder
-                    .AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-            }
-        );
-    }
-);
-
+// build grpc application
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -41,7 +20,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseDefaultFiles();
 
 var contentTypeProvider = new FileExtensionContentTypeProvider();
 var dict = new Dictionary<string, string>
@@ -60,18 +39,11 @@ foreach (var kvp in dict)
     contentTypeProvider.Mappings[kvp.Key] = kvp.Value;
 }
 
-app.UseDefaultFiles();
 app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = contentTypeProvider });
-app.UseRouting();
 app.UseGrpcWeb();
-
-
-app.UseCors(corsPolicyName);
-
-//app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.MapGrpcService<GreeterImplementation>().EnableGrpcWeb();//.RequireHost("*:55003");
+app.MapGrpcService<GreeterImplementation>().EnableGrpcWeb();
 
 app.Run();
