@@ -1,38 +1,14 @@
 using GrpcServerProcess;
-using Microsoft.AspNetCore.StaticFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.UseIISIntegration();
-// Add services to the container.
+// Add a service generating razor pages
 builder.Services.AddRazorPages();
 
+// add a service for grpc
 builder.Services.AddGrpc();
 
-builder.Services.AddWebEncoders();
-builder.Services.AddHealthChecks();
-
-string corsPolicyName = "CorsPolicy";
-
-
-builder.Services.AddCors
-(
-    options =>
-    {
-        options.AddPolicy
-        (
-            corsPolicyName,
-            builder =>
-            {
-                builder
-                    .AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-            }
-        );
-    }
-);
-
+// build the application
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -43,36 +19,21 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-
-var contentTypeProvider = new FileExtensionContentTypeProvider();
-var dict = new Dictionary<string, string>
-    {
-        {".pdb" , "application/octet-stream" },
-        {".blat", "application/octet-stream" },
-        {".bin", "application/octet-stream" },
-        {".dll" , "application/octet-stream" },
-        {".dat" , "application/octet-stream" },
-        {".json", "application/json" },
-        {".wasm", "application/wasm" },
-        {".symbols", "application/octet-stream" }
-    };
-foreach (var kvp in dict)
-{
-    contentTypeProvider.Mappings[kvp.Key] = kvp.Value;
-}
-
+// use default file (Index.cshtml) when no path is specified after 
+// server:port combination
 app.UseDefaultFiles();
-app.UseStaticFiles(/*new StaticFileOptions { ContentTypeProvider = contentTypeProvider }*/);
-app.UseRouting();
+
+// allow using static files (e.g. .js, html, etc)
+app.UseStaticFiles();
+
+// use grpc-web 
 app.UseGrpcWeb();
 
-app.UseCors(corsPolicyName);
-
-//app.UseAuthorization();
-
+// allow razor pages generation
 app.MapRazorPages();
 
-app.MapGrpcService<GreeterImplementation>().EnableGrpcWeb();//.RequireHost("*:55003");
+// create the GreeterImplementation service and allow it to be accessed from grpc-web
+app.MapGrpcService<GreeterImplementation>().EnableGrpcWeb();
 
+// start the ASP.NET server
 app.Run();
