@@ -1,5 +1,6 @@
 using GrpcServerProcess;
 
+// create ASP.NET application builder.
 var builder = WebApplication.CreateBuilder(args);
 
 // Add a service generating razor pages
