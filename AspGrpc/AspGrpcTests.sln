@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreeterImpl", "GreeterImpl\GreeterImpl.csproj", "{DEACFF2B-C9B8-4D22-AB0C-A652DFCEEC66}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspGrpcServer", "AspGrpcServer\AspGrpcServer.csproj", "{D93A6D1B-752D-439A-96AE-3CEC155B12AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0} = {23D6BC66-1CC8-462B-82DF-AD0C5E19C5C0}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AvaloniaClients", "AvaloniaClients", "{B67080F7-A9C1-43C6-8CFF-F804726EDC4B}"
 EndProject

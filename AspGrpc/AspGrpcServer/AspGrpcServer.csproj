@@ -8,9 +8,30 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\GreeterImpl\GreeterImpl.csproj" />
-		<PackageReference Include="Grpc.AspNetCore.Web"
-						  Version="2.62.0" />
+	  <Content Remove="wwwroot\app.css" />
+	  <Content Remove="wwwroot\favicon.ico" />
+	  <Content Remove="wwwroot\Logo.svg" />
+	  <Content Remove="wwwroot\mainForAvalonia.js" />
+	  <Content Remove="wwwroot\package.json" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Include="wwwroot\app.css" />
+	  <None Include="wwwroot\favicon.ico" />
+	  <None Include="wwwroot\Logo.svg" />
+	  <None Include="wwwroot\mainForAvalonia.js" />
+	  <None Include="wwwroot\package.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.62.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\GreeterImpl\GreeterImpl.csproj" />
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Debug'">
+		<Exec Command="xcopy &quot;$(SolutionDir)AvaGrpcClient\AvaGrpcClient.Browser\bin\$(Configuration)\net8.0-browser\browser-wasm\AppBundle\_framework&quot; &quot;$(ProjectDir)wwwroot\_framework&quot; /E /R /Y /I" />
+	</Target>
 </Project>
