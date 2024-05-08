@@ -12,8 +12,10 @@ internal sealed partial class Program
 {
     private static async Task Main(string[] args)
     {
+        // note we are assigning the first argument to CommonData.Url
         CommonData.Url = args[0];
 
+        // replace the div with id "out" by the MainView object instance
         await BuildAvaloniaApp()
             .WithInterFont()
             .UseReactiveUI()

@@ -12,7 +12,6 @@
 	  <Content Remove="wwwroot\favicon.ico" />
 	  <Content Remove="wwwroot\Logo.svg" />
 	  <Content Remove="wwwroot\mainForAvalonia.js" />
-	  <Content Remove="wwwroot\package.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -20,7 +19,6 @@
 	  <None Include="wwwroot\favicon.ico" />
 	  <None Include="wwwroot\Logo.svg" />
 	  <None Include="wwwroot\mainForAvalonia.js" />
-	  <None Include="wwwroot\package.json" />
 	</ItemGroup>
 
 	<ItemGroup>

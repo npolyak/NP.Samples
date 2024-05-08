@@ -4,6 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 <body style="margin: 0px; overflow: hidden">
+    <!-- out object to be replaced by the Avalonia C# view -->
     <div id="out">
         <div id="avalonia-splash">
             <div class="center">
@@ -15,5 +16,8 @@
             <img class="icon" src="~/Logo.svg" alt="Avalonia Logo" />
         </div>
     </div>
+    <!-- load the mainForAvalonia.js module to trigger replacing 
+       div with id="out" with Avalonia MainView object instance
+    -->
     <script type='module' src="~/mainForAvalonia.js"></script>
 </body>

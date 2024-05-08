@@ -57,6 +57,7 @@ public partial class MainView : UserControl
         HelloResultText.Text = reply.Msg;
     }
 
+    // test server streaming
     private async void TestStreamingServerButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         // set initial values to empty strings
@@ -69,6 +70,8 @@ public partial class MainView : UserControl
                 _greeterGrpcClient.ServerStreamHelloReplies(new HelloRequest { Name = GreetingName });
             
             // foreach of the async responses from the server
+            // passing the Cancellation Token allows cancelling the server
+            // streaming from the client
             await foreach (var response in serverStreamingResponsesContainer.ResponseStream.ReadAllAsync(_serverStreamCancellationTokenSource.Token))
             {
                 // change the text of the TextBox
@@ -91,10 +94,10 @@ public partial class MainView : UserControl
         try
         {
             // foreach of the async responses from the server
-            var serverStreamingCall = _greeterGrpcClient.ServerStreamHelloRepliesWithError(new HelloRequest { Name = GreetingName });
+            var serverStreamingResponsesContainer = _greeterGrpcClient.ServerStreamHelloRepliesWithError(new HelloRequest { Name = GreetingName });
 
             // foreach of the async responses from the server
-            await foreach (var response in serverStreamingCall.ResponseStream.ReadAllAsync(_serverStreamCancellationTokenSource.Token))
+            await foreach (var response in serverStreamingResponsesContainer.ResponseStream.ReadAllAsync(_serverStreamCancellationTokenSource.Token))
             {
                 // change the text of the TextBox
                 StreamingServerResultsText.Text = response.Msg;
