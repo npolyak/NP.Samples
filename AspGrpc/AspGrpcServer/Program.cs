@@ -22,6 +22,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseDefaultFiles();
 
+// add the content types that might be needed for 
+// sending .wasm files back to the client. 
 var contentTypeProvider = new FileExtensionContentTypeProvider();
 var dict = new Dictionary<string, string>
     {
@@ -38,8 +40,8 @@ foreach (var kvp in dict)
 {
     contentTypeProvider.Mappings[kvp.Key] = kvp.Value;
 }
-
 app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = contentTypeProvider });
+
 app.UseGrpcWeb();
 
 app.MapRazorPages();
