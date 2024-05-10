@@ -165,3 +165,10 @@
 /AspGrpc/MyTestsWebSite/wwwroot/_framework
 /AspGrpc/AvaGrpcClient/AvaGrpcClient.Browser/wwwroot/_framework
 /AspGrpc/AspGrpcServer/wwwroot/_framework
+_framework
+_framework
+/Wasm/JSCallingDotNetSample/.vs
+/Wasm/JSCallingDotNetSample/Greeter/bin/Debug/net8.0-browser
+/Wasm/JSCallingDotNetSample/Greeter/obj
+/Wasm/JSCallingDotNetSample/JSCallingDotNetSample/bin/Debug/net8.0
+/Wasm/JSCallingDotNetSample/JSCallingDotNetSample/obj
