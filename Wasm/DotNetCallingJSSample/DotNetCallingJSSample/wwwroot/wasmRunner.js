@@ -9,7 +9,8 @@ if (!is_browser) throw new Error(`Expected to be running in a browser`);
 const { getAssemblyExports, getConfig, setModuleImports } =
     await dotnet.create();
 
-setModuleImports("wasmRunner.js", {
+// we set the module import
+setModuleImports("MyModule", {
     getGreetingWord: () => { return "Hi"; }
 });
 
