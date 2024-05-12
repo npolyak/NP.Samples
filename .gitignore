@@ -172,3 +172,5 @@ _framework
 /Wasm/JSCallingDotNetSample/Greeter/obj
 /Wasm/JSCallingDotNetSample/JSCallingDotNetSample/bin/Debug/net8.0
 /Wasm/JSCallingDotNetSample/JSCallingDotNetSample/obj
+/Wasm/JSCallingDotNetSample/Greeter/bin/Release/net8.0-browser
+/Wasm/JSCallingDotNetSample/JSCallingDotNetSample/bin/Release/net8.0
