@@ -1,0 +1,13 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div id="out"
+     style="font-size:50px">
+    <div style="font-size:30px">
+        Please wait while Web Assembly is Loading!
+    </div>
+</div>
+<script type="module" src="~/wasmRunner.js"></script>
