@@ -10,7 +10,7 @@ const { getAssemblyExports, getConfig, setModuleImports } =
     await dotnet.create();
 
 // we set the module import
-setModuleImports("MyModule", {
+setModuleImports("CSharpMethodsJSImplementationsModule", {
     getGreetingWord: () => { return "Hi"; }
 });
 

@@ -4,7 +4,7 @@ namespace Greeter;
 
 public static partial class JSInteropCallsContainer
 {
-    [JSImport("getGreetingWord", "MyModule")]
+    [JSImport("getGreetingWord", "CSharpMethodsJSImplementationsModule")]
     public static partial string GetGreetingWord();
 
     // this simple static method is exported to JavaScript
