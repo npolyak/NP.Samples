@@ -7,4 +7,8 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<OutputType>Library</OutputType>
 	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<RunAOTCompilation>true</RunAOTCompilation>
+	</PropertyGroup>
 </Project>
