@@ -180,3 +180,8 @@ _framework
 /Wasm/DotNetCallingJSSample/Greeter/obj
 /Wasm/DotNetCallingJSSample/DotNetCallingJSSample/bin/Debug/net8.0
 /Wasm/DotNetCallingJSSample/Greeter/bin/Debug/net8.0-browser
+/Wasm/JSCallingMainMethodSample/.vs
+/Wasm/JSCallingMainMethodSample/Greeter/bin/Debug/net8.0-browser
+/Wasm/JSCallingMainMethodSample/Greeter/obj
+/Wasm/JSCallingMainMethodSample/JSCallingMainMethodSample/bin/Debug/net8.0
+/Wasm/JSCallingMainMethodSample/JSCallingMainMethodSample/obj
