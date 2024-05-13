@@ -14,7 +14,10 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 var provider = new FileExtensionContentTypeProvider();
+
+// create a dictionary of mime types to add
 var dict = new Dictionary<string, string>
     {
         {".pdb" , "application/octet-stream" },
@@ -22,14 +25,18 @@ var dict = new Dictionary<string, string>
         {".dll" , "application/octet-stream" },
         {".dat" , "application/octet-stream" },
         {".json", "application/json" },
-        {".wasm", "application/wasm" }
+        {".wasm", "application/wasm" },
+        {".symbols", "application/octet-stream" }
     };
 
+// add the dictionary entries to the provider
 foreach (var kvp in dict)
 {
     provider.Mappings[kvp.Key] = kvp.Value;
 }
 
+// set the provider to contain the added
+// mime types
 app.UseStaticFiles(new StaticFileOptions
 {
     ContentTypeProvider = provider
