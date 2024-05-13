@@ -187,3 +187,6 @@ _framework
 /Wasm/JSCallingMainMethodSample/JSCallingMainMethodSample/obj
 /Wasm/JSCallingMainMethodSample/JSCallingCSharpMainMethodSample/bin/Debug/net8.0
 /Wasm/JSCallingMainMethodSample/JSCallingCSharpMainMethodSample/obj
+/Wasm/AvaInBrowserSample/.vs
+/Wasm/AvaInBrowserSample/AvaInBrowserSample/bin/Debug/net8.0
+/Wasm/AvaInBrowserSample/AvaInBrowserSample/obj

@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 x:Class="AvaCode.Views.MainView">
+	<Grid Margin="10">
+
+		<StackPanel VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+			<TextBlock x:Name="GreetingTextBlock"
+					   Text="Hello from Avalonia in-Browser!!!"
+					   FontSize="30"
+					   FontWeight="Bold"
+					   HorizontalAlignment="Center"
+					   VerticalAlignment="Center"
+					   Margin="30"/>
+
+			<Button x:Name="ChangeTextButton"
+					Content="Change Text"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"/>
+		</StackPanel>
+	</Grid>
+</UserControl>
