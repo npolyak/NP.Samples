@@ -4,7 +4,7 @@ public static partial class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to WebAssembly Program.Main!!!");
+        Console.WriteLine("Welcome to WebAssembly Program.Main(string[] args)!!!");
 
         if (args.Length > 0)
         {
