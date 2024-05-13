@@ -22,7 +22,8 @@ var dict = new Dictionary<string, string>
         {".dll" , "application/octet-stream" },
         {".dat" , "application/octet-stream" },
         {".json", "application/json" },
-        {".wasm", "application/wasm" }
+        {".wasm", "application/wasm" },
+        {".symbols", "application/octet-stream" }
     };
 
 foreach (var kvp in dict)

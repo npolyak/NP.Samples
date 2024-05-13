@@ -2,10 +2,12 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0-browser</TargetFramework>
+		<RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<OutputType>Library</OutputType>
+		<OutputType>Exe</OutputType>
+		<StartupObject>Greeter.Program</StartupObject>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
