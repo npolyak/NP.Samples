@@ -185,3 +185,5 @@ _framework
 /Wasm/JSCallingMainMethodSample/Greeter/obj
 /Wasm/JSCallingMainMethodSample/JSCallingMainMethodSample/bin/Debug/net8.0
 /Wasm/JSCallingMainMethodSample/JSCallingMainMethodSample/obj
+/Wasm/JSCallingMainMethodSample/JSCallingCSharpMainMethodSample/bin/Debug/net8.0
+/Wasm/JSCallingMainMethodSample/JSCallingCSharpMainMethodSample/obj
