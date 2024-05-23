@@ -190,3 +190,14 @@ _framework
 /Wasm/AvaInBrowserSample/.vs
 /Wasm/AvaInBrowserSample/AvaInBrowserSample/bin/Debug/net8.0
 /Wasm/AvaInBrowserSample/AvaInBrowserSample/obj
+/GrpcRelayServer/NP.Grpc.RelayServerRunner/bin/Debug/net8.0
+/GrpcRelayServer/NP.Grpc.ClientBuilder/bin/Debug/net8.0
+/GrpcRelayServer/NP.Grpc.RelayServerConfig/bin/Debug/net8.0
+/GrpcRelayServer/Topics/Organization/OrgData/bin/Debug/net8.0
+/GrpcRelayServer/Topics/Organization/OrgProtos/bin/Debug/net8.0
+/GrpcRelayServer/Topics/Organization/PublishOrgClient/bin/Debug/net8.0
+/GrpcRelayServer/Topics/Organization/SubscribeOrgClient/bin/Debug/net8.0
+/GrpcRelayServer/Topics/Person/PersonData/bin/Debug/net8.0
+/GrpcRelayServer/Topics/Person/PersonProtos/bin/Debug/net8.0
+/GrpcRelayServer/Topics/Person/PublishPersonClient/bin/Debug/net8.0
+/GrpcRelayServer/Topics/Person/SubscribePersonClient/bin/Debug/net8.0

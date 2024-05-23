@@ -2,9 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -13,17 +11,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Reactive" Version="5.0.0" />
+		<PackageReference Include="System.Reactive" Version="6.0.1" />
 
 		<!-- GeneratePathProperty set to true, generates PkgNP_Grpc_RelayClient as the root folder
 			for the package contents -->
-		<PackageReference Include="NP.Grpc.RelayClient" Version="1.0.6" GeneratePathProperty="true">
+		<PackageReference Include="NP.Grpc.RelayClient" Version="1.0.7" GeneratePathProperty="true">
 			<ExcludeAssets>All</ExcludeAssets>
 		</PackageReference>
 	</ItemGroup>
 	
 	<ItemGroup>
-		<RelayClientFiles Include="$(PkgNP_Grpc_RelayClient)\lib\net6.0\**\*.*" />
+		<RelayClientFiles Include="$(PkgNP_Grpc_RelayClient)\lib\net8.0\**\*.*" />
 	</ItemGroup>
 
 	<Target Name="CopyClientPluginFromNugetPackage" AfterTargets="Build">

@@ -13,7 +13,7 @@ containerBuilder.RegisterSingletonType<IGrpcConfig, GrpcServerConfig>();
 // Dynamically load and inject all the plugins from the subfolders of
 // Plugins/Services folder under TargetFolder of the project
 // TargetFolder is where the executable of the project is located
-// e.g. folder bin/Debug/net6.0 under the projects directory. 
+// e.g. folder bin/Debug/net8.0 under the projects directory. 
 containerBuilder.RegisterPluginsFromSubFolders("Plugins/Services");
 
 // build the IoC container from container builder

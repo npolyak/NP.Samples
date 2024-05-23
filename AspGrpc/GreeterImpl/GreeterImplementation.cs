@@ -5,6 +5,11 @@ namespace GrpcServerProcess;
 
 public class GreeterImplementation : simple.Greeter.GreeterBase
 {
+    public GreeterImplementation()
+    {
+        
+    }
+
     public override async Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
     {
         string name = request.Name;

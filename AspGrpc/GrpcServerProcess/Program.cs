@@ -6,6 +6,7 @@ builder.Logging.ClearProviders();
 
 // add grpc service
 builder.Services.AddGrpc();
+builder.Services.AddSingleton(new GreeterImplementation());
 
 // create the Kestrel application
 var app = builder.Build();
@@ -15,4 +16,4 @@ var app = builder.Build();
 app.MapGrpcService<GreeterImplementation>().RequireHost("*:55003");
 
 // runs Kestrel server. 
-app.Run();
+await app.RunAsync();
