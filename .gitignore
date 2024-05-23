@@ -201,3 +201,7 @@ _framework
 /GrpcRelayServer/Topics/Person/PersonProtos/bin/Debug/net8.0
 /GrpcRelayServer/Topics/Person/PublishPersonClient/bin/Debug/net8.0
 /GrpcRelayServer/Topics/Person/SubscribePersonClient/bin/Debug/net8.0
+/GRPC/SimpleRequestReplySample/Protos/bin/Release/net8.0
+/GRPC/SimpleRequestReplySample/SimpleGrpcClient/bin/Release/net8.0
+/GRPC/SimpleRequestReplySample/SimpleGrpcServer/bin/Release/net8.0
+/GRPC/SimpleRequestReplySample/SimpleNodeJSGrpcClient/obj/Release

@@ -1,19 +1,15 @@
 {
-  "name": "nodejs-client",
-  "version": "0.0.0",
-  "description": "NodejsClient",
+  "name": "simplenodejsgrpcclient",
+  "version": "1.0.0",
+  "description": "",
   "main": "app.js",
-  "author": {
-    "name": ""
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "eslint": "^8.21.0"
-  },
-  "eslintConfig": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@grpc/grpc-js": "^1.8.4",
-    "@grpc/proto-loader": "^0.7.4",
-    "proto-loader": "^0.2.0",
-    "protobufjs": "^7.1.2"
+    "@grpc/grpc-js": "^1.10.8"
   }
 }
