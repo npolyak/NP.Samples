@@ -10,7 +10,7 @@
 	
 	<ItemGroup>
 		<PackageReference Include="NP.Grpc.CommonRelayInterfaces" Version="1.0.6" />
-		<PackageReference Include="NP.IoCy" Version="1.0.33" />
+		<PackageReference Include="NP.IoCy" Version="1.0.34" />
 	</ItemGroup>
 
 </Project>
