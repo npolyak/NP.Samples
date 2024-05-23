@@ -205,3 +205,7 @@ _framework
 /GRPC/SimpleRequestReplySample/SimpleGrpcClient/bin/Release/net8.0
 /GRPC/SimpleRequestReplySample/SimpleGrpcServer/bin/Release/net8.0
 /GRPC/SimpleRequestReplySample/SimpleNodeJSGrpcClient/obj/Release
+/GRPC/StreamingSample/CSHARP/PublishSample/bin/Debug/net8.0
+/GRPC/StreamingSample/CSHARP/SubscribeSample/bin/Debug/net8.0
+/GRPC/StreamingSample/Protos/bin/Debug/net8.0
+/GRPC/StreamingSample/StreamingRelayServer/bin/Debug/net8.0

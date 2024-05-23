@@ -11,8 +11,6 @@
   },
   "eslintConfig": {},
   "dependencies": {
-    "@grpc/grpc-js": "^1.8.4",
-    "@grpc/proto-loader": "^0.7.4",
-    "protobufjs": "^7.1.2"
+    "@grpc/grpc-js": "^1.10.8"
   }
 }
