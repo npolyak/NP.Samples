@@ -15,7 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<RelayServerFiles Include="$(PkgNP_Grpc_RelayServer)\lib\net8.0\**\*.*" />
+		<RelayServerFiles Include="$(PkgNP_Grpc_RelayServer)\lib\$(TargetFramework)\**\*.*" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -19,7 +19,7 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<RelayClientFiles Include="$(PkgNP_Grpc_RelayClient)\lib\net8.0\**\*.*" />
+		<RelayClientFiles Include="$(PkgNP_Grpc_RelayClient)\lib\$(TargetFramework)\**\*.*" />
 	</ItemGroup>
 
 	<Target Name="CopyClientPluginFromNugetPackage" AfterTargets="Build">

@@ -18,6 +18,6 @@
 	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<!-- copy to the server to register the topic -->
-		<Exec Command="xcopy &quot;$(OutDir)&quot; &quot;$(SolutionDir)\bin\$(Configuration)\net8.0\Plugins\Services\$(ProjectName)\&quot; /S /R /Y /I" />
+		<Exec Command="xcopy &quot;$(OutDir)&quot; &quot;$(SolutionDir)\bin\$(Configuration)\$(TargetFramework)\Plugins\Services\$(ProjectName)\&quot; /S /R /Y /I" />
 	</Target>
 </Project>
