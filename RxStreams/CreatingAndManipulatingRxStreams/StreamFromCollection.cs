@@ -61,8 +61,6 @@ public class StreamFromCollection
         int[] sourceCollection1_10 = 
                 Enumerable.Range(1, 10).ToArray();
 
-
-        bool completed = false;
         IObservable<int> evenSquaresObservable =
                             sourceCollection1_10
                                 .ToObservable()
@@ -99,6 +97,8 @@ public class StreamFromCollection
                 );
 
         var resultEvenSquaresCollection = new List<int>();
+
+        bool completed = false;
 
         using var subscriptionDisposable =
                         timeSpannedEvenSquaresObservable
