@@ -1,211 +1,454 @@
-﻿################################################################################
+﻿# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+# but not Directory.Build.rsp, as it configures directory-level build defaults
+!Directory.Build.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Chutzpah Test files
+_Chutzpah*
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Visual Studio Trace Files
+*.e2e
+
+# TFS 2012 Local Workspace
+$tf/
+
+# Guidance Automation Toolkit
+*.gpState
+
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# TeamCity is a build add-in
+_TeamCity*
+
+# DotCover is a Code Coverage Tool
+*.dotCover
+
+# AxoCover is a Code Coverage Tool
+.axoCover/*
+!.axoCover/settings.json
+
+# Coverlet is a free, cross platform Code Coverage Tool
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# MightyMoose
+*.mm.*
+AutoTest.Net/
+
+# Web workbench (sass)
+.sass-cache/
+
+# Installshield output folder
+[Ee]xpress/
+
+# DocProject is a documentation generator add-in
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
+
+# Click-Once directory
+publish/
+
+# Publish Web Output
+*.[Pp]ublish.xml
+*.azurePubxml
+# Note: Comment the next line if you want to checkin your web deploy settings,
+# but database connection strings (with potential passwords) will be unencrypted
+*.pubxml
+*.publishproj
+
+# Microsoft Azure Web App publish settings. Comment the next line if you want to
+# checkin your Azure Web App publish settings, but sensitive information contained
+# in these scripts will be unencrypted
+PublishScripts/
+
+# NuGet Packages
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# Microsoft Azure Emulator
+ecf/
+rcf/
+
+# Windows Store app package directories and files
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!?*.[Cc]ache/
+
+# Others
+ClientBin/
+~$*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+orleans.codegen.cs
+
+# Including strong name files can present a security risk
+# (https://github.com/github/gitignore/pull/2483#issue-259490424)
+#*.snk
+
+# Since there are multiple workflows, uncomment next line to ignore bower_components
+# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+#bower_components/
+
+# RIA/Silverlight projects
+Generated_Code/
+
+# Backup & report files from converting an old project file
+# to a newer Visual Studio version. Backup files are not needed,
+# because we have git ;-)
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+ServiceFabricBackup/
+*.rptproj.bak
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Business Intelligence projects
+*.rdl.data
+*.bim.layout
+*.bim_*.settings
+*.rptproj.rsuser
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
+
+# Microsoft Fakes
+FakesAssemblies/
+
+# GhostDoc plugin setting file
+*.GhostDoc.xml
+
+# Node.js Tools for Visual Studio
+.ntvs_analysis.dat
+node_modules/
+
+# Visual Studio 6 build log
+*.plg
+
+# Visual Studio 6 workspace options file
+*.opt
+
+# Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
+*.vbw
+
+# Visual Studio 6 auto-generated project file (contains which files were open etc.)
+*.vbp
+
+# Visual Studio 6 workspace and project file (working project files containing files to include in project)
+*.dsw
+*.dsp
+
+# Visual Studio 6 technical files
+*.ncb
+*.aps
+
+# Visual Studio LightSwitch build output
+**/*.HTMLClient/GeneratedArtifacts
+**/*.DesktopClient/GeneratedArtifacts
+**/*.DesktopClient/ModelManifest.xml
+**/*.Server/GeneratedArtifacts
+**/*.Server/ModelManifest.xml
+_Pvt_Extensions
+
+# Paket dependency manager
+.paket/paket.exe
+paket-files/
+
+# FAKE - F# Make
+.fake/
+
+# CodeRush personal settings
+.cr/personal
+
+# Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+# Cake - Uncomment if you are using it
+# tools/**
+# !tools/packages.config
+
+# Tabs Studio
+*.tss
+
+# Telerik's JustMock configuration file
+*.jmconfig
+
+# BizTalk build output
+*.btp.cs
+*.btm.cs
+*.odx.cs
+*.xsd.cs
+
+# OpenCover UI analysis results
+OpenCover/
+
+# Azure Stream Analytics local run output
+ASALocalRun/
+
+# MSBuild Binary and Structured Log
+*.binlog
+
+# NVidia Nsight GPU debugger configuration file
+*.nvuser
+
+# MFractors (Xamarin productivity tool) working folder
+.mfractor/
+
+# Local History for Visual Studio
+.localhistory/
+
+# Visual Studio History (VSHistory) files
+.vshistory/
+
+# BeatPulse healthcheck temp database
+healthchecksdb
+
+# Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
+
+# Fody - auto-generated XML schema
+FodyWeavers.xsd
+
+# VS Code files for those working on multiple tools
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+# Windows Installer files from build outputs
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# JetBrains Rider
+*.sln.iml
+
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
+## Ignore Visual Studio temporary files, build results, and
+## files generated by popular Visual Studio add-ons.
+##
+## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-/Expressions/BlockExpressionsExamples/.vs
-/Expressions/BlockExpressionsExamples/obj
-/Expressions/SimpleExpressionsExamples/.vs
-/Expressions/SimpleExpressionsExamples/bin/Debug/net6.0
-/Expressions/SimpleExpressionsExamples/obj
-/Expressions/BlockExpressionsExamples/bin/Debug/net6.0
-/DependencyInjectionSamples/Implementations/bin/Debug/net6.0
-/DependencyInjectionSamples/Implementations/obj
-/DependencyInjectionSamples/Interfaces/bin/Debug/net6.0
-/DependencyInjectionSamples/Interfaces/obj
-/DependencyInjectionSamples/IoCyTests/.vs
-/DependencyInjectionSamples/IoCyTests/bin/Debug/net6.0
-/DependencyInjectionSamples/IoCyTests/obj
-/DependencyInjectionSamples/IoCyDynamicLoadingTests/.vs
-/DependencyInjectionSamples/IoCyDynamicLoadingTests/bin/Debug/net6.0
-/DependencyInjectionSamples/IoCyDynamicLoadingTests/obj
-/DependencyInjectionSamples/AutofacAdapterTests/.vs
-/DependencyInjectionSamples/AutofacAdapterTests/bin/Debug/net6.0
-/DependencyInjectionSamples/AutofacAdapterTests/obj
-/DependencyInjectionSamples/AutofacAdapterDynamicLoadingTests/.vs
-/DependencyInjectionSamples/AutofacAdapterDynamicLoadingTests/bin/Debug/net6.0
-/DependencyInjectionSamples/AutofacAdapterDynamicLoadingTests/obj
-/DependencyInjectionSamples/PluginsTest/.vs
-/DependencyInjectionSamples/PluginsTest/MainProgram/bin/Debug/net6.0
-/DependencyInjectionSamples/PluginsTest/MainProgram/obj
-/DependencyInjectionSamples/PluginsTest/PluginInterfaces/bin/Debug/net6.0
-/DependencyInjectionSamples/PluginsTest/PluginInterfaces/obj
-/DependencyInjectionSamples/PluginsTest/Plugins/DoubleManipulationsPlugin/bin/Debug/net6.0
-/DependencyInjectionSamples/PluginsTest/Plugins/DoubleManipulationsPlugin/obj
-/DependencyInjectionSamples/PluginsTest/StringManipulationsPlugin/bin/Debug/net6.0
-/DependencyInjectionSamples/PluginsTest/StringManipulationsPlugin/obj
-/GRPC/Interfaces/obj
-/GRPC/SimpleGrpcClient/obj
-/GRPC/SimpleGrpcServerTest/.vs
-/GRPC/SimpleGrpcServerTest/obj
-/PluginPackageSamples/.vs
-/PluginPackageSamples/PackagePlugins/.vs/PackagePluginsTest
-/PluginPackageSamples/PackagePlugins/MainProgram/bin/Debug/net6.0/Plugins
-/PluginPackageSamples/PackagePlugins/Plugins/DoubleManipulationsPlugin/bin/Debug/net6.0
-/PluginPackageSamples/PackagePlugins/Plugins/DoubleManipulationsPlugin/obj
-/PluginPackageSamples/PackagePlugins/Plugins/StringManipulationsPlugin/bin/Debug/net6.0
-/PluginPackageSamples/PackagePlugins/Plugins/StringManipulationsPlugin/obj
-/PluginPackageSamples/PluginInterfaces/bin/Debug/net6.0
-/PluginPackageSamples/PluginInterfaces/obj
-/PluginPackageSamples/PackagePlugins/Plugins/StringManipulationsPlugin/bin/Debug
-/PluginPackageSamples/PackagePlugins/Plugins/DoubleManipulationsPlugin/bin/Debug
-/PluginPackageSamples/PackagePlugins/.vs/ProjectEvaluation
-/PluginPackageSamples/PluginsConsumer/.vs
-/PluginPackageSamples/PluginsConsumer/bin/Debug/net6.0
-/PluginPackageSamples/PluginsConsumer/obj
-/GRPC/SimpleRequestReplySample/Interfaces/obj
-/GRPC/SimpleRequestReplySample/SimpleGrpcClient/obj
-/GRPC/SimpleRequestReplySample/SimpleGrpcServerTest/.vs
-/GRPC/SimpleRequestReplySample/SimpleGrpcServerTest/obj
-/GRPC/SimpleRequestReplySample/Interfaces/bin/Debug/net6.0
-/GRPC/SimpleRequestReplySample/SimpleGrpcClient/bin/Debug/net6.0
-/GRPC/SimpleRequestReplySample/SimpleGrpcServerTest/bin/Debug/net6.0
-/GRPC/SimpleRequestReplySample/NodejsClient/bin
-/GRPC/SimpleRequestReplySample/NodejsClient/node_modules
-/GRPC/SimpleRequestReplySample/NodejsClient/obj/Debug
-/GRPC/SimpleRequestReplySample/SimpleNodeJSClient/bin
-/GRPC/SimpleRequestReplySample/SimpleNodeJSClient/node_modules
-/GRPC/SimpleRequestReplySample/SimpleNodeJSClient/obj/Debug
-/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/__pycache__
-/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/service_pb2_grpc.py
-/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/service_pb2.pyi
-/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/service_pb2.py
-*.user
-/GRPC/SimpleRequestReplySample/SimplePythonGrpcClient/env
-/GRPC/SimpleRequestReplySample/SimpleGrpcServer/.vs
-/GRPC/SimpleRequestReplySample/SimpleGrpcServer/bin/Debug/net6.0
-/GRPC/SimpleRequestReplySample/SimpleGrpcServer/obj
-/GRPC/StreamingSample/CSHARP/PublishSample/bin/Debug/net6.0
-/GRPC/StreamingSample/CSHARP/PublishSample/obj
-/GRPC/StreamingSample/CSHARP/SubscribeSample/bin/Debug/net6.0
-/GRPC/StreamingSample/CSHARP/SubscribeSample/obj
-/GRPC/StreamingSample/Protos/bin/Debug/net6.0
-/GRPC/StreamingSample/Protos/obj
-/GRPC/StreamingSample/StreamingRelayServer/.vs
-/GRPC/StreamingSample/StreamingRelayServer/bin/Debug/net6.0
-/GRPC/StreamingSample/StreamingRelayServer/obj
-/GRPC/StreamingSample/NodeJS/PublishNodeJsApp/bin
-/GRPC/StreamingSample/NodeJS/PublishNodeJsApp/node_modules
-/GRPC/StreamingSample/NodeJS/PublishNodeJsApp/obj/Debug
-/GRPC/StreamingSample/NodeJS/SubscribeNodeJsApp/bin
-/GRPC/StreamingSample/NodeJS/SubscribeNodeJsApp/node_modules
-/GRPC/StreamingSample/NodeJS/SubscribeNodeJsApp/obj/Debug
-/GRPC/StreamingSample/NodeJS/PublishNodeJsSample/bin
-/GRPC/StreamingSample/NodeJS/PublishNodeJsSample/node_modules/.bin
-/GRPC/StreamingSample/NodeJS/PublishNodeJsSample/node_modules
-/GRPC/StreamingSample/NodeJS/PublishNodeJsSample/obj/Debug
-/GRPC/StreamingSample/NodeJS/SubscribeNodeJsSample/bin
-/GRPC/StreamingSample/NodeJS/SubscribeNodeJsSample/node_modules
-/GRPC/StreamingSample/NodeJS/SubscribeNodeJsSample/obj/Debug
-/GRPC/StreamingSample/Python/PublishPythonSample/env/Lib/site-packages
-/GRPC/StreamingSample/Python/PublishPythonSample/env
-/GRPC/StreamingSample/Python/PublishPythonSample/__pycache__
-/GRPC/StreamingSample/Python/PublishPythonSample/service_pb2_grpc.py
-/GRPC/StreamingSample/Python/PublishPythonSample/service_pb2.py
-/GRPC/StreamingSample/Python/SubscribePythonSample/env
-/GRPC/StreamingSample/Python/SubscribePythonSample/__pycache__
-/GRPC/StreamingSample/Python/SubscribePythonSample/service_pb2_grpc.py
-/GRPC/StreamingSample/Python/SubscribePythonSample/service_pb2.py
-/GRPC/SimpleRequestReplySample/Protos/bin/Debug/net6.0
-/GRPC/SimpleRequestReplySample/Protos/obj
-/GRPC/SimpleRequestReplySample/SimpleNodeJSGrpcClient/bin
-/GRPC/SimpleRequestReplySample/SimpleNodeJSGrpcClient/node_modules
-/GRPC/SimpleRequestReplySample/SimpleNodeJSGrpcClient/obj/Debug
-/GrpcRelayServer/NP.Grpc.ClientBuilder/bin/Debug/net6.0
-/GrpcRelayServer/NP.Grpc.ClientBuilder/obj
-/GrpcRelayServer/NP.Grpc.RelayServerConfig/bin/Debug/net6.0
-/GrpcRelayServer/NP.Grpc.RelayServerConfig/obj
-/GrpcRelayServer/NP.Grpc.RelayServerRunner/.vs
-/GrpcRelayServer/NP.Grpc.RelayServerRunner/bin/Debug/net6.0
-/GrpcRelayServer/NP.Grpc.RelayServerRunner/obj
-/GrpcRelayServer/Topics/Person/PersonData/bin/Debug/net6.0
-/GrpcRelayServer/Topics/Person/PersonData/obj
-/GrpcRelayServer/Topics/Person/PersonProtos/bin/Debug/net6.0
-/GrpcRelayServer/Topics/Person/PersonProtos/obj
-/GrpcRelayServer/Topics/Person/PublishPersonClient/bin/Debug/net6.0
-/GrpcRelayServer/Topics/Person/PublishPersonClient/obj
-/GrpcRelayServer/Topics/Person/SubscribePersonClient/bin/Debug/net6.0
-/GrpcRelayServer/Topics/Person/SubscribePersonClient/obj
-/GrpcRelayServer/Topics/Organization/OrgData/bin/Debug/net6.0
-/GrpcRelayServer/Topics/Organization/OrgData/obj
-/GrpcRelayServer/Topics/Organization/OrgProtos/bin/Debug/net6.0
-/GrpcRelayServer/Topics/Organization/OrgProtos/obj
-/GrpcRelayServer/Topics/Organization/PublishOrgClient/bin/Debug/net6.0
-/GrpcRelayServer/Topics/Organization/PublishOrgClient/obj
-/GrpcRelayServer/Topics/Organization/SubscribeOrgClient/bin/Debug/net6.0
-/GrpcRelayServer/Topics/Organization/SubscribeOrgClient/obj
-/GrpcRelayServer/Topics/Organization/GeneratedOrgProtoStubs/__pycache__
-/GRPCNew/SimpleRequestReplySample/Protos/bin/Debug/net6.0
-/GRPCNew/SimpleRequestReplySample/Protos/obj
-/GRPCNew/SimpleRequestReplySample/SimpleGrpcClient/bin/Debug/net8.0
-/GRPCNew/SimpleRequestReplySample/SimpleGrpcClient/obj
-/GRPCNew/SimpleRequestReplySample/SimpleGrpcServer/.vs
-/GRPCNew/SimpleRequestReplySample/SimpleGrpcServer/bin
-/GRPCNew/SimpleRequestReplySample/SimpleGrpcServer/obj
-/GRPCNew/SimpleRequestReplySample/SimpleNodeJSGrpcClient/bin
-/AspGrpc/GrpcInProcess/.vs
-/AspGrpc/GrpcInProcess/GrpcServerProcess/bin/Debug/net8.0
-/AspGrpc/GrpcInProcess/GrpcServerProcess/obj
-/AspGrpc/GrpcInProcess/Protos/obj
-/AspGrpc/GrpcInProcess/TestClient/bin/Debug/net8.0
-/AspGrpc/GrpcInProcess/TestClient/obj
-/GRPC/SimpleRequestReplySample/Protos/bin/Release/net6.0
-/GRPCNew/SimpleRequestReplySample/SimpleGrpcClient/bin/Release/net8.0
-/AspGrpc/.vs
-/AspGrpc/ConsoleTestClient/bin/Debug/net8.0
-/AspGrpc/ConsoleTestClient/obj
-/AspGrpc/GreeterImpl/bin/Debug/net8.0
-/AspGrpc/GreeterImpl/obj
-/AspGrpc/GrpcServerProcess/bin/Debug/net8.0
-/AspGrpc/GrpcServerProcess/obj
-/AspGrpc/Protos/obj/Debug/net8.0
-/AspGrpc/Protos/obj
-/AspGrpc/AspGrpcServer/obj
-/AspGrpc/AspGrpcServer/bin/Debug/net8.0
-*.slnf#
-/AspGrpc/MyTestsWebSite/wwwroot/_framework
-/AspGrpc/AvaGrpcClient/AvaGrpcClient.Browser/wwwroot/_framework
+
+/src/bin/Debug
+/src/obj
+/Demos/NP.Demos.CustomWindowSample/obj
+/Demos/NP.Demos.CustomWindowSample/bin/Debug
+/Demos/NP.Demos.CustomWindowSample/.vs/NP.Demos.CustomWindowSample/FileContentIndex
+/Demos/MultiPlatformWindowDemo/.vs/MultiPlatformWindowDemo/config
+/Demos/MultiPlatformWindowDemo/log.txt
+/Demos/MultiPlatformWindowDemo/.vs/MultiPlatformWindowDemo
+/Demos/MultiPlatformWindowDemo/bin/Debug/net6.0
+/Demos/MultiPlatformWindowDemo/obj/Debug/net6.0
+/Demos/MultiPlatformWindowDemo/obj
+/Demos/MultiPlatformWindowDemo/.vs/ProjectEvaluation
+/Demos/NP.Demos.CustomWindowSample/NP.Demos.CustomWindowSample.csproj.user
+/Demos/NP.Demos.BehaviorPrototypes/obj
+/Demos/NP.Demos.BehaviorPrototypes/.vs
+/Demos/NP.Demos.CustomWindowSample/.vs/NP.Demos.CustomWindowSample
+/Demos/NP.Demos.CustomWindowSample/.vs/ProjectEvaluation
+/Demos/NP.Demos.ImplantedWindowTest/obj
+/Demos/NP.Demos.ImplantedWindowTest/.vs/NP.Demos.ImplantedWindowTest
+/Demos/NP.Demos.ImplantedWindowTest/bin/Debug/net6.0
+/Demos/NP.Demos.ImplantedWindowTest/.vs/ProjectEvaluation
+/src/bin/Release
+/src/NP.Ava.Visuals.csproj.user
+/Demos/MultiPlatformWindowDemo/bin/Debug/net8.0
+/Demos/NP.Demos.BehaviorPrototypes/bin/Debug/net8.0
+/Demos/NP.Demos.ImplantedWindowTest/bin/Debug/net8.0
+/Demos/NP.DataGridColumnVisibilityDemo/.vs
+/Demos/NP.DataGridColumnVisibilityDemo/bin/Debug/net8.0
+/Demos/NP.DataGridColumnVisibilityDemo/obj
+/Demos/NP.DataGridFilteringDemo/.vs
+/Demos/NP.DataGridFilteringDemo/bin/Debug/net8.0
+/Demos/NP.DataGridFilteringDemo/obj
+/Demos/NP.DataGridGroupingDemo/.vs
+/Demos/NP.DataGridGroupingDemo/bin
+/Demos/NP.DataGridGroupingDemo/obj/Debug/net8.0
+/Demos/NP.DataGridGroupingDemo/obj/Release/net8.0
+/Demos/NP.DataGridGroupingDemo/obj
+/Demos/NP.OverlayingControlDemo - Copy/.vs/NP.OverlayingControlDemo/FileContentIndex
+*.DS_Store
+
+
+*.wasm
 /AspGrpc/AspGrpcServer/wwwroot/_framework
-_framework
-_framework
-/Wasm/JSCallingDotNetSample/.vs
-/Wasm/JSCallingDotNetSample/Greeter/bin/Debug/net8.0-browser
-/Wasm/JSCallingDotNetSample/Greeter/obj
-/Wasm/JSCallingDotNetSample/JSCallingDotNetSample/bin/Debug/net8.0
-/Wasm/JSCallingDotNetSample/JSCallingDotNetSample/obj
-/Wasm/JSCallingDotNetSample/Greeter/bin/Release/net8.0-browser
-/Wasm/JSCallingDotNetSample/JSCallingDotNetSample/bin/Release/net8.0
-/Wasm/DotNetCallingJSSample/.vs
-/Wasm/DotNetCallingJSSample/DotNetCallingJSSample/obj
-/Wasm/DotNetCallingJSSample/Greeter/bin/Release/net8.0-browser
-/Wasm/DotNetCallingJSSample/Greeter/obj
-/Wasm/DotNetCallingJSSample/DotNetCallingJSSample/bin/Debug/net8.0
-/Wasm/DotNetCallingJSSample/Greeter/bin/Debug/net8.0-browser
-/Wasm/JSCallingMainMethodSample/.vs
-/Wasm/JSCallingMainMethodSample/Greeter/bin/Debug/net8.0-browser
-/Wasm/JSCallingMainMethodSample/Greeter/obj
-/Wasm/JSCallingMainMethodSample/JSCallingMainMethodSample/bin/Debug/net8.0
-/Wasm/JSCallingMainMethodSample/JSCallingMainMethodSample/obj
-/Wasm/JSCallingMainMethodSample/JSCallingCSharpMainMethodSample/bin/Debug/net8.0
-/Wasm/JSCallingMainMethodSample/JSCallingCSharpMainMethodSample/obj
-/Wasm/AvaInBrowserSample/.vs
-/Wasm/AvaInBrowserSample/AvaInBrowserSample/bin/Debug/net8.0
-/Wasm/AvaInBrowserSample/AvaInBrowserSample/obj
-/GrpcRelayServer/NP.Grpc.RelayServerRunner/bin/Debug/net8.0
-/GrpcRelayServer/NP.Grpc.ClientBuilder/bin/Debug/net8.0
-/GrpcRelayServer/NP.Grpc.RelayServerConfig/bin/Debug/net8.0
-/GrpcRelayServer/Topics/Organization/OrgData/bin/Debug/net8.0
-/GrpcRelayServer/Topics/Organization/OrgProtos/bin/Debug/net8.0
-/GrpcRelayServer/Topics/Organization/PublishOrgClient/bin/Debug/net8.0
-/GrpcRelayServer/Topics/Organization/SubscribeOrgClient/bin/Debug/net8.0
-/GrpcRelayServer/Topics/Person/PersonData/bin/Debug/net8.0
-/GrpcRelayServer/Topics/Person/PersonProtos/bin/Debug/net8.0
-/GrpcRelayServer/Topics/Person/PublishPersonClient/bin/Debug/net8.0
-/GrpcRelayServer/Topics/Person/SubscribePersonClient/bin/Debug/net8.0
-/GRPC/SimpleRequestReplySample/Protos/bin/Release/net8.0
-/GRPC/SimpleRequestReplySample/SimpleGrpcClient/bin/Release/net8.0
-/GRPC/SimpleRequestReplySample/SimpleGrpcServer/bin/Release/net8.0
-/GRPC/SimpleRequestReplySample/SimpleNodeJSGrpcClient/obj/Release
-/GRPC/StreamingSample/CSHARP/PublishSample/bin/Debug/net8.0
-/GRPC/StreamingSample/CSHARP/SubscribeSample/bin/Debug/net8.0
-/GRPC/StreamingSample/Protos/bin/Debug/net8.0
-/GRPC/StreamingSample/StreamingRelayServer/bin/Debug/net8.0
+/AspGrpc/AvaGrpcClient/AvaGrpcClient.Browser/wwwroot/_framework
+/AspGrpc/MyTestsWebSite/wwwroot/_framework
+/AspGrpc/MyTestsWebSite/wwwroot/_framework2
+/Wasm/AvaInBrowserSample/AvaInBrowserSample/wwwroot/_framework
+/Wasm/DotNetCallingJSSample/DotNetCallingJSSample/wwwroot/_framework
+**/_framework

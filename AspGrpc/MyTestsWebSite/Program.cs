@@ -75,7 +75,8 @@ var dict = new Dictionary<string, string>
         {".dat" , "application/octet-stream" },
         {".json", "application/json" },
         {".wasm", "application/wasm" },
-        {".symbols", "application/octet-stream" }
+        {".symbols", "application/octet-stream" },
+        {".ts", "application/octet-stream" }
     };
 foreach (var kvp in dict)
 {

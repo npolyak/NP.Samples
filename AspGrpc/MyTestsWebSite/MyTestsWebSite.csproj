@@ -20,9 +20,7 @@
 		<None Include="wwwroot\dist\Greeter_grpc_web_pb.js" />
 		<None Include="wwwroot\dist\Greeter_pb.js" />
 	</ItemGroup>
-	<Target Name="PostBuild" 
-			AfterTargets="PostBuildEvent"
-			 Condition="'$(Configuration)'=='Debug'">
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Debug'">
 		<Exec Command="xcopy &quot;$(SolutionDir)AvaGrpcClient\AvaGrpcClient.Browser\bin\$(Configuration)\net8.0-browser\browser-wasm\AppBundle\_framework&quot; &quot;$(ProjectDir)wwwroot\_framework&quot; /E /R /Y /I" />
 	</Target>
 </Project>
