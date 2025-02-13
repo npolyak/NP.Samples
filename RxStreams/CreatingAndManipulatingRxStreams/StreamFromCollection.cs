@@ -118,6 +118,10 @@ public class StreamFromCollection
         int[] expectedResultsCollection =
             [2 * 2, 4 * 4, 6 * 6, 8 * 8, 10 * 10];
 
-        Assert.True(resultEvenSquaresCollection.SequenceEqual(expectedResultsCollection));
+        Assert.True
+        (
+            resultEvenSquaresCollection
+                .SequenceEqual(expectedResultsCollection)
+        );
     }
 }
