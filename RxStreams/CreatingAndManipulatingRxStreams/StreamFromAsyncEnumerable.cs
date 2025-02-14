@@ -6,10 +6,13 @@ namespace CreatingAndManipulatingRxStreams;
 
 public static class StreamFromAsyncEnumerable
 {
+    // returns an IAsyncEnumerable stream
+    // of numbers from 1 to 10; each number
+    // takes one second to emit.
     public static async IAsyncEnumerable<int> 
         GenerateAsyncEnumerable()
     {
-        for (int i = 1; i <= 10; i++)
+        for (int i = 1; i <= 6; i++)
         {
             // one second delay
             await Task.Delay(TimeSpan.FromSeconds(1));
@@ -22,15 +25,24 @@ public static class StreamFromAsyncEnumerable
     [Fact]
     public static async Task TestStreamFromAsyncEnumerable()
     {
+        // Get asyncEnumerable
         IAsyncEnumerable<int> asyncEnumerable = 
             GenerateAsyncEnumerable();
 
+        // convert to an observable
+        // stream
         IObservable<int> observable = 
             asyncEnumerable.ToObservable();
 
+        // create a result list to be populated
+        // within the observable's Subscription
         var resultEvenSquaresCollection = new List<int>();
+
+        // define completed flag
         bool completed = false;
 
+        // subscribe to receive
+        // squares of even numbers
         using var subscribeDisposable =
             observable
                 .Where(i => i % 2 == 0)
@@ -50,5 +62,12 @@ public static class StreamFromAsyncEnumerable
         {
             await Task.Delay(TimeSpan.FromSeconds(1));
         }
+
+        // assert that the result as expected
+        Assert.True
+        (
+            resultEvenSquaresCollection
+                .SequenceEqual([2 * 2, 4 * 4, 6 * 6])
+        );
     }
 }
