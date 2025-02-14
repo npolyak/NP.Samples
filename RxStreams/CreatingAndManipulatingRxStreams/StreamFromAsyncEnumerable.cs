@@ -7,7 +7,7 @@ namespace CreatingAndManipulatingRxStreams;
 public static class StreamFromAsyncEnumerable
 {
     // returns an IAsyncEnumerable stream
-    // of numbers from 1 to 10; each number
+    // of numbers from 1 to 6; each number
     // takes one second to emit.
     public static async IAsyncEnumerable<int> 
         GenerateAsyncEnumerable()
@@ -45,7 +45,11 @@ public static class StreamFromAsyncEnumerable
         // squares of even numbers
         using var subscribeDisposable =
             observable
-                .Where(i => i % 2 == 0)
+
+                // filter in only even numbers
+                .Where(i => i % 2 == 0) 
+
+                // transform i to square(i)
                 .Select(i => i * i)
                 .Subscribe
                 (
