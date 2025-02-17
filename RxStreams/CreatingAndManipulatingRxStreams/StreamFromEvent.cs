@@ -105,7 +105,7 @@ private static IObservable<bool>
         EventContainingClass eventContainingObj2 =
             new EventContainingClass();
 
-        // observable obtaine from the
+        // observable obtained from the
         // second object
         IObservable<bool> observable2 =
             eventContainingObj2.GetObservableFromEventObj();
