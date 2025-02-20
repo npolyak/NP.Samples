@@ -23,7 +23,9 @@
 		<EmccLinkOptimizationFlag>-O3</EmccLinkOptimizationFlag>
 		<EmccInitialHeapSize>32MB</EmccInitialHeapSize>
 		<SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
-		<!--
+		<!-- the option WasmSingleFileBundle is not working under .net9.0
+			 it results in compilation error -->
+		<!-- 
 		<WasmSingleFileBundle>true</WasmSingleFileBundle>
 		-->
 	</PropertyGroup>
