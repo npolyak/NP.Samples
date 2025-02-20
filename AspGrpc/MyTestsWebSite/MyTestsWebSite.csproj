@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
@@ -13,7 +13,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\GreeterImpl\GreeterImpl.csproj" />
-		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.62.0" />
+		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.67.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -21,6 +21,6 @@
 		<None Include="wwwroot\dist\Greeter_pb.js" />
 	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Debug'">
-		<Exec Command="xcopy &quot;$(SolutionDir)AvaGrpcClient\AvaGrpcClient.Browser\bin\$(Configuration)\net8.0-browser\browser-wasm\AppBundle\_framework&quot; &quot;$(ProjectDir)wwwroot\_framework&quot; /E /R /Y /I" />
+		<Exec Command="xcopy &quot;$(SolutionDir)AvaGrpcClient\AvaGrpcClient.Browser\bin\$(Configuration)\net9.0-browser\browser-wasm\AppBundle\_framework&quot; &quot;$(ProjectDir)wwwroot\_framework&quot; /E /R /Y /I" />
 	</Target>
 </Project>
