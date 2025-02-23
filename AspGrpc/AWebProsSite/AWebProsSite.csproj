@@ -1,13 +1,36 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AspNetCoreHostingModel>outofprocess</AspNetCoreHostingModel>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\assets\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="wwwroot\assets\" />
+	</ItemGroup>
 
+	<ItemGroup>
+		<Content Remove="wwwroot\app.css" />
+		<Content Remove="wwwroot\favicon.ico" />
+		<Content Remove="wwwroot\Logo.svg" />
+		<Content Remove="wwwroot\mainForAvalonia.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="wwwroot\app.css" />
+		<None Include="wwwroot\favicon.ico" />
+		<None Include="wwwroot\Logo.svg" />
+		<None Include="wwwroot\mainForAvalonia.js" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.67.0" />
+		<ProjectReference Include="..\GreeterImpl\GreeterImpl.csproj" />
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(SolutionDir)AvaGrpcClient\AvaGrpcClient.Browser\bin\$(Configuration)\net9.0-browser\browser-wasm\AppBundle\_framework&quot; &quot;$(ProjectDir)wwwroot\_framework&quot; /E /R /Y /I" />
+	</Target>
 </Project>

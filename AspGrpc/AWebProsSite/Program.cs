@@ -1,10 +1,9 @@
-using Microsoft.AspNetCore.Http.Features;
+using GrpcServerProcess;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.StaticFiles;
 using System.IO.Compression;
 
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddResponseCompression
 (
     options =>
@@ -14,10 +13,10 @@ builder.Services.AddResponseCompression
         options.Providers.Add<GzipCompressionProvider>();
     }
 );
-
+//builder.WebHost.UseIISIntegration();
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddGrpc();
 
 builder.Services.Configure<BrotliCompressionProviderOptions>(options =>
 {
@@ -54,6 +53,7 @@ builder.Services.AddCors
 );
 
 var app = builder.Build();
+app.UseHttpsRedirection();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -63,6 +63,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 app.UseResponseCompression();
+
 
 var contentTypeProvider = new FileExtensionContentTypeProvider();
 var dict = new Dictionary<string, string>
@@ -83,26 +84,16 @@ foreach (var kvp in dict)
 }
 
 app.UseDefaultFiles();
-
-app.UseHttpsRedirection();
-app.UseDefaultFiles();
-app.UseStaticFiles
-    (
-        new StaticFileOptions 
-        { 
-            ContentTypeProvider = contentTypeProvider, 
-            HttpsCompression = HttpsCompressionMode.Compress 
-        }
-    );
-
+app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = contentTypeProvider, HttpsCompression = Microsoft.AspNetCore.Http.Features.HttpsCompressionMode.Compress });
 app.UseRouting();
+app.UseGrpcWeb();
 
 app.UseCors(corsPolicyName);
 
 //app.UseAuthorization();
 
-app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
+app.MapRazorPages();
+
+app.MapGrpcService<GreeterImplementation>().EnableGrpcWeb();//.RequireHost("*:55003");
 
 app.Run();
