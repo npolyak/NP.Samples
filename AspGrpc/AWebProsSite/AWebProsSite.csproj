@@ -9,6 +9,7 @@
 
 	<ItemGroup>
 		<Folder Include="wwwroot\assets\" />
+		<Folder Include="wwwroot\dist\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -16,6 +17,8 @@
 		<Content Remove="wwwroot\favicon.ico" />
 		<Content Remove="wwwroot\Logo.svg" />
 		<Content Remove="wwwroot\mainForAvalonia.js" />
+		<Content Remove="wwwroot\dist\Greeter_grpc_web_pb.js" />
+		<Content Remove="wwwroot\dist\Greeter_pb.js" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -23,6 +26,8 @@
 		<None Include="wwwroot\favicon.ico" />
 		<None Include="wwwroot\Logo.svg" />
 		<None Include="wwwroot\mainForAvalonia.js" />
+		<None Include="wwwroot\dist\Greeter_grpc_web_pb.js" />
+		<None Include="wwwroot\dist\Greeter_pb.js" />
 	</ItemGroup>
 	
 	<ItemGroup>

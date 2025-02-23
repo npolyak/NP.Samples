@@ -2,7 +2,6 @@
 @model MyTestsWebSite.AspGrpcTests.Pages.HtmlGrpcTestPageModel
 @{
 }
-<a href="/OnLineSamples" style="font-size:20px;font-weight:bold;margin:10px">Online Samples</a>
 <h1>ASP JavaScript gRPC Samples</h1>
 <label>Enter Name:</label>
 <input type="text" id="TheName" value="Nick">
@@ -23,7 +22,8 @@
 <div id="TheStreamingError"></div>
 <div id="TheStreamingEnded"></div>
 <script src="~/dist/mainForHtmlJavaScrip.js"></script>
-<script src="~/dist/jquery.min.js"></script>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
     var stream = null;
     $(
