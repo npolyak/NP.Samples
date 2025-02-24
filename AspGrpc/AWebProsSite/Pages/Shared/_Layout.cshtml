@@ -15,7 +15,7 @@
 </head>
 <body style="display:grid">
    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+        <nav class="navbar navbar-expand-md navbar-light fixed-top"
              style="margin-right:0px;margin-left:0px;max-width:9999px">
             <div class="container" style="margin-right:0px;margin-left:0px;max-width:9999px">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between"
@@ -25,23 +25,20 @@
                             AWebPros.com
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">About Us</a>
+                            <a class="nav-link top-level-nav-link" asp-area="" asp-page="/Index">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/OnLineSamples">Samples</a>
+                            <a class="nav-link top-level-nav-link" asp-area="" asp-page="/OnLineSamples">Samples</a>
                         </li>
-@*                         <li>
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Samples">Articles</a>
-                        </li> *@
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Contact">Contact</a>
+                            <a class="nav-link top-level-nav-link" asp-area="" asp-page="/Contact">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container" style="display:grid;margin-left:20px;margin-right:20px;max-width:9999px">
+    <div class="container" style="display:grid;margin-top:20px;margin-left:20px;margin-right:20px;max-width:9999px">
         <main role="main" class="pb-3" style="align-self:stretch;margin-right:0px;margin-left:0px">
             <div>
                 <img width="100px"
@@ -72,6 +69,25 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script language="javascript">
+        $(document).ready(function(){
+            var path = window.location.pathname;
+
+            var current = path.substring(path.lastIndexOf('/')+1);
+
+            $("a.top-level-nav-link").each(function(item) {
+                var urlSegment = $(this).attr('href').lastIndexOf('/') + 1;
+                var urlPath = $(this).attr('href').substring(urlSegment)
+
+
+                if (current == urlPath)
+                {
+                    $("a.list-group-item.active").removeClass('active')
+                    $(this).addClass('active')
+                }
+            })
+        });
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
