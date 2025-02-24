@@ -4,7 +4,6 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<AspNetCoreHostingModel>outofprocess</AspNetCoreHostingModel>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -13,19 +12,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Remove="wwwroot\app.css" />
-		<Content Remove="wwwroot\favicon.ico" />
-		<Content Remove="wwwroot\Logo.svg" />
-		<Content Remove="wwwroot\mainForAvalonia.js" />
 		<Content Remove="wwwroot\dist\Greeter_grpc_web_pb.js" />
 		<Content Remove="wwwroot\dist\Greeter_pb.js" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="wwwroot\app.css" />
-		<None Include="wwwroot\favicon.ico" />
-		<None Include="wwwroot\Logo.svg" />
-		<None Include="wwwroot\mainForAvalonia.js" />
 		<None Include="wwwroot\dist\Greeter_grpc_web_pb.js" />
 		<None Include="wwwroot\dist\Greeter_pb.js" />
 	</ItemGroup>
