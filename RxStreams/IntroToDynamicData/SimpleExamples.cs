@@ -190,13 +190,15 @@ public static class SimpleExamples
 
         // group the numbers using GroupWithImmutableState operator
         // by the remainder from division by 2 (odd vs even)
-        IObservable<IChangeSet<DD.List.IGrouping<int, int>>> groupedObservable =
-            changeSetStream.GroupWithImmutableState(i => i % 2);
+        IObservable<IChangeSet<DD.List.IGrouping<int, int>>> 
+            groupedObservable =
+                changeSetStream.GroupWithImmutableState(i => i % 2);
 
         // create the grouped collection
-        using IObservableList<DD.List.IGrouping<int, int>> groupedCollection =
-            groupedObservable
-                .AsObservableList();
+        using IObservableList<DD.List.IGrouping<int, int>> 
+            groupedCollection =
+                groupedObservable
+                    .AsObservableList();
 
         // grouped collection only has one group of odd numbers
         // since there are only odd number in the source collection:
