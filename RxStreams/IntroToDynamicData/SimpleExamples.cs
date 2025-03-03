@@ -200,13 +200,22 @@ public static class SimpleExamples
 
         // grouped collection only has one group of odd numbers
         // since there are only odd number in the source collection:
-        Assert.True(groupedCollection.Items[0].Items.SequenceEqual([1, 3, 5]));
+        Assert.True(groupedCollection.Count == 1);
+
+        // get odd group
+        DD.List.IGrouping<int, int> oddGroup =
+            groupedCollection.Items.Single(grouping => grouping.Key == 1);
+
+        Assert.True(oddGroup.Items.SequenceEqual([1, 3, 5]));
 
         // add even numbers 2, 4, 6 to the source collection
         sourceInts.AddRange([2, 4, 6]);
 
+        // now there should be two groups of numbers - odd and even
+        Assert.True(groupedCollection.Count == 2);
+
         // get odd group
-        DD.List.IGrouping<int, int> oddGroup = 
+        oddGroup = 
             groupedCollection.Items.Single(grouping => grouping.Key == 1);
 
         // check that the numbers in the odd group are [1, 3, 5]
