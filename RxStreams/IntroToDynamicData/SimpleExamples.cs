@@ -326,6 +326,7 @@ public static class SimpleExamples
         // within the group
         public IEnumerable<int> Values => Group.List.Items;
 
+        // represents sum of all integers within the group
         public int Sum { get; set; }
 
         // handle to dispose the subscription
