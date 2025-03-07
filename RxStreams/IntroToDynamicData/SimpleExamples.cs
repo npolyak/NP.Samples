@@ -230,4 +230,133 @@ public static class SimpleExamples
         // check that the numbers in the even group are [2, 4, 6]
         Assert.True(evenGroup.Items.SequenceEqual([2, 4, 6]));
     }
+
+
+    [Fact]
+    public static void GroupingWithBindingAndAggregationTest()
+    {
+        // create source collection and populate
+        // it with numbers 1 to 6.
+        ObservableCollection<int> source =
+            new ObservableCollection<int>(Enumerable.Range(1, 6));
+
+        // create a stream of IChangeSet<int> parameters
+        // from the source collection
+        IObservable<IChangeSet<int>> sourceChangeObservable =
+            source.ToObservableChangeSet();
+
+        // create a collection of IntsGroup objects
+        // representing the grouped integers
+        IObservableCollection<IntsGroup> groupedInts = 
+            new ObservableCollectionExtended<IntsGroup>();
+
+        // using clause is to remove the 
+        // subscription by the end of the method.
+        using IDisposable disposableSubscription =
+            sourceChangeObservable
+
+                // group by remainder from division by 2
+                // (even vs odd numbers)
+                .GroupOn(i => i % 2)
+
+                // transform each group
+                // to IntsGroup object
+                .Transform(g => new IntsGroup(g))
+
+                // bind to groupedInts collection
+                .Bind(groupedInts)
+
+                // make sure once an IntsGroup
+                // object is removed from the collection,
+                // it is also deleted
+                .DisposeMany()
+
+                // Subscribe - start pulling
+                // the changes
+                .Subscribe();
+
+        // get the even group of integers
+        IntsGroup evenGroup =
+            groupedInts.FirstOrDefault(g => g.GroupKey == 0)!;
+        
+        // get the odd group of integers
+        IntsGroup oddGroup =
+            groupedInts.FirstOrDefault(g => g.GroupKey == 1)!;
+
+        // assert that the even group has 2, 4 and 6 values in it
+        Assert.True(evenGroup.Values.SequenceEqual([2, 4, 6]));
+
+        // assert that the Sum property of the even group
+        // equals to the sum of 2, 4 and 6
+        Assert.Equal(2 + 4 + 6, evenGroup.Sum);
+
+        // assert that the odd group has 1, 3 and 5 values in it
+        Assert.True(oddGroup.Values.SequenceEqual([1, 3, 5]));
+
+        // assert that the odd group's Sum property 
+        // equals to the sum of 1, 3 and 5
+        Assert.Equal(1 + 3 + 5, oddGroup.Sum);
+
+        // add odd number 7 to the source 
+        source.Add(7);
+
+        // Assert that the even group remained the same
+        Assert.True(evenGroup.Values.SequenceEqual([2, 4, 6]));
+
+        // Assert that even group's Sum remains the same
+        Assert.Equal(2 + 4 + 6, evenGroup.Sum);
+
+        // make sure that odd group added number 7 at the end
+        Assert.True(oddGroup.Values.SequenceEqual([1, 3, 5, 7]));
+
+        // Assert that the odd group's Sum property 
+        // equals to the sum of 1, 3, 5 and 7
+        Assert.Equal(1 + 3 + 5 + 7, oddGroup.Sum);
+    }
+
+    public class IntsGroup : IDisposable
+    {
+        // Dynamic Data group
+        public IGroup<int, int> Group { get; }
+
+        // group key
+        public int GroupKey => Group.GroupKey;
+        
+        // collection of integers 
+        // within the group
+        public IEnumerable<int> Values => Group.List.Items;
+
+        public int Sum { get; set; }
+
+        // handle to dispose the subscription
+        private IDisposable? _aggregationDisposable = null;
+
+        // pass DynamicData group of integers.
+        public IntsGroup(IGroup<int, int> group)
+        {
+            Group = group;
+
+            // every time the collection changes,
+            // change the Sum property to reflect 
+            // the sub of interges within the collection
+            _aggregationDisposable =
+                group
+                    .List
+                    .Connect()
+                    .ToCollection()
+                    .Select(collection => collection.Sum())
+                    .Subscribe(sum => Sum = sum);
+        }
+
+        public void Dispose()
+        {
+            if (_aggregationDisposable != null)
+            {
+                // need to dispose the subscription 
+                _aggregationDisposable?.Dispose();
+
+                _aggregationDisposable = null;
+            }
+        }
+    }
 }
