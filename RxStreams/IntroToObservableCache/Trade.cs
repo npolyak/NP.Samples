@@ -3,17 +3,18 @@ using System.Drawing;
 
 namespace IntroToObservableCache;
 
-public class Trade : AbstractNotifyPropertyChanged
+public class Trade : 
+    AbstractNotifyPropertyChanged
 {
-    private static int _globalTradeId = 0;
+    // primary key (used for distinguishing 
+    // between the new entries and the 
+    // updates_)
+    public int TradeId { get; }
 
-    public int GlobalTradeId { get; } = ++_globalTradeId;
-
-    // primary key
-    public int TradeId { get; set; }
-
+    // Stock Symbol
     public Symbol TheSymbol { get; }
 
+    // updatable total trade prices
     decimal _totalTradePrice;
     public decimal TotalTradePrice 
     {

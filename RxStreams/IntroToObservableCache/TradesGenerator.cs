@@ -29,9 +29,4 @@ public static class TradesGenerator
 
         return newTrade;
     }
-
-    public static void ResetId()
-    {
-        _tradeId = 0;
-    }
 }
